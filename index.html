@@ -275,6 +275,7 @@ code { overflow-wrap: anywhere; }
 .tinted-shadow { width: 190px; max-width: 100%; height: 58px; background: var(--bg-elev); box-shadow: 0 14px 28px -10px rgba(198, 58, 33, .38); display: flex; align-items: center; justify-content: center; font-size: .78rem; color: var(--fg-mute); }
 .reveal-demo { width: 100%; max-width: 260px; height: 46px; background: var(--bg-muted); position: relative; overflow: hidden; border: 1px solid var(--border); }
 .reveal-demo span { position: absolute; inset: 0; display: flex; align-items: center; padding-inline: .8rem; font-size: .78rem; color: var(--fg-soft); font-weight: 600; animation: reveal 3.2s var(--ease) infinite !important; }
+@keyframes telon { 0%, 12% { transform: translateY(0); } 42%, 68% { transform: translateY(-101%); } 100% { transform: translateY(0); } }
 @keyframes marker { from { transform: scaleX(0) rotate(-0.5deg); } 62% { transform: scaleX(1.025) rotate(-0.5deg); } to { transform: scaleX(1) rotate(-0.5deg); } }
 .hl-demo { position: relative; display: inline-block; isolation: isolate; padding: .05em .2em .06em; white-space: nowrap; color: #fff; }
 .hl-demo::before { content: ''; position: absolute; inset: 4% -1.5% 6%; background: var(--accent); border-radius: 9px 12px 8px 11px / 13px 9px 12px 10px; z-index: -1; transform-origin: left center; animation: marker .55s cubic-bezier(.65,0,.35,1) .4s both infinite alternate !important; animation-duration: .55s; animation-delay: .4s; }
@@ -361,14 +362,15 @@ code { overflow-wrap: anywhere; }
 
   <section class="wrap cover">
     <h1 class="cover__title">Así se reconoce RollerShow.</h1>
+    <p style="margin-top:.9rem; font-size:1.05rem; font-weight:500; color:var(--fg-soft); letter-spacing:.01em;">Cortinas como imaginás</p>
     <p class="cover__eyebrow-free">
       La calidad se percibe antes de tocar el producto. Está en la claridad de un presupuesto,
       en la luz de una fotografía, en el tono con el que se responde una consulta. Este manual
       define ese estándar: cómo se ve y cómo habla RollerShow, para que cada pieza refleje a la
-      empresa que más años lleva haciendo cortinas a medida en la Argentina, con un catálogo que
-      va del mejor precio a la más alta calidad.
+      empresa con más trayectoria vendiendo cortinas a medida online en la Argentina, con un
+      catálogo que va del mejor precio a la más alta calidad.
     </p>
-    <p style="margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--border); padding-top: 1rem; font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,4.5vw,2.4rem); letter-spacing:-0.02em; line-height:1.1;">Productos reales.<br>Atención real.</p>
+    <p style="margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--border); padding-top: 1rem; font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,4.5vw,2.4rem); letter-spacing:-0.02em; line-height:1.15;">Productos reales.<br>Atención real.<br>Garantía real.</p>
     <div class="cover__meta">
       <span><b>Versión</b> 1.2</span>
       <span><b>Vigencia</b> julio 2026 en adelante</span>
@@ -550,7 +552,7 @@ code { overflow-wrap: anywhere; }
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.6</span>La bajada</h2></div>
-      <p class="spec__note">En exploración. La bajada acompaña al logotipo en piezas de campaña y presentaciones; la candidata en evaluación es esta. Hasta que se confirme, no se aplica en piezas públicas.</p>
+      <p class="spec__note">Bajada de trabajo adoptada. Acompaña al logotipo en piezas de campaña, presentaciones y portadas de documento; puede afinarse antes de un lanzamiento formal, y cualquier ajuste se registra acá.</p>
       <div class="stage">
         <div style="display:inline-flex; flex-direction:column; gap:.55rem;">
           <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%, 230px); height:auto;" />
@@ -713,6 +715,20 @@ code { overflow-wrap: anywhere; }
       <ul class="clauses" style="margin-top:1.4rem">
         <li><span class="num">02.7.1</span>El botón del canal de mensajes (verde) mide 2.0 : 1 con texto blanco: está fuera de norma. Se tolera únicamente en ese botón, con verbo corto en peso 600 o más, porque el color es la identidad del canal. En cualquier otro elemento, prohibido.</li>
         <li><span class="num">02.7.2</span>Texto en color sobre color (Terracota sobre Crema, Teja sobre Arena) no supera 4.5 : 1: se permite solo en cifras grandes o enlaces subrayados, nunca en párrafo.</li>
+      </ul>
+    </section>
+
+    <section class="spec">
+      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">02.8</span>Bosque, el color de excepción</h2></div>
+      <p class="spec__note">Un verde profundo, complementario exacto del Rojo Teja y deliberadamente ajeno al resto de la paleta. Su valor está en lo poco que aparece: es el color de los momentos excepcionales de la marca, y pierde todo su efecto si se gasta.</p>
+      <div class="palette">
+        <div class="prow"><div class="prow__band" style="background:#1F3D2B; color:#FAF7F2; display:flex; align-items:center; padding-inline:1rem; font-family:var(--font-display); font-weight:800; font-size:1.05rem;">Bosque</div><div class="prow__meta"><span class="prow__name">Bosque</span><span class="prow__use">Solo campañas premium, ediciones limitadas y anuncios excepcionales. Texto en Crema o blanco (contraste 11.9 : 1).</span><span class="prow__hex">#1F3D2B</span></div></div>
+      </div>
+      <ul class="clauses" style="margin-top:1.4rem">
+        <li><span class="num">02.8.1</span>Máximo una campaña por vez lo usa. Nunca aparece en la interfaz del día a día, en presupuestos ni en papelería corriente.</li>
+        <li><span class="num">02.8.2</span>Nunca convive con el Rojo Teja en la misma pieza: son complementarios y compiten. La pieza elige uno.</li>
+        <li><span class="num">02.8.3</span>Sobre Bosque, la acción es un botón Crema con texto Tinta, igual que sobre Rojo Teja (10.6).</li>
+        <li><span class="num">02.8.4</span>No genera variantes: no existe "Bosque suave" ni degradés con Bosque. Es un solo valor, pleno.</li>
       </ul>
     </section>
   </div>
@@ -1550,6 +1566,19 @@ code { overflow-wrap: anywhere; }
           <p class="fx__desc">Contenido que entra con un barrido de izquierda a derecha (<code>clip-path: inset()</code>), nunca con fade+translateY genérico tipo plantilla. Sutil, una sola vez por elemento, no en loop en producción (acá se repite solo para demostrarlo).</p>
           <div class="reveal-demo"><span>Cortinas roller a medida</span></div>
         </div>
+        <div class="fx__row">
+          <span class="fx__name">Telón</span>
+          <p class="fx__desc">El revelado propio de la marca: un panel liso sube y descubre el contenido, como una cortina roller al abrirse. Para presentar imágenes o secciones en piezas de campaña. <code>translateY</code> de 0 a -101% con el ease del sistema; el panel siempre en un color pleno de la paleta.</p>
+          <div style="width:190px; max-width:100%; height:58px; position:relative; overflow:hidden; border:1px solid var(--border);">
+            <div style="position:absolute; inset:0; background:var(--cta); color:#fff; display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:700;">lo revelado</div>
+            <div style="position:absolute; inset:0; background:var(--bg-muted); animation: telon 4.2s var(--ease) infinite !important;"></div>
+          </div>
+        </div>
+        <div class="fx__row">
+          <span class="fx__name">Cifra viva</span>
+          <p class="fx__desc">Los números importantes entran contando hasta su valor, en tabular-nums, una sola vez por pieza. Para hitos y volúmenes; nunca para precios, que aparecen quietos y exactos.</p>
+          <div class="num" id="cifra-demo" style="font-family:var(--font-display); font-weight:800; font-size:1.5rem; color:var(--cta); min-width:190px;">+1.200.000</div>
+        </div>
       </div>
     </section>
 
@@ -1593,6 +1622,20 @@ code { overflow-wrap: anywhere; }
           <span class="fx__name">Folio</span>
           <p class="fx__desc">Cabecera y pie de documento: logo o nombre a la izquierda, dato de contexto a la derecha en itálica chica, separados del contenido por una línea de Tinta. Es la firma de todos los documentos y presupuestos.</p>
           <div style="width:190px; max-width:100%; border-bottom:1px solid var(--fg); padding-bottom:.4rem; display:flex; justify-content:space-between; align-items:baseline;"><span style="font-family:var(--font-display); font-weight:800; font-size:.8rem;">RollerShow</span><span style="font-size:.6rem; color:var(--fg-mute); font-style:italic;">Presupuesto</span></div>
+        </div>
+        <div class="fx__row">
+          <span class="fx__name">La cota</span>
+          <p class="fx__desc">La línea de medición con tics y valor, tomada del plano técnico, como firma gráfica. La marca vive de la medida exacta: la cota lo dice sin escribirlo. Para piezas de campaña y redes, señalando una medida real de la escena. Trazo de 1px en Tinta o blanco, valor en tabular-nums.</p>
+          <div style="width:190px; max-width:100%;">
+            <div style="height:44px; background:var(--bg-muted); border:1px solid var(--border);"></div>
+            <div style="display:flex; align-items:center; margin-top:.35rem;">
+              <span style="width:1px; height:9px; background:var(--fg-soft);"></span>
+              <span style="flex:1; border-top:1px solid var(--fg-soft); position:relative; top:-4px;"></span>
+              <span class="num" style="font-size:.7rem; font-weight:700; color:var(--fg-soft); padding:0 .5rem; position:relative; top:-10px;">180 cm</span>
+              <span style="flex:1; border-top:1px solid var(--fg-soft); position:relative; top:-4px;"></span>
+              <span style="width:1px; height:9px; background:var(--fg-soft);"></span>
+            </div>
+          </div>
         </div>
         <div class="fx__row">
           <span class="fx__name">Punto final</span>
@@ -1724,13 +1767,14 @@ code { overflow-wrap: anywhere; }
 <script type="application/json" id="rollershow-brand-tokens">
 {
   "meta": { "brand": "RollerShow", "docVersion": "1.2", "updated": "2026-07-15" },
-  "brand": { "essence": "la calidad se percibe antes de tocar el producto; cada pieza refleja una empresa real", "positioning": "la empresa con mas anos haciendo cortinas a medida en Argentina; catalogo del mejor precio a la mas alta calidad", "languageAnchor": "real: productos reales, atencion real, equipo real; usarlo donde amerite en copy", "personality": "calida, directa y precisa; nunca grita, nunca ruega", "tagline": { "text": "Cortinas como imaginás", "status": "en exploracion, no aplicar en piezas publicas" }, "decisionRule": "caso sin clausula: decidir con la personalidad y las maximas, luego documentar" },
+  "brand": { "essence": "la calidad se percibe antes de tocar el producto; cada pieza refleja una empresa real", "positioning": "la empresa con mas trayectoria vendiendo cortinas a medida online en Argentina; catalogo del mejor precio a la mas alta calidad", "languageAnchor": "real: productos reales, atencion real, garantia real; usarlo donde amerite en copy", "personality": "calida, directa y precisa; nunca grita, nunca ruega", "tagline": { "text": "Cortinas como imaginás", "status": "bajada de trabajo adoptada, afinable antes de lanzamiento formal" }, "decisionRule": "caso sin clausula: decidir con la personalidad y las maximas, luego documentar" },
   "color": {
     "bg": "#FAF7F2", "bgElev": "#FFFFFF", "bgMuted": "#F1EBE0",
     "fg": "#1C1816", "fgSoft": "#4A4039", "fgMute": "#87796D",
     "border": "#E4DCCE", "borderStrong": "#C8BCA8",
     "accent": "#B8662C", "accentDeep": "#8E4D1F", "accentSoft": "#F3E3D2",
     "whatsapp": "#25D366", "whatsappDeep": "#1FAD53",
+    "exception": { "name": "Bosque", "hex": "#1F3D2B", "role": "solo campañas premium y ediciones limitadas; nunca UI diaria; nunca convive con rojo teja; sin variantes ni degrades" },
     "cta": { "base": "#C63A21", "glow": "#D2451E", "deep": "#97290F", "soft": "#FAE3DC", "role": "accion primaria exclusivamente" }
   },
   "typography": {
@@ -1764,9 +1808,9 @@ code { overflow-wrap: anywhere; }
   "contrast": { "tinta/crema": 16.5, "grisCalido/crema": 9.4, "tinta/arena": 14.9, "blanco/rojoTeja": 5.2, "blanco/rojoProfundo": 8.0, "topo/crema": "3.9 solo microcopy", "blanco/terracota": "4.2 solo texto grande", "blanco/whatsapp": "2.0 fuera de norma, solo el boton del canal" },
   "iconography": { "style": "linea 1.5px, terminaciones redondeadas, monocolor, reticula 24px", "sizes": [20, 24, 32], "rules": ["nunca emoji como icono", "nunca icono sin palabra", "nunca icono decorativo sobre titulos"] },
   "backgrounds": { "aurora-calida": "2 manchas radiales terracota/terracota-suave sobre crema, blur 55px, solo pantallas de cierre sin CTA", "amanecer-de-lino": "linear-gradient(180deg,#FFFFFF,#FAF7F2 55%,#F1EBE0)", "brasa": "linear-gradient(135deg,#D2451E,#97290F) + grano de tela", "penumbra-scrim": "linear-gradient(0deg,rgba(28,24,22,.78),transparent 65%)" },
-  "recurringElements": ["punto-final-terracota-en-titular-display", "resaltado-marcador (radio asimetrico 9px 12px 8px 11px / 13px 9px 12px 10px, rotate -0.5deg, wipe scaleX .55s, max 1 por pieza, solo pantallas sin CTA)", "banda-de-color-full-bleed", "hairline-editorial-1px-lino", "trama-de-tejido repeating-linear-gradient(90deg,#F1EBE0 0 3px,#FAF7F2 3px 6px)", "folio-cabecera-documento"],
+  "recurringElements": ["la-cota (linea de medicion con tics y valor, firma grafica de la medida)", "punto-final-terracota-en-titular-display", "resaltado-marcador (radio asimetrico 9px 12px 8px 11px / 13px 9px 12px 10px, rotate -0.5deg, wipe scaleX .55s, max 1 por pieza, solo pantallas sin CTA)", "banda-de-color-full-bleed", "hairline-editorial-1px-lino", "trama-de-tejido repeating-linear-gradient(90deg,#F1EBE0 0 3px,#FAF7F2 3px 6px)", "folio-cabecera-documento"],
   "ctaLibrary": { "cotizar": "Recibir mi cotización", "descuento": "Recibir mi descuento", "promocion": "Aprovechar la promo", "visualizar": "Ver cómo queda en tu ventana", "contacto": "Escribinos", "explorar": "Ver telas (enlace, no botón)", "instalacion": "Coordinar mi instalación", "descartar": "No, gracias", "prohibidos": ["Enviar", "Click acá", "Más info", "Quiero..."] },
-  "effectsApproved": ["barrido-de-luz", "degrade-brasa", "grano-de-tela", "sombra-tintada", "revelado-scroll-clip-path"],
+  "effectsApproved": ["barrido-de-luz", "degrade-brasa", "grano-de-tela", "sombra-tintada", "revelado-scroll-clip-path", "telon (panel que sube como cortina, translateY 0 a -101%)", "cifra-viva (count-up tabular-nums, hitos si, precios no)"],
   "effectsBanned": ["dot-online-pulsante", "boton-pildora-accion", "gradiente-purpura-azul-generico", "caja-dentro-de-caja", "eyebrow-badge", "contador-urgencia-falsa", "estrellas-ascii", "glassmorphism-pesado", "carrusel-autoplay", "fake-dashboard"]
 }
 </script>
@@ -1774,6 +1818,22 @@ code { overflow-wrap: anywhere; }
   window.addEventListener('beforeprint', function () {
     document.querySelectorAll('details').forEach(function (d) { d.open = true; });
   });
+  (function () {
+    var el = document.getElementById('cifra-demo');
+    if (!el) return;
+    function run() {
+      var t0 = performance.now(), dur = 1800, to = 1200000;
+      function f(now) {
+        var p = Math.min((now - t0) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = '+' + Math.round(to * eased).toLocaleString('es-AR');
+        if (p < 1) requestAnimationFrame(f);
+      }
+      requestAnimationFrame(f);
+    }
+    run();
+    setInterval(run, 5000);
+  })();
   document.getElementById('tokens-visible').textContent =
     document.getElementById('rollershow-brand-tokens').textContent.trim();
 </script>
