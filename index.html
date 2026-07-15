@@ -342,7 +342,8 @@ code { overflow-wrap: anywhere; }
   .doc-head { display: none; }
   .chapterblock { break-before: page; }
   .cover { break-before: avoid; }
-  .spec, .paper, .teja, .stage { break-inside: avoid; }
+  .paper, .teja, .stage, .compare, .fx__row, .prow, .type-row, .clauses li, .verdict__row { break-inside: avoid; }
+  .spec { break-inside: auto; }
   .wrap { max-width: 100%; }
 }
 </style>
@@ -367,7 +368,7 @@ code { overflow-wrap: anywhere; }
     </p>
     <p style="margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--border); padding-top: 1rem; font-family:var(--font-display); font-weight:700; font-size:clamp(1.1rem,2.8vw,1.5rem); letter-spacing:-0.015em; max-width: 26ch;">La marca habla como un buen vendedor de local: cálido, directo y preciso, sin gritar.</p>
     <div class="cover__meta">
-      <span><b>Versión</b> 1.1</span>
+      <span><b>Versión</b> 1.2</span>
       <span><b>Vigencia</b> julio 2026 en adelante</span>
       <span><b>Formato</b> HTML de una pieza, imprimible a PDF (Ctrl/Cmd + P)</span>
     </div>
@@ -1698,14 +1699,14 @@ code { overflow-wrap: anywhere; }
 
 <footer class="foot">
   <div class="wrap">
-    <span>Manual de Marca de RollerShow, v1.1, julio 2026</span>
+    <span>Manual de Marca de RollerShow, v1.2, julio 2026</span>
     <span class="num">11 capítulos</span>
   </div>
 </footer>
 
 <script type="application/json" id="rollershow-brand-tokens">
 {
-  "meta": { "brand": "RollerShow", "docVersion": "1.1", "updated": "2026-07-14" },
+  "meta": { "brand": "RollerShow", "docVersion": "1.2", "updated": "2026-07-15" },
   "brand": { "essence": "la percepcion de calidad es lo que vende; cada pieza debe leerse hecha con criterio", "positioning": "calidad de producto + asesoramiento humano, contra la venta online generica", "personality": "habla como un buen vendedor de local: calido, directo y preciso, sin gritar", "decisionRule": "caso sin clausula: decidir con la personalidad y las maximas, luego documentar" },
   "color": {
     "bg": "#FAF7F2", "bgElev": "#FFFFFF", "bgMuted": "#F1EBE0",
@@ -1753,6 +1754,9 @@ code { overflow-wrap: anywhere; }
 }
 </script>
 <script>
+  window.addEventListener('beforeprint', function () {
+    document.querySelectorAll('details').forEach(function (d) { d.open = true; });
+  });
   document.getElementById('tokens-visible').textContent =
     document.getElementById('rollershow-brand-tokens').textContent.trim();
 </script>
