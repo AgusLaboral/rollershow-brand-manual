@@ -19,8 +19,10 @@ Portada manifiesto (tesis: "RollerShow vende calidad y la calidad se nota antes 
 - **Tesis confirmada**: "la calidad se percibe antes de tocar el producto". Es el concepto rector de la portada y del manual.
 - **Concepto ancla "real"**: productos reales, atención real, equipo real. Viene de Nicolás y Agus pidió aplicarlo a lo largo del documento donde amerite. Es el statement de portada ("Productos reales. Atención real.").
 - **Espectro de catálogo**: va del producto intermedio a muy buen precio hasta el de altísima calidad. Se comunica como rango ("del mejor precio a la más alta calidad"), nunca con precios ni modelos específicos.
-- **Trayectoria**: "la empresa con más años haciendo cortinas a medida en la Argentina" es un claim usable.
-- **Bajada "Cortinas como imaginás"**: EN EXPLORACIÓN (sección 01.6). No confirmarla ni aplicarla en piezas públicas sin el visto de Agus; sí se pueden proponer variantes cuando él lo pida.
+- **Trayectoria (claim corregido por Agus)**: el claim correcto es "la empresa con más trayectoria vendiendo cortinas a medida ONLINE en la Argentina". Nunca omitir el "online": sin esa palabra el claim es falso.
+- **Tríada real**: "Productos reales. Atención real. Garantía real." es el statement de portada. El tercer ítem (garantía) fue elegido por el agente; si Agus propone otro, reemplazarlo en portada, tokens y acá.
+- **Bajada "Cortinas como imaginás"**: adoptada como bajada de trabajo (visible en portada y especificada en 01.6). Puede afinarse antes de un lanzamiento formal; los ajustes se registran en 01.6.
+- **Color de excepción "Bosque" #1F3D2B** (02.8): solo campañas premium y ediciones limitadas; nunca UI diaria; nunca en la misma pieza que el Rojo Teja; sin variantes ni degradés.
 - **Registro de redacción**: las partes blandas se escriben como los grandes manuales de marca, hablando de la marca en sí, con lenguaje agnóstico del lector (nada de conceptos internos del negocio que un lector externo no conoce). Lo técnico se mantiene técnico y claro. Prohibidos además de los tells de siempre: comparaciones autorreferenciales y frases que nadie diría en voz alta.
 
 ## Reglas duras (costaron rondas de corrección; no las rompas)
