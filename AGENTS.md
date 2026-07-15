@@ -16,7 +16,8 @@ Portada manifiesto (tesis: "RollerShow vende calidad y la calidad se nota antes 
 
 ## Definiciones de marca dictadas por Agus (canon, no reinterpretar)
 
-- **Tesis confirmada**: "la calidad se percibe antes de tocar el producto". Es el concepto rector de la portada y del manual.
+- **Tesis confirmada (versión completa, dictada por Agus)**: la calidad está en TODO el recorrido, de punta a punta: desde el primer presupuesto hasta la cortina instalada, la durabilidad y la posventa real. Atención, tecnología y estética son un solo proceso conectado, y quien compra el producto más accesible recibe la misma experiencia que quien compra el más premium. Ese es el concepto rector de la portada.
+- **Retórica prohibida en títulos y prosa** (Agus los marcó como tells de IA): tricolones con remate ("Un logotipo, dos versiones, cero excepciones"), negativo-para-afirmar ("Dos familias, ningún atajo", "se habla como X, no como Y"), paralelismos aforísticos ("La luz siempre cálida, la cortina siempre protagonista"). Los títulos dicen qué contiene el capítulo, directo.
 - **Concepto ancla "real"**: productos reales, atención real, equipo real. Viene de Nicolás y Agus pidió aplicarlo a lo largo del documento donde amerite. Es el statement de portada ("Productos reales. Atención real.").
 - **Espectro de catálogo**: va del producto intermedio a muy buen precio hasta el de altísima calidad. Se comunica como rango ("del mejor precio a la más alta calidad"), nunca con precios ni modelos específicos.
 - **Trayectoria (claim corregido por Agus)**: el claim correcto es "la empresa con más trayectoria vendiendo cortinas a medida ONLINE en la Argentina". Nunca omitir el "online": sin esa palabra el claim es falso.
