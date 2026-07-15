@@ -51,13 +51,16 @@
   --radius-btn: 6px;
   --shadow-sm: 0 1px 2px rgba(28, 24, 22, .05);
   --shadow-md: 0 6px 18px rgba(28, 24, 22, .08), 0 2px 6px rgba(28, 24, 22, .04);
+  --dur-exit: 140ms;
   --dur-fast: 180ms;
   --dur: 280ms;
   --dur-scene: 480ms;
-  --dur-signature: 720ms;
+  --dur-material: 620ms;
+  --dur-signature: 1200ms;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-exit: cubic-bezier(0.55, 0, 1, 0.45);
+  --ease-material: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -160,6 +163,23 @@ code { overflow-wrap: anywhere; }
 .rows__val { font-size: .92rem; color: var(--fg-soft); }
 .rows__val code { overflow-wrap: anywhere; font-family: var(--font-body); font-variant-numeric: tabular-nums; background: var(--bg-muted); padding: .1rem .4rem; border-radius: 4px; font-size: .88rem; }
 
+/* ---------- Movimiento: matriz y secuencia ---------- */
+.motion-matrix { border-top: 1px solid var(--fg); margin-top: 1.8rem; }
+.motion-matrix__row { display: grid; gap: .35rem; padding-block: .85rem; border-bottom: 1px solid var(--border); }
+.motion-matrix__row > * { min-width: 0; }
+.motion-matrix__use { font-weight: 700; font-size: .9rem; }
+.motion-matrix__time { color: var(--cta-deep); font-family: var(--font-display); font-weight: 700; font-size: .82rem; font-variant-numeric: tabular-nums; }
+.motion-matrix__curve { color: var(--fg-soft); font-size: .78rem; overflow-wrap: anywhere; }
+.motion-matrix__rule { color: var(--fg-soft); font-size: .86rem; }
+@media (min-width: 760px) {
+  .motion-matrix__row { grid-template-columns: 10.5rem 7rem 15rem minmax(0,1fr); gap: 1.2rem; align-items: baseline; }
+}
+.motion-sequence { display: grid; grid-template-columns: 18fr 40fr 10fr 32fr; margin-top: 1.5rem; border-top: 1px solid var(--fg); }
+.motion-sequence__step { min-width: 0; padding: .65rem .55rem 0 0; border-right: 1px solid var(--border); }
+.motion-sequence__step:last-child { border-right: 0; padding-left: .55rem; }
+.motion-sequence__step b { display: block; font-family: var(--font-display); font-size: clamp(.66rem,2vw,.8rem); }
+.motion-sequence__step span { display: block; margin-top: .2rem; color: var(--fg-mute); font-size: clamp(.6rem,1.8vw,.72rem); font-variant-numeric: tabular-nums; }
+
 /* ---------- Paleta: filas de color ---------- */
 .palette { border-top: 1px solid var(--border); }
 .prow { border-bottom: 1px solid var(--border); }
@@ -199,9 +219,10 @@ code { overflow-wrap: anywhere; }
   padding: 14px 22px; font-family: var(--font-body); font-weight: 600; font-size: .94rem;
   letter-spacing: -0.005em; border-radius: var(--radius-btn); border: 1px solid transparent;
   text-decoration: none; cursor: pointer;
-  transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), box-shadow var(--dur) var(--ease);
+  transition: transform var(--dur-exit) var(--ease-exit), background var(--dur-exit) var(--ease-exit), box-shadow var(--dur-exit) var(--ease-exit);
   position: relative; overflow: hidden; isolation: isolate;
 }
+.btn:hover { transition-duration: var(--dur-fast); transition-timing-function: var(--ease), var(--ease-standard), var(--ease); }
 .btn > span { position: relative; z-index: 2; }
 .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .btn--teja { background: var(--cta); color: #fff; border-color: var(--cta); }
@@ -215,8 +236,8 @@ code { overflow-wrap: anywhere; }
 .btn--fake { background: var(--bg); color: var(--fg-mute); border: 1px dashed var(--border-strong); cursor: not-allowed; }
 
 /* Stepper real (formularios) */
-.stepper { display: grid; grid-template-columns: 38px minmax(0,1fr) auto 38px; align-items: stretch; border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--bg-elev); overflow: hidden; transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease); max-width: 220px; }
-.stepper:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(184, 102, 44, .14); }
+.stepper { display: grid; grid-template-columns: 38px minmax(0,1fr) auto 38px; align-items: stretch; border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--bg-elev); overflow: hidden; transition: border-color var(--dur-exit) var(--ease-exit), box-shadow var(--dur-exit) var(--ease-exit); max-width: 220px; }
+.stepper:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(184, 102, 44, .14); transition-duration: var(--dur-fast); transition-timing-function: var(--ease-standard); }
 .stepper__btn { width: 38px; display: grid; place-items: center; font-size: 1.3rem; color: var(--fg-soft); background: transparent; border: 0; font-family: var(--font-body); }
 .stepper input { width: 100%; min-width: 0; padding: 13px 4px; border: 0; background: transparent; text-align: center; font-size: 1.05rem; font-weight: 600; color: var(--fg); font-variant-numeric: tabular-nums; }
 .stepper input:focus { outline: none; }
@@ -225,6 +246,10 @@ code { overflow-wrap: anywhere; }
 /* Visor de producto activo */
 .product-viewer { width: 100%; }
 .product-viewer__current { display: grid; gap: 1.2rem; align-items: center; padding-block: 1rem 1.2rem; border-block: 1px solid var(--fg); }
+.product-viewer__current.is-exiting { animation: product-viewer-exit var(--dur-exit) var(--ease-exit) both; }
+.product-viewer__current.is-entering { animation: product-viewer-enter var(--dur) var(--ease) both; }
+@keyframes product-viewer-exit { to { opacity: 0; transform: translateY(-4px); } }
+@keyframes product-viewer-enter { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (min-width: 620px) { .product-viewer__current { grid-template-columns: minmax(220px, 34%) 1fr; gap: 1.6rem; } }
 .product-viewer__sample { min-height: 160px; background-color: #DDD7CD; background-image: repeating-linear-gradient(90deg,rgba(255,255,255,.3) 0 1px,rgba(70,59,50,.16) 1px 3px), repeating-linear-gradient(0deg,transparent 0 3px,rgba(70,59,50,.08) 3px 4px); }
 .product-viewer[data-current="sunscreen"] .product-viewer__sample { background-color: #E8E0D3; background-image: repeating-linear-gradient(90deg,rgba(255,255,255,.5) 0 1px,rgba(110,96,82,.12) 1px 4px); }
@@ -307,9 +332,15 @@ code { overflow-wrap: anywhere; }
 .tinted-shadow { width: 190px; max-width: 100%; height: 58px; background: var(--bg-elev); box-shadow: 0 14px 28px -10px rgba(198, 58, 33, .38); display: flex; align-items: center; justify-content: center; font-size: .78rem; color: var(--fg-mute); }
 .roller-transition { width: 240px; max-width: 100%; height: 126px; position: relative; overflow: hidden; border: 1px solid var(--border); background: linear-gradient(150deg,#E8D2B0,#7E6652); }
 .roller-transition__scene { position: absolute; inset: 0; display: grid; place-items: end start; padding: .7rem; color: #fff; font-size: .7rem; font-weight: 700; background: linear-gradient(0deg,rgba(28,24,22,.65),transparent 62%); }
-.roller-transition__cloth { position: absolute; inset: 0; transform: translateY(-103%); background-color: rgba(221,214,201,.88); background-image: repeating-linear-gradient(90deg,rgba(255,255,255,.22) 0 1px,rgba(70,59,50,.12) 1px 3px), repeating-linear-gradient(0deg,transparent 0 3px,rgba(70,59,50,.08) 3px 4px); -webkit-backdrop-filter: blur(1px); backdrop-filter: blur(1px); animation: roller-cover 4.8s var(--ease-standard) infinite; }
+.roller-transition__cloth { position: absolute; inset: 0; transform: translateY(-103%); background-color: rgba(221,214,201,.88); background-image: repeating-linear-gradient(90deg,rgba(255,255,255,.22) 0 1px,rgba(70,59,50,.12) 1px 3px), repeating-linear-gradient(0deg,transparent 0 3px,rgba(70,59,50,.08) 3px 4px); -webkit-backdrop-filter: blur(1px); backdrop-filter: blur(1px); animation: roller-cover-demo 3.6s linear infinite; }
 .roller-transition__cloth::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: #B9B0A4; box-shadow: 0 2px 7px rgba(28,24,22,.25); }
-@keyframes roller-cover { 0%,8% { transform: translateY(-103%); } 38%,62% { transform: translateY(0); } 92%,100% { transform: translateY(-103%); } }
+@keyframes roller-cover-demo {
+  0% { transform: translateY(-103%); animation-timing-function: cubic-bezier(.72,0,1,1); }
+  6% { transform: translateY(-94%); animation-timing-function: cubic-bezier(.5,0,.18,1); }
+  19.333% { transform: translateY(0); }
+  22.667% { transform: translateY(0); animation-timing-function: cubic-bezier(.16,1,.3,1); }
+  33.333%,100% { transform: translateY(-103%); }
+}
 
 .compare-demo { --split: 50%; width: 240px; max-width: 100%; height: 140px; position: relative; overflow: hidden; border: 1px solid var(--border); touch-action: pan-y; user-select: none; cursor: ew-resize; background: #3B3028 url('https://cdn.rollershow.com.ar/web/landing-whatsapp/compare/blackout-6a3b094104314.png') center / cover no-repeat; }
 .compare-demo__after { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--split)); background: #DCC9A5 url('https://cdn.rollershow.com.ar/web/landing-whatsapp/compare/sunscreen-6a3b09455d334.png') center / cover no-repeat; }
@@ -317,11 +348,14 @@ code { overflow-wrap: anywhere; }
 .compare-demo__after { justify-content: flex-end; }
 .compare-demo__line { position: absolute; inset: 0 auto 0 var(--split); width: 2px; transform: translateX(-1px); background: #fff; box-shadow: 0 0 0 1px rgba(28,24,22,.18); pointer-events: none; }
 .compare-demo__handle { position: absolute; left: var(--split); top: 50%; width: 42px; height: 42px; transform: translate(-50%,-50%); display: grid; place-items: center; border-radius: 50%; background: #fff; color: var(--fg); box-shadow: 0 6px 18px rgba(28,24,22,.3); font-size: .72rem; font-weight: 800; pointer-events: none; }
+.compare-demo.is-keyboard .compare-demo__after { transition: clip-path 80ms linear; }
+.compare-demo.is-keyboard .compare-demo__line, .compare-demo.is-keyboard .compare-demo__handle { transition: left 80ms linear; }
 .compare-demo:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
 .tear-demo { --pull-x:0px; --pull-y:0px; width: 240px; max-width: 100%; height: 140px; position: relative; overflow: hidden; border: 1px solid var(--border); touch-action: pan-y; user-select: none; cursor: grab; background: linear-gradient(155deg,#D9C4A4,#6F5A46); }
 .tear-demo:active { cursor: grabbing; }
-.tear-demo__cloth { position: absolute; inset: 0; background-color: #DDD7CD; background-image: repeating-linear-gradient(90deg,rgba(255,255,255,.25) 0 1px,rgba(70,59,50,.13) 1px 3px), repeating-linear-gradient(0deg,transparent 0 3px,rgba(70,59,50,.1) 3px 4px); transition: transform var(--dur) var(--ease); }
+.tear-demo__cloth { position: absolute; inset: 0; background-color: #DDD7CD; background-image: repeating-linear-gradient(90deg,rgba(255,255,255,.25) 0 1px,rgba(70,59,50,.13) 1px 3px), repeating-linear-gradient(0deg,transparent 0 3px,rgba(70,59,50,.1) 3px 4px); transition: transform var(--dur-material) var(--ease-material); }
+.tear-demo:hover .tear-demo__cloth, .tear-demo.is-dragging .tear-demo__cloth { transition: none; }
 .tear-demo__cloth.-left { right: 50%; }
 .tear-demo__cloth.-right { left: 50%; transform: translate(var(--pull-x),var(--pull-y)); }
 .tear-demo.is-torn .tear-demo__cloth.-left { clip-path: polygon(0 0,100% 0,100% 16%,96% 24%,100% 33%,97% 44%,100% 53%,95% 65%,100% 74%,97% 86%,100% 100%,0 100%); transform: translateX(-3px) rotate(-.4deg); }
@@ -329,20 +363,21 @@ code { overflow-wrap: anywhere; }
 .tear-demo__hint { position: absolute; z-index: 2; inset: auto .55rem .5rem; color: #fff; font-size: .66rem; font-weight: 700; text-shadow: 0 1px 4px rgba(0,0,0,.7); pointer-events: none; }
 
 .weave-demo { width: 240px; max-width: 100%; height: 86px; position: relative; overflow: hidden; border-block: 1px solid var(--border); background: #F5F0E8; cursor: ew-resize; }
-.weave-demo::before, .weave-demo::after { content: ''; position: absolute; inset: -12px; transition: transform var(--dur-scene) var(--ease); }
+.weave-demo::before, .weave-demo::after { content: ''; position: absolute; inset: -12px; transition: transform var(--dur) var(--ease-standard); }
 .weave-demo::before { background: repeating-linear-gradient(90deg,rgba(135,121,109,.24) 0 2px,transparent 2px 6px); }
 .weave-demo::after { background: repeating-linear-gradient(0deg,rgba(198,58,33,.12) 0 1px,transparent 1px 5px); }
 .weave-demo:hover::before, .weave-demo:focus-visible::before { transform: translateX(7px); }
 .weave-demo:hover::after, .weave-demo:focus-visible::after { transform: translateY(5px); }
+.weave-demo:hover::before, .weave-demo:hover::after, .weave-demo:focus-visible::before, .weave-demo:focus-visible::after { transition-duration: var(--dur-scene); transition-timing-function: var(--ease-material); }
 .weave-demo:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .motion-cota { width: 190px; max-width: 100%; height: 64px; position: relative; display: grid; place-items: end center; padding-bottom: 10px; background: var(--bg-muted); border: 1px solid var(--border); overflow: hidden; }
-.motion-cota__line { width: 72%; border-top: 1px solid var(--fg-soft); position: relative; transform-origin: left; animation: cota-line 3.6s var(--ease) infinite; }
+.motion-cota__line { width: 72%; border-top: 1px solid var(--fg-soft); position: relative; transform-origin: left; animation: cota-line-demo 3s linear infinite; }
 .motion-cota__line::before, .motion-cota__line::after { content: ''; position: absolute; top: -5px; width: 1px; height: 10px; background: var(--fg-soft); }
 .motion-cota__line::before { left: 0; }
 .motion-cota__line::after { right: 0; }
-.motion-cota__value { position: absolute; inset: 16px 0 auto; text-align: center; font-family: var(--font-display); font-weight: 800; color: var(--cta); font-size: .9rem; animation: cota-value 3.6s var(--ease) infinite; }
-@keyframes cota-line { 0%, 12% { transform: scaleX(0); } 38%, 76% { transform: scaleX(1); } 100% { transform: scaleX(0); transform-origin: right; } }
-@keyframes cota-value { 0%, 28% { opacity: 0; transform: translateY(5px); } 44%, 78% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; } }
+.motion-cota__value { position: absolute; inset: 16px 0 auto; text-align: center; font-family: var(--font-display); font-weight: 800; color: var(--cta); font-size: .9rem; animation: cota-value-demo 3s linear infinite; }
+@keyframes cota-line-demo { 0% { transform: scaleX(0); } 5% { transform: scaleX(0); animation-timing-function: cubic-bezier(.16,1,.3,1); } 29%,100% { transform: scaleX(1); } }
+@keyframes cota-value-demo { 0%,23% { opacity: 0; transform: translateY(4px); animation-timing-function: cubic-bezier(.22,1,.36,1); } 29%,100% { opacity: 1; transform: translateY(0); } }
 .verdict { border-top: 2px solid var(--fg); margin-top: clamp(1.5rem,4vw,2.4rem); }
 .verdict__row { display: grid; grid-template-columns: 3.4rem 1fr; gap: .9rem; padding-block: .8rem; border-bottom: 1px solid var(--border); }
 .verdict__row b { font-family: var(--font-display); font-weight: 700; font-size: .82rem; }
@@ -446,7 +481,7 @@ code { overflow-wrap: anywhere; }
     </p>
     <p style="margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--border); padding-top: 1rem; font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,4.5vw,2.4rem); letter-spacing:-0.02em; line-height:1.15;">Productos reales.<br>Atención real.<br>Posventa real.</p>
     <div class="cover__meta">
-      <span><b>Versión</b> 1.5</span>
+      <span><b>Versión</b> 1.6</span>
       <span><b>Vigencia</b> julio 2026 en adelante</span>
       <span><b>Formato</b> HTML de una pieza, imprimible a PDF (Ctrl/Cmd + P)</span>
     </div>
@@ -966,24 +1001,47 @@ code { overflow-wrap: anywhere; }
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">04.4</span>Movimiento</h2></div>
-      <p class="spec__note">La marca se mueve como trabaja: muestra, mide, transforma y responde. El movimiento ayuda a entender una acción o el cambio de un ambiente; nunca se agrega para llenar una pantalla quieta.</p>
+      <p class="spec__note">La marca se mueve como trabaja: muestra, mide, transforma y responde. Cada transición se define por el cambio que explica. Duración y curva siempre se aplican juntas; elegir una sin la otra deja la receta incompleta.</p>
       <div class="rows">
+        <div class="rows__item"><span class="rows__key"><code>--dur-exit</code></span><span class="rows__val">140ms: retiro de feedback o salida breve. Despeja antes de que entre lo nuevo.</span></div>
         <div class="rows__item"><span class="rows__key"><code>--dur-fast</code></span><span class="rows__val">180ms: micro-interacciones (hover, focus).</span></div>
         <div class="rows__item"><span class="rows__key"><code>--dur</code></span><span class="rows__val">280ms: transiciones de layout o estado.</span></div>
         <div class="rows__item"><span class="rows__key"><code>--dur-scene</code></span><span class="rows__val">480ms: cambio entre ambientes, pasos o estados completos. No bloquea la interacción y se puede interrumpir.</span></div>
-        <div class="rows__item"><span class="rows__key"><code>--dur-signature</code></span><span class="rows__val">720ms: asentamiento de la roller de transición o de la Cota activa. Solo una vez, sin frenar lectura ni controles.</span></div>
+        <div class="rows__item"><span class="rows__key"><code>--dur-material</code></span><span class="rows__val">620ms: una tela recupera tensión, una trama se asienta o una Cota termina de dibujarse.</span></div>
+        <div class="rows__item"><span class="rows__key"><code>--dur-signature</code></span><span class="rows__val">1200ms: secuencia completa de la roller que cubre y revela un cambio importante.</span></div>
         <div class="rows__item"><span class="rows__key"><code>--ease</code></span><span class="rows__val"><code>cubic-bezier(0.22, 1, 0.36, 1)</code>: entrada y asentamiento. Llega con decisión y frena suave.</span></div>
         <div class="rows__item"><span class="rows__key"><code>--ease-standard</code></span><span class="rows__val"><code>cubic-bezier(0.4, 0, 0.2, 1)</code>: cambios de estado, color y opacidad.</span></div>
         <div class="rows__item"><span class="rows__key"><code>--ease-exit</code></span><span class="rows__val"><code>cubic-bezier(0.55, 0, 1, 0.45)</code>: salida. Siempre más breve que la entrada para que la interfaz responda rápido.</span></div>
+        <div class="rows__item"><span class="rows__key"><code>--ease-material</code></span><span class="rows__val"><code>cubic-bezier(0.16, 1, 0.3, 1)</code>: tela, roller y elementos con masa aparente. Avanza rápido y absorbe el final sin rebote elástico.</span></div>
+      </div>
+
+      <div class="motion-matrix" aria-label="Matriz de aplicación de transiciones">
+        <div class="motion-matrix__row"><span class="motion-matrix__use">Hover y foco</span><span class="motion-matrix__time">180ms / 140ms</span><code class="motion-matrix__curve">standard / exit</code><p class="motion-matrix__rule">Color, sombra y desplazamiento máximo de 1px. La entrada dura 180ms; al retirar el puntero o el foco vuelve en 140ms.</p></div>
+        <div class="motion-matrix__row"><span class="motion-matrix__use">Estado dentro de un módulo</span><span class="motion-matrix__time">280ms</span><code class="motion-matrix__curve">standard</code><p class="motion-matrix__rule">Para ayuda, error, confirmación o desplegable. Usar opacidad y un recorrido máximo de 4px; el espacio se reserva antes del cambio.</p></div>
+        <div class="motion-matrix__row"><span class="motion-matrix__use">Reemplazo en el mismo marco</span><span class="motion-matrix__time">140ms + 280ms</span><code class="motion-matrix__curve">exit + enter</code><p class="motion-matrix__rule">Sale el contenido anterior y entra el nuevo dentro de un marco de tamaño estable. Aplica a producto, foto o resultado que cambia sin navegar.</p></div>
+        <div class="motion-matrix__row"><span class="motion-matrix__use">Cambio de paso o ambiente</span><span class="motion-matrix__time">480ms</span><code class="motion-matrix__curve">enter</code><p class="motion-matrix__rule">Los planos saliente y entrante conviven durante el cambio. La dirección conserva continuidad y una nueva acción puede interrumpir la transición.</p></div>
+        <div class="motion-matrix__row"><span class="motion-matrix__use">Respuesta material</span><span class="motion-matrix__time">620ms</span><code class="motion-matrix__curve">material</code><p class="motion-matrix__rule">Tela, trama y Cota se asientan después del gesto. Durante el arrastre siguen el dedo sin easing; la curva empieza al soltar.</p></div>
+        <div class="motion-matrix__row"><span class="motion-matrix__use">Roller de transición</span><span class="motion-matrix__time">1200ms total</span><code class="motion-matrix__curve">curvas por tramo</code><p class="motion-matrix__rule">Se reserva a un cambio importante. Baja, cubre el reemplazo y sube; la navegación sigue disponible durante toda la secuencia.</p></div>
+        <div class="motion-matrix__row"><span class="motion-matrix__use">Arrastre y comparador</span><span class="motion-matrix__time">0ms / 80ms</span><code class="motion-matrix__curve">directa / linear</code><p class="motion-matrix__rule">Touch y puntero responden 1:1, sin interpolación. Las flechas de teclado recorren cada paso en 80ms para conservar continuidad.</p></div>
+      </div>
+
+      <div class="motion-sequence" aria-label="Secuencia temporal de la roller de transición, 1200 milisegundos">
+        <div class="motion-sequence__step"><b>Toma tensión</b><span>0–216ms</span></div>
+        <div class="motion-sequence__step"><b>Baja y cubre</b><span>216–696ms</span></div>
+        <div class="motion-sequence__step"><b>Cambia escena</b><span>696–816ms</span></div>
+        <div class="motion-sequence__step"><b>Sube y revela</b><span>816–1200ms</span></div>
       </div>
       <ul class="clauses" style="margin-top:1.4rem">
         <li><span class="num">04.4.1</span><b>Producto</b>: roller de transición, comparador de luz, tela física, trama reactiva y Cota activa. Cada gesto nace de algo que la cortina hace.</li>
         <li><span class="num">04.4.2</span><b>Narrativa</b>: la roller cubre un cambio de escena; el comparador mantiene el mismo ambiente; la trama responde al tacto. El movimiento conserva continuidad y muestra una causa.</li>
-        <li><span class="num">04.4.3</span><b>Interfaz</b>: hover, presión, selección, carga y confirmación. La respuesta aparece dentro de 100ms y la acción sigue disponible mientras la transición termina.</li>
+        <li><span class="num">04.4.3</span><b>Interfaz</b>: hover, presión, cambio de producto, carga y confirmación. La respuesta empieza dentro de 100ms y la acción sigue disponible mientras la transición termina.</li>
         <li><span class="num">04.4.4</span><b>Propiedades</b>: animar <code>transform</code>, <code>opacity</code>, <code>clip-path</code> o posición de fondo. No animar ancho, alto, márgenes ni propiedades que reacomodan la página.</li>
         <li><span class="num">04.4.5</span><b>Movimiento continuo</b>: se reserva al logo y a una demostración o campaña donde el movimiento sea el contenido. Botones, textos, fondos y métricas no quedan latiendo en loop.</li>
         <li><span class="num">04.4.6</span><b>Movimiento reducido</b>: con <code>prefers-reduced-motion: reduce</code>, la roller no cubre contenido, la tela queda estable y los comparadores siguen funcionando sin transición. La información y la jerarquía quedan intactas.</li>
         <li><span class="num">04.4.7</span><b>Prueba real</b>: revisar a 60fps en un teléfono medio, con touch y con movimiento reducido. Si baja la legibilidad, bloquea el gesto o genera mareo, el efecto no pasa.</li>
+        <li><span class="num">04.4.8</span><b>Interrupción</b>: una segunda acción cancela la transición anterior y resuelve hacia el último estado solicitado. Nunca se apilan animaciones ni se obliga a esperar.</li>
+        <li><span class="num">04.4.9</span><b>Dirección</b>: entrar y volver recorren sentidos opuestos. Un cambio dentro del mismo marco usa profundidad mínima; un cambio de paso conserva la dirección del recorrido.</li>
+        <li><span class="num">04.4.10</span><b>Texto</b>: títulos, cifras y párrafos no entran palabra por palabra ni letra por letra. Se mueve el bloque completo únicamente cuando el cambio de escena lo necesita.</li>
       </ul>
     </section>
 
@@ -1709,27 +1767,27 @@ code { overflow-wrap: anywhere; }
       <div class="fx">
         <div class="fx__row">
           <span class="fx__name">Roller de transición</span>
-          <p class="fx__desc">Una roller sunscreen plana baja, cubre por completo el cambio de escena y vuelve a subir. La tela lleva trama bidireccional, transparencia leve y contrapeso inferior. Se usa al cambiar un paso importante o revelar un resultado; no en cada scroll. Implementado en RollerShow Reviews y en la espera del simulador.</p>
+          <p class="fx__desc">Una roller sunscreen plana baja, cubre por completo el cambio de escena y vuelve a subir en 1200ms. Toma tensión durante 216ms, cubre en 480ms, sostiene el reemplazo 120ms y revela en 384ms. Usa curvas distintas por tramo, según 04.4. Se reserva a un paso importante o a la aparición de un resultado.</p>
           <div class="roller-transition" aria-label="Demostración de una cortina roller que baja y sube"><div class="roller-transition__scene">Ambiente revelado</div><div class="roller-transition__cloth"></div></div>
         </div>
         <div class="fx__row">
           <span class="fx__name">Comparador de luz</span>
-          <p class="fx__desc">La persona arrastra con el dedo o el mouse para comparar Blackout y Sun Screen en el mismo ambiente. La posición también responde a flechas del teclado. Las dos imágenes conservan encuadre, producto y perspectiva; solo cambia la solución y su efecto sobre la luz.</p>
+          <p class="fx__desc">La persona arrastra con el dedo o el mouse para comparar Blackout y Sun Screen en el mismo ambiente. El paño sigue el gesto sin transición ni retraso. Las flechas del teclado avanzan en pasos de 5% con 80ms lineales. Las dos imágenes conservan encuadre, producto y perspectiva.</p>
           <div class="compare-demo" data-compare-demo tabindex="0" role="slider" aria-label="Comparar Blackout y Sun Screen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><div class="compare-demo__before">Blackout</div><div class="compare-demo__after">Sun Screen</div><div class="compare-demo__line"></div><div class="compare-demo__handle">↔</div></div>
         </div>
         <div class="fx__row">
           <span class="fx__name">Tela con respuesta física</span>
-          <p class="fx__desc">El paño sigue el dedo o el puntero y muestra tensión. En piezas de calidad o resistencia puede separarse para comparar una tela que se rompe con otra que recupera su forma. La implementación final usa Canvas y restricciones físicas; esta muestra liviana enseña el gesto. Siempre ofrece touch, teclado o botón equivalente.</p>
+          <p class="fx__desc">El paño sigue el dedo o el puntero 1:1 y muestra tensión. Al soltar, recupera su forma en 620ms con <code>--ease-material</code>. En piezas de calidad o resistencia puede separarse para comparar una tela que se rompe con otra que recupera su forma. Siempre ofrece touch, teclado o botón equivalente.</p>
           <div class="tear-demo" data-tear-demo tabindex="0" role="button" aria-pressed="false" aria-label="Mover la tela para ver su respuesta"><div class="tear-demo__cloth -left"></div><div class="tear-demo__cloth -right"></div><span class="tear-demo__hint">Arrastrá la tela</span></div>
         </div>
         <div class="fx__row">
           <span class="fx__name">Trama reactiva</span>
-          <p class="fx__desc">Dos capas de hilos se desplazan unos pocos píxeles al tocar, enfocar o pasar el puntero. Sirve para muestras, dorsos digitales y estados de exploración de tela. No corre sola, no queda detrás de texto y no simula una textura que el producto real no tiene.</p>
+          <p class="fx__desc">Dos capas de hilos se desplazan unos pocos píxeles al tocar, enfocar o pasar el puntero. Entran en 480ms con <code>--ease-material</code> y vuelven en 280ms con <code>--ease-standard</code>. Sirve para muestras y dorsos digitales; no corre sola ni queda detrás de texto.</p>
           <div class="weave-demo" tabindex="0" aria-label="Trama de tejido que responde al puntero"></div>
         </div>
         <div class="fx__row">
           <span class="fx__name">Cota activa</span>
-          <p class="fx__desc">La línea se dibuja cuando la persona termina de medir y el valor aparece una vez. Explica fabricación a medida; no es un contador ni una cifra que crece. En presupuestos impresos queda estática.</p>
+          <p class="fx__desc">La línea se dibuja en 720ms con <code>--ease-material</code>. El valor aparece durante los últimos 180ms con <code>--ease</code>, ya escrito completo: no cuenta ni cambia de cifra. Corre una vez al confirmar la medida; en impresos queda estática.</p>
           <div class="motion-cota"><span class="motion-cota__value num">180 cm</span><span class="motion-cota__line"></span></div>
         </div>
       </div>
@@ -1738,6 +1796,7 @@ code { overflow-wrap: anywhere; }
         <li><span class="num">10.3.2</span>La interacción física no depende solo de hover. Debe funcionar con touch y tener una alternativa accesible por teclado o control explícito.</li>
         <li><span class="num">10.3.3</span>La rotura de tela comunica resistencia únicamente cuando existe evidencia de producto que sostenga la comparación. Nunca se usa como destrucción decorativa.</li>
         <li><span class="num">10.3.4</span>Con movimiento reducido, el comparador queda operable, la roller no cubre contenido y la tela muestra su estado inicial sin tirones.</li>
+        <li><span class="num">10.3.5</span>Las velocidades y curvas de esta biblioteca son las de 04.4. No se estiran para dar dramatismo ni se acortan por dispositivo; en equipos limitados se simplifica la propiedad animada, no el ritmo.</li>
       </ul>
     </section>
 
@@ -1916,14 +1975,14 @@ code { overflow-wrap: anywhere; }
 
 <footer class="foot">
   <div class="wrap">
-    <span>Manual de Marca de RollerShow, v1.5, julio 2026</span>
+    <span>Manual de Marca de RollerShow, v1.6, julio 2026</span>
     <span class="num">11 capítulos</span>
   </div>
 </footer>
 
 <script type="application/json" id="rollershow-brand-tokens">
 {
-  "meta": { "brand": "RollerShow", "docVersion": "1.5", "updated": "2026-07-15" },
+  "meta": { "brand": "RollerShow", "docVersion": "1.6", "updated": "2026-07-15" },
   "brand": { "essence": "la calidad se reconoce en todo el recorrido: descubrimiento, asesoramiento, presupuesto, fabricacion, instalacion, uso y posventa; la experiencia es la misma en todo el catalogo", "positioning": "la empresa con mas trayectoria vendiendo cortinas a medida online en Argentina; catalogo del mejor precio a la mas alta calidad", "languageAnchor": "real: productos reales, atencion real, posventa real; la garantia es una prueba concreta de la posventa", "personality": "calida, directa y precisa; nunca grita, nunca ruega", "tagline": { "text": "Cortinas como imaginás", "status": "bajada de trabajo adoptada, afinable antes de lanzamiento formal" }, "decisionRule": "caso sin clausula: priorizar legibilidad, funcion de la pieza y maxima aplicable; documentar la excepcion" },
   "color": {
     "bg": "#FAF7F2", "bgElev": "#FFFFFF", "bgMuted": "#F1EBE0",
@@ -1950,7 +2009,24 @@ code { overflow-wrap: anywhere; }
     "lg": "0 30px 60px -16px rgba(28,24,22,.22), 0 10px 24px -8px rgba(28,24,22,.08)",
     "tintRule": "siempre rgba(28,24,22,..) salvo hover del CTA que tinta a rgba(151,41,15,..)"
   },
-  "motion": { "durationFast": "180ms", "duration": "280ms", "durationScene": "480ms", "durationSignature": "720ms", "easeEnter": "cubic-bezier(0.22,1,0.36,1)", "easeStandard": "cubic-bezier(0.4,0,0.2,1)", "easeExit": "cubic-bezier(0.55,0,1,0.45)", "productionRule": "el movimiento nace del producto: roller, comparacion de luz, tela, trama o medida; sin loops en botones, textos, fondos o metricas", "reducedMotion": "roller sin cubrir contenido, tela estable y comparadores operables sin transicion" },
+  "motion": {
+    "duration": { "exit": "140ms", "fast": "180ms", "state": "280ms", "scene": "480ms", "material": "620ms", "signature": "1200ms" },
+    "easing": { "enter": "cubic-bezier(0.22,1,0.36,1)", "standard": "cubic-bezier(0.4,0,0.2,1)", "exit": "cubic-bezier(0.55,0,1,0.45)", "material": "cubic-bezier(0.16,1,0.3,1)" },
+    "recipes": {
+      "hoverFocus": { "enter": "180ms standard", "return": "140ms exit", "properties": ["color", "background", "box-shadow", "transform max 1px"] },
+      "moduleState": { "duration": "280ms", "easing": "standard", "properties": ["opacity", "transform max 4px"], "rule": "reservar el espacio antes del cambio" },
+      "sameFrameReplacement": { "exit": "140ms exit", "enter": "280ms enter", "rule": "marco estable; cancelar si llega otra accion" },
+      "sceneChange": { "duration": "480ms", "easing": "enter", "rule": "planos entrante y saliente conviven; siempre interrumpible" },
+      "materialResponse": { "gesture": "0ms, seguimiento 1:1", "settle": "620ms material" },
+      "rollerTransition": { "total": "1200ms", "segments": ["tension 0-216ms", "baja y cubre 216-696ms", "reemplazo cubierto 696-816ms", "sube y revela 816-1200ms"], "rule": "solo cambios importantes; navegacion disponible" },
+      "comparator": { "pointerTouch": "0ms", "keyboard": "80ms linear por paso de 5%" },
+      "activeMeasure": { "line": "720ms material", "value": "180ms enter al final; cifra completa" }
+    },
+    "allowedProperties": ["transform", "opacity", "clip-path", "background-position"],
+    "productionRule": "el movimiento nace del producto: roller, comparacion de luz, tela, trama o medida; sin loops en botones, textos, fondos o metricas",
+    "interruptRule": "una nueva accion cancela la animacion anterior y resuelve al ultimo estado solicitado",
+    "reducedMotion": "duracion 0 para escenas y materia; roller sin cubrir contenido; tela estable; comparadores operables"
+  },
   "breakpoints": { "xs": "420px", "sm": "480px", "md": "720px", "lg": "980px" },
   "preflight": ["una sola accion primaria con maximo contraste", "barrido de caracteres prohibidos", "sin cajas anidadas, radio-cards, barras laterales de estado, count-ups, auroras, marcador ni revelados genericos", "todos los valores salen de las escalas", "contraste medido no estimado", "CTA de la biblioteca o formula verbo+beneficio", "numeros y precios en formato fijo", "logo correcto para el fondo + zona de seguridad", "movimiento nacido de cortina, tela, luz o medida; touch+teclado+reduced-motion", "sin overflow a 375px reales", "visto publicado desde un telefono antes de reportar"],
   "maxims": ["mobile primero (disenar a 375px)", "estructural antes que estetico", "una sola accion primaria por pantalla, maximo contraste", "cada elemento es parte de algo, nada flotando", "la calidad se demuestra en todo el recorrido y cada promesa necesita prueba", "la solucion mas simple gana", "nada terminado hasta verlo en vivo en un telefono"],
@@ -1960,7 +2036,7 @@ code { overflow-wrap: anywhere; }
   "letterhead": { "size": "A4 vertical", "margins": "20mm superior, 15mm laterales e inferior", "usefulArea": "180x262mm", "header": "logo tinta 38mm + tipo de documento 8pt italica + hairline tinta", "body": "titulo Bricolage 18/20pt, Manrope 10/15pt, ancho maximo 145mm", "footer": "web izquierda + telefono derecha, Manrope 7.5pt, hairline lino", "continuation": "logo 28mm + documento + pagina N de N" },
   "storyTemplate": { "ratio": "9:16", "safeZones": "14% arriba y 20% abajo libres", "structure": "logo blanco arriba-izquierda + penumbra + titular display blanco + boton de marca" },
   "spacingScale": [4, 8, 12, 16, 24, 32, 48, 64],
-  "buttonSpec": { "padding": "14px 22px", "radius": "6px", "states": { "hover": "#97290F + sombra tintada, sube 1px", "pressed": "baja 1px", "focus": "outline 2px terracota offset 3px", "disabled": "opacidad 40%" } },
+  "buttonSpec": { "padding": "14px 22px", "radius": "6px", "motion": "hover y foco entran en 180ms; retorno 140ms; standard/exit", "states": { "hover": "#97290F + sombra tintada, sube 1px", "pressed": "baja 1px", "focus": "outline 2px terracota offset 3px", "disabled": "opacidad 40%" } },
   "businessCard": { "size": "85x54mm", "paper": "mate 300g", "bleed": "3mm", "front": "blanco, logo tinta, nombre display", "back": "rojo teja pleno + grano, logo blanco centrado" },
   "socialPost": { "ratio": "1:1", "structure": "foto a sangre + penumbra + titular blanco abajo-izquierda (max 2 lineas) + logo blanco esquina inferior derecha al 10% del ancho" },
   "contrast": { "tinta/crema": 16.5, "grisCalido/crema": 9.4, "tinta/arena": 14.9, "blanco/rojoTeja": 5.2, "blanco/rojoProfundo": 8.0, "topo/crema": "3.9 solo microcopy", "blanco/terracota": "4.2 solo texto grande", "blanco/whatsapp": "2.0 fuera de norma, solo el boton del canal" },
@@ -1968,7 +2044,7 @@ code { overflow-wrap: anywhere; }
   "backgrounds": { "amanecer-de-lino": "linear-gradient(180deg,#FFFFFF,#FAF7F2 55%,#F1EBE0)", "brasa": "linear-gradient(135deg,#D2451E,#97290F) + grano de tela estatico", "penumbra-scrim": "linear-gradient(0deg,rgba(28,24,22,.78),transparent 65%)" },
   "recurringElements": ["la-cota (linea de medicion con tics y valor, firma grafica de la medida)", "banda-de-color-full-bleed", "hairline-editorial-1px-lino", "trama-de-tejido bidireccional estatica o reactiva, nunca en loop", "folio-cabecera-documento"],
   "ctaLibrary": { "cotizar": "Recibir mi cotización", "descuento": "Recibir mi descuento", "promocion": "Aprovechar la promo", "visualizar": "Ver cómo queda en tu ventana", "contacto": "Escribinos", "explorar": "Ver telas (enlace, no botón)", "instalacion": "Coordinar mi instalación", "cuidado": "Ver cómo cuidar mi cortina", "posventa": ["Resolver un problema", "Iniciar mi consulta de garantía"], "descartar": "No, gracias", "prohibidos": ["Enviar", "Click acá", "Más info", "Quiero..."] },
-  "effectsApproved": ["roller-transicion (tela sunscreen, trama, contrapeso, cubre y revela)", "comparador-luz (touch, mouse y teclado; mismo ambiente)", "tela-fisica (pointer/touch, Canvas en produccion)", "trama-reactiva (solo bajo interaccion)", "cota-activa (linea primero, valor fijo despues)", "degrade-brasa-estatico", "grano-de-tela"],
+  "effectsApproved": ["roller-transicion (1200ms total; tela sunscreen, trama, contrapeso, cubre y revela)", "comparador-luz (0ms touch/pointer, 80ms teclado; mismo ambiente)", "tela-fisica (seguimiento 1:1, asentamiento 620ms; Canvas en produccion)", "trama-reactiva (480ms entrada, 280ms retorno; solo bajo interaccion)", "cota-activa (linea 720ms, valor 180ms al final)", "degrade-brasa-estatico", "grano-de-tela"],
   "effectsBanned": ["cifra-viva-count-up", "revelado-scroll-generico", "resaltado-marcador", "aurora-blob", "dot-online-pulsante", "barra-lateral-de-estado", "radio-card-decorativa", "boton-pildora-accion", "gradiente-purpura-azul-generico", "caja-dentro-de-caja", "eyebrow-badge", "contador-urgencia-falsa", "estrellas-ascii", "glassmorphism-pesado", "carrusel-autoplay", "fake-dashboard"]
 }
 </script>
@@ -1982,16 +2058,37 @@ code { overflow-wrap: anywhere; }
       sunscreen: { name: 'Sun Screen', description: 'Filtra la luz y conserva la vista exterior para espacios de trabajo y áreas sociales.' },
       doble: { name: 'Doble cortina', description: 'Combina control de luz y privacidad en una misma abertura con dos telas independientes.' }
     };
+    var current = viewer.querySelector('.product-viewer__current');
+    var motionVersion = 0;
+    function commitProduct(key, product) {
+      viewer.setAttribute('data-current', key);
+      viewer.querySelector('[data-product-name]').textContent = product.name;
+      viewer.querySelector('[data-product-desc]').textContent = product.description;
+      viewer.querySelectorAll('[data-product]').forEach(function (button) { button.hidden = button.getAttribute('data-product') === key; });
+    }
     viewer.addEventListener('click', function (event) {
       var action = event.target.closest('[data-product]');
       if (!action || !viewer.contains(action)) return;
       var key = action.getAttribute('data-product');
       var product = products[key];
-      if (!product) return;
-      viewer.setAttribute('data-current', key);
-      viewer.querySelector('[data-product-name]').textContent = product.name;
-      viewer.querySelector('[data-product-desc]').textContent = product.description;
-      viewer.querySelectorAll('[data-product]').forEach(function (button) { button.hidden = button === action; });
+      if (!product || viewer.getAttribute('data-current') === key) return;
+      motionVersion += 1;
+      var version = motionVersion;
+      window.clearTimeout(viewer._motionTimer);
+      current.classList.remove('is-exiting', 'is-entering');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { commitProduct(key, product); return; }
+      void current.offsetWidth;
+      current.classList.add('is-exiting');
+      viewer._motionTimer = window.setTimeout(function () {
+        if (version !== motionVersion) return;
+        commitProduct(key, product);
+        current.classList.remove('is-exiting');
+        void current.offsetWidth;
+        current.classList.add('is-entering');
+        viewer._motionTimer = window.setTimeout(function () {
+          if (version === motionVersion) current.classList.remove('is-entering');
+        }, 280);
+      }, 140);
     });
   });
   document.querySelectorAll('[data-compare-demo]').forEach(function (demo) {
@@ -2004,12 +2101,17 @@ code { overflow-wrap: anywhere; }
       var rect = demo.getBoundingClientRect();
       setValue((event.clientX - rect.left) / rect.width * 100);
     }
-    demo.addEventListener('pointerdown', function (event) { demo.setPointerCapture(event.pointerId); fromPointer(event); });
+    demo.addEventListener('pointerdown', function (event) { demo.classList.remove('is-keyboard'); demo.setPointerCapture(event.pointerId); fromPointer(event); });
     demo.addEventListener('pointermove', function (event) { if (demo.hasPointerCapture(event.pointerId)) fromPointer(event); });
     demo.addEventListener('keydown', function (event) {
       var current = Number(demo.getAttribute('aria-valuenow'));
-      if (event.key === 'ArrowLeft') { event.preventDefault(); setValue(current - 5); }
-      if (event.key === 'ArrowRight') { event.preventDefault(); setValue(current + 5); }
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        demo.classList.add('is-keyboard');
+        setValue(current + (event.key === 'ArrowLeft' ? -5 : 5));
+        window.clearTimeout(demo._keyboardTimer);
+        demo._keyboardTimer = window.setTimeout(function () { demo.classList.remove('is-keyboard'); }, 90);
+      }
     });
   });
   document.querySelectorAll('[data-tear-demo]').forEach(function (demo) {
@@ -2020,7 +2122,7 @@ code { overflow-wrap: anywhere; }
       demo.querySelector('.tear-demo__hint').textContent = torn ? 'La tela muestra su resistencia' : 'Arrastrá la tela';
     }
     function resetPull() { demo.style.setProperty('--pull-x', '0px'); demo.style.setProperty('--pull-y', '0px'); }
-    demo.addEventListener('pointerdown', function (event) { startX = event.clientX; demo.setPointerCapture(event.pointerId); });
+    demo.addEventListener('pointerdown', function (event) { startX = event.clientX; demo.classList.add('is-dragging'); demo.setPointerCapture(event.pointerId); });
     demo.addEventListener('pointermove', function (event) {
       var rect = demo.getBoundingClientRect();
       var hoverX = Math.max(-4, Math.min(4, (event.clientX - rect.left - rect.width / 2) / 24));
@@ -2029,8 +2131,8 @@ code { overflow-wrap: anywhere; }
       demo.style.setProperty('--pull-y', hoverY + 'px');
       if (demo.hasPointerCapture(event.pointerId) && Math.abs(event.clientX - startX) > 12) setTorn(true);
     });
-    demo.addEventListener('pointerup', function () { setTorn(false); resetPull(); });
-    demo.addEventListener('pointercancel', function () { setTorn(false); resetPull(); });
+    demo.addEventListener('pointerup', function () { demo.classList.remove('is-dragging'); setTorn(false); resetPull(); });
+    demo.addEventListener('pointercancel', function () { demo.classList.remove('is-dragging'); setTorn(false); resetPull(); });
     demo.addEventListener('pointerleave', function () { if (demo.getAttribute('aria-pressed') !== 'true') resetPull(); });
     demo.addEventListener('keydown', function (event) { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setTorn(demo.getAttribute('aria-pressed') !== 'true'); } });
   });
