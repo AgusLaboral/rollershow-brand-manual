@@ -7,7 +7,8 @@
 <meta name="robots" content="noindex" />
 <title>Manual de Marca de RollerShow</title>
 
-<link rel="icon" type="image/svg+xml" href="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" />
+<!-- No existe una marca compacta aprobada. Este recurso vacío evita que el navegador improvise o solicite un favicon. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://assets.rollershow.com.ar" />
@@ -462,7 +463,7 @@ code { overflow-wrap: anywhere; }
 
 <header class="doc-head">
   <div class="wrap">
-    <img class="doc-head__brand" src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" />
+    <img class="doc-head__brand" src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" />
     <span class="doc-head__meta">Manual de marca, edición 2026</span>
   </div>
 </header>
@@ -481,7 +482,7 @@ code { overflow-wrap: anywhere; }
     </p>
     <p style="margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--border); padding-top: 1rem; font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,4.5vw,2.4rem); letter-spacing:-0.02em; line-height:1.15;">Productos reales.<br>Atención real.<br>Posventa real.</p>
     <div class="cover__meta">
-      <span><b>Versión</b> 1.6</span>
+      <span><b>Versión</b> 1.7</span>
       <span><b>Vigencia</b> julio 2026 en adelante</span>
       <span><b>Formato</b> HTML de una pieza, imprimible a PDF (Ctrl/Cmd + P)</span>
     </div>
@@ -562,6 +563,21 @@ code { overflow-wrap: anywhere; }
         <a href="#cap-11"><span class="toc__num num">11</span>Tokens<em>bloque de datos para máquina</em></a>
       </nav>
     </section>
+
+    <section class="spec">
+      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">00.6</span>Responsables, versiones y excepciones</h2></div>
+      <div class="rows">
+        <div class="rows__item"><span class="rows__key">Fuente de verdad</span><span class="rows__val">La URL pública del manual y el paquete de activos cuya versión figura en 01.7.</span></div>
+        <div class="rows__item"><span class="rows__key">Responsable</span><span class="rows__val">La persona designada por RollerShow para marca mantiene el documento, reúne las aprobaciones y publica cada versión.</span></div>
+        <div class="rows__item"><span class="rows__key">Revisión</span><span class="rows__val">Cada seis meses y también cuando cambia el logo, una familia de producto, una promesa, una plantilla o un canal importante.</span></div>
+        <div class="rows__item"><span class="rows__key">Historial</span><span class="rows__val">Cada versión informa fecha, regla modificada, motivo y activos afectados. Una corrección silenciosa no cuenta como versión.</span></div>
+      </div>
+      <ul class="clauses" style="margin-top:1.4rem">
+        <li><span class="num">00.6.1</span>Una excepción se aprueba antes de publicar y registra pieza, motivo, responsable y fecha de vencimiento. No crea una regla nueva por sí sola.</li>
+        <li><span class="num">00.6.2</span>Una versión nueva del manual declara con qué paquete de activos es compatible. Si no coinciden, se frena la producción.</li>
+        <li><span class="num">00.6.3</span>Cuando una práctica se repite en tres piezas aprobadas, se evalúa incorporarla al sistema. Hasta entonces sigue siendo una excepción documentada.</li>
+      </ul>
+    </section>
   </div>
   </section>
 
@@ -582,12 +598,13 @@ code { overflow-wrap: anywhere; }
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.1</span>El archivo</h2></div>
       <div class="stage">
-        <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="Logotipo RollerShow" style="width:min(100%, 507px); height:auto;" />
+        <img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="Logotipo RollerShow" style="width:min(100%, 507px); height:auto;" />
       </div>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key">Archivo maestro</span><span class="rows__val"><code>img/logo.svg</code>: viewBox <code>0 0 600 52</code> (relación 10.5 : 1)</span></div>
-        <div class="rows__item"><span class="rows__key">Ícono / favicon</span><span class="rows__val"><code>https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg</code></span></div>
-        <div class="rows__item"><span class="rows__key">Animación</span><span class="rows__val">Los dos anillos del isotipo rotan 360° en 10s, <code>linear</code>, en loop continuo. Siempre activa en digital, no es un hover, es el estado de reposo del logo.</span></div>
+        <div class="rows__item"><span class="rows__key">Archivo maestro</span><span class="rows__val"><a href="brand-assets/logo/rollershow-logo-animated-tinta.svg" download><code>rollershow-logo-animated-tinta.svg</code></a>: viewBox <code>0 0 600 52</code> (relación 11.54 : 1)</span></div>
+        <div class="rows__item"><span class="rows__key">Versiones estáticas</span><span class="rows__val"><a href="brand-assets/logo/rollershow-logo-static-tinta.svg" download>Tinta</a> y <a href="brand-assets/logo/rollershow-logo-static-blanco.svg" download>Blanco</a>, listas para impresión, documentos y piezas sin animación.</span></div>
+        <div class="rows__item"><span class="rows__key">Marca compacta</span><span class="rows__val">No existe un isotipo ni favicon aprobado. Las dos “O” animadas pertenecen al wordmark completo y no se recortan. Tampoco se fabrica una “R” dentro de un círculo.</span></div>
+        <div class="rows__item"><span class="rows__key">Animación</span><span class="rows__val">Los anillos de las dos letras “O” rotan 360° en 10s, <code>linear</code>, en loop continuo. Siempre activa en digital, no es un hover, es el estado de reposo del logo completo.</span></div>
         <div class="rows__item"><span class="rows__key">En impreso</span><span class="rows__val">Fotograma inicial (0°), estático.</span></div>
       </div>
     </section>
@@ -595,20 +612,20 @@ code { overflow-wrap: anywhere; }
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.2</span>Zona de seguridad y tamaño mínimo</h2></div>
       <ul class="clauses">
-        <li><span class="num">01.2.1</span>Espacio libre mínimo alrededor: el ancho de uno de los anillos del isotipo (≈ 1/12 del ancho total del lockup), en los cuatro lados. Ningún texto, borde de card o segundo logo entra en esa zona.</li>
-        <li><span class="num">01.2.2</span>Tamaño mínimo digital: <b>96px</b> de ancho para el lockup completo. Por debajo de eso, usar solo el isotipo circular (sin el wordmark), mínimo <b>24px</b>.</li>
+        <li><span class="num">01.2.1</span>Espacio libre mínimo alrededor: el ancho de uno de los anillos de la “O” (≈ 1/12 del ancho total del wordmark), en los cuatro lados. Ningún texto, borde de card o segundo logo entra en esa zona.</li>
+        <li><span class="num">01.2.2</span>Tamaño mínimo digital: <b>96px</b> de ancho para el logotipo completo. Por debajo de eso se omite la marca gráfica; no se recorta una letra para resolver el espacio.</li>
         <li><span class="num">01.2.3</span>Tamaño mínimo impreso: <b>25mm</b> de ancho para el lockup completo.</li>
       </ul>
       <div class="stage" style="margin-top:1.6rem;">
         <div class="stage__row" style="align-items:flex-end; gap:2.5rem;">
           <div>
             <div style="display:inline-block; background:repeating-linear-gradient(45deg, rgba(198,58,33,.14) 0 6px, transparent 6px 12px); padding:22px;">
-              <div style="background:var(--bg-elev); padding:10px 14px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="Zona de seguridad del logotipo" style="width:min(100%,253px); height:auto; display:block;" /></div>
+              <div style="background:var(--bg-elev); padding:10px 14px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="Zona de seguridad del logotipo" style="width:min(100%,253px); height:auto; display:block;" /></div>
             </div>
             <p class="num" style="font-size:.68rem; font-weight:700; color:var(--fg-soft); margin-top:.4rem;">zona rayada = despeje mínimo (un anillo)</p>
           </div>
           <div>
-            <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="Logotipo al ancho mínimo digital" style="width:96px; display:block;" />
+            <img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="Logotipo al ancho mínimo digital" style="width:96px; display:block;" />
             <div style="width:96px; display:flex; align-items:center; margin-top:.35rem;">
               <span style="width:1px; height:8px; background:var(--fg-mute);"></span>
               <span style="flex:1; border-top:1px solid var(--fg-mute);"></span>
@@ -626,11 +643,11 @@ code { overflow-wrap: anywhere; }
       <p class="spec__note">Solo existen dos versiones. Nunca una tercera.</p>
       <div class="stage">
         <span class="tag stage__label">Versión Tinta, sobre fondos claros</span>
-        <div class="stage__row"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="Logotipo RollerShow, versión tinta" style="width:min(100%, 415px); height:auto;" /></div>
+        <div class="stage__row"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="Logotipo RollerShow, versión tinta" style="width:min(100%, 415px); height:auto;" /></div>
       </div>
       <div class="stage" style="background:var(--cta)">
         <span class="tag stage__label" style="color:rgba(255,255,255,.75)">Versión Blanco, sobre Rojo Teja o foto oscura</span>
-        <div class="stage__row"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="Logotipo RollerShow, versión blanca" style="width:min(100%, 415px); height:auto; filter:brightness(0) invert(1);" /></div>
+        <div class="stage__row"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="Logotipo RollerShow, versión blanca" style="width:min(100%, 415px); height:auto; filter:brightness(0) invert(1);" /></div>
       </div>
       <ul class="clauses" style="margin-top:1.4rem">
         <li><span class="num">01.3.1</span>Sobre Crema, Arena o blanco puro: versión Tinta (<code>#1C1816</code>).</li>
@@ -654,12 +671,12 @@ code { overflow-wrap: anywhere; }
       <div class="compare">
         <div class="compare--no">
           <span class="compare__tag">Así no</span>
-          <div class="compare__stage" style="overflow:hidden;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="Logo estirado, ejemplo de mal uso" style="width:56%; height:auto; transform:scaleX(1.7); transform-origin:left;" /></div>
+          <div class="compare__stage" style="overflow:hidden;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="Logo estirado, ejemplo de mal uso" style="width:56%; height:auto; transform:scaleX(1.7); transform-origin:left;" /></div>
           <p class="compare__why">Estirado fuera de proporción, y a un ancho menor al mínimo de 96px. Cualquier deformación del lockup queda prohibida, se escala siempre con la proporción bloqueada.</p>
         </div>
         <div class="compare--yes">
           <span class="compare__tag">Así sí</span>
-          <div class="compare__stage"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="Logo en proporción correcta" style="width:min(100%, 346px); height:auto;" /></div>
+          <div class="compare__stage"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="Logo en proporción correcta" style="width:min(100%, 346px); height:auto;" /></div>
           <p class="compare__why">Proporción original intacta, con la zona de seguridad de 01.2 respetada alrededor.</p>
         </div>
       </div>
@@ -670,13 +687,45 @@ code { overflow-wrap: anywhere; }
       <p class="spec__note">Bajada de trabajo adoptada. Acompaña al logotipo en piezas de campaña, presentaciones y portadas de documento; puede afinarse antes de un lanzamiento formal, y cualquier ajuste se registra acá.</p>
       <div class="stage">
         <div style="display:inline-flex; flex-direction:column; gap:.55rem;">
-          <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%, 230px); height:auto;" />
+          <img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%, 230px); height:auto;" />
           <span style="font-size:.98rem; font-weight:500; color:var(--fg-soft); letter-spacing:.01em;">Cortinas como imaginás</span>
         </div>
       </div>
       <ul class="clauses" style="margin-top:1.4rem">
         <li><span class="num">01.6.1</span>La bajada acompaña al lockup completo, nunca aparece sola ni reemplaza al logotipo.</li>
         <li><span class="num">01.6.2</span>Se compone en Manrope peso 500, en gris cálido, debajo del logotipo y alineada a su borde izquierdo. Nunca en display ni en mayúsculas.</li>
+      </ul>
+    </section>
+
+    <section class="spec">
+      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.7</span>Paquete de activos</h2></div>
+      <p class="spec__note">El manual explica las reglas. El paquete entrega los originales. Una gráfica no reconstruye un logo, un ícono ni una plantilla mirando una captura.</p>
+      <div class="rows">
+        <div class="rows__item"><span class="rows__key">Descarga completa</span><span class="rows__val"><a href="downloads/rollershow-brand-assets-v1.0.0.zip" download><b>RollerShow Brand Assets 1.0</b></a>, compatible con este manual v1.7.</span></div>
+        <div class="rows__item"><span class="rows__key">Inventario</span><span class="rows__val"><a href="brand-assets/manifest.json">Manifest JSON</a> con versión, peso y SHA-256 de cada archivo.</span></div>
+        <div class="rows__item"><span class="rows__key">Logos</span><span class="rows__val">SVG animado Tinta y SVG estáticos Tinta y Blanco. No hay PNG como maestro ni marca compacta.</span></div>
+        <div class="rows__item"><span class="rows__key">Biblioteca</span><span class="rows__val">16 íconos SVG, referencias fotográficas, plantillas editables, fuentes y hoja de prueba física de color.</span></div>
+      </div>
+      <ul class="clauses" style="margin-top:1.4rem">
+        <li><span class="num">01.7.1</span>La versión del paquete queda escrita en el nombre del ZIP y en el manifest. Nunca reemplazar un archivo conservando el mismo número de versión.</li>
+        <li><span class="num">01.7.2</span>El SVG es maestro. PNG, JPG o PDF son salidas de uso y se regeneran desde el original correspondiente.</li>
+        <li><span class="num">01.7.3</span>Si un archivo nombrado en este manual no aparece en el manifest, no está aprobado y no se reconstruye.</li>
+      </ul>
+    </section>
+
+    <section class="spec">
+      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.8</span>Convivencia con otras marcas</h2></div>
+      <p class="spec__note">Aplica a proveedores, medios de pago, aliados, clientes, arquitectos y plataformas. La convivencia describe una relación; no fusiona identidades.</p>
+      <div class="rows">
+        <div class="rows__item"><span class="rows__key">RollerShow lidera</span><span class="rows__val">El logotipo RollerShow abre la pieza y define tipografía, paleta y composición. La otra marca aparece después, con peso óptico equivalente o menor.</span></div>
+        <div class="rows__item"><span class="rows__key">La otra marca lidera</span><span class="rows__val">Se respetan sus reglas y RollerShow entra como participante. No se trasladan sus colores ni su tipografía al logo RollerShow.</span></div>
+        <div class="rows__item"><span class="rows__key">Permiso</span><span class="rows__val">Antes de publicar se guarda autorización de uso y la versión oficial del logo externo.</span></div>
+      </div>
+      <ul class="clauses" style="margin-top:1.4rem">
+        <li><span class="num">01.8.1</span>Los logos mantienen su zona de seguridad y una altura óptica comparable. No se igualan por ancho porque sus proporciones pueden ser muy distintas.</li>
+        <li><span class="num">01.8.2</span>Se separan con espacio. No usar barra, círculo, símbolo “más” ni degradé para fabricar un lockup.</li>
+        <li><span class="num">01.8.3</span>WhatsApp, Meta, medios de pago y sellos de plataforma conservan su forma oficial; nunca se redibujan con la estética de RollerShow.</li>
+        <li><span class="num">01.8.4</span>Tres marcas o más se presentan en una zona de apoyos, con peso parejo y fuera de la firma principal.</li>
       </ul>
     </section>
   </div>
@@ -849,6 +898,23 @@ code { overflow-wrap: anywhere; }
         <li><span class="num">02.8.4</span>No genera variantes: no existe "Bosque suave" ni degradés con Bosque. Es un solo valor, pleno.</li>
       </ul>
     </section>
+
+    <section class="spec">
+      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">02.9</span>Producción de color</h2></div>
+      <p class="spec__note">HEX y RGB son la referencia digital. En impresión, el resultado depende del perfil, la máquina, la tinta y el soporte; una conversión CMYK sin contexto no es un color aprobado.</p>
+      <div class="rows">
+        <div class="rows__item"><span class="rows__key">Pantalla</span><span class="rows__val">Usar los valores sRGB del capítulo 2. Exportar imágenes con perfil sRGB incrustado.</span></div>
+        <div class="rows__item"><span class="rows__key">Impresión</span><span class="rows__val">Pedir al proveedor perfil ICC, máquina y soporte. Convertir desde el maestro y conservar el perfil dentro del archivo final.</span></div>
+        <div class="rows__item"><span class="rows__key">Primera tirada</span><span class="rows__val">Imprimir la <a href="brand-assets/production/print-proof-sheet.svg" download>hoja de prueba física</a> al 100% y registrar los valores resultantes.</span></div>
+        <div class="rows__item"><span class="rows__key">Repetición</span><span class="rows__val">Reusar solo la combinación ya aprobada de perfil, máquina, tinta y soporte. Si cambia uno, se repite la prueba.</span></div>
+      </div>
+      <ul class="clauses" style="margin-top:1.4rem">
+        <li><span class="num">02.9.1</span>No entregar a imprenta un archivo RGB esperando que el proveedor decida la apariencia de la marca.</li>
+        <li><span class="num">02.9.2</span>No publicar porcentajes CMYK universales. La prueba física aprobada manda sobre una tabla teórica.</li>
+        <li><span class="num">02.9.3</span>Para fondos a sangre, sumar el sangrado de 04.7. El borde de corte nunca define la medida visible de una banda o una Cota.</li>
+        <li><span class="num">02.9.4</span>Un PDF final lleva fuentes incrustadas, imágenes a 300 ppp en tamaño de salida y negros pequeños en una sola tinta cuando el proveedor lo exige.</li>
+      </ul>
+    </section>
   </div>
   </section>
 
@@ -949,6 +1015,20 @@ code { overflow-wrap: anywhere; }
       <ul class="clauses" style="margin-top:1.4rem">
         <li><span class="num">03.6.1</span>Titular display en Tinta, texto de apoyo en gris cálido, acción en Rojo Teja: la jerarquía la hacen el tamaño y el color juntos, sin elementos extra.</li>
         <li><span class="num">03.6.2</span>El texto de apoyo nunca supera las tres líneas en mobile. Si necesita más, el titular está mal elegido.</li>
+      </ul>
+    </section>
+
+    <section class="spec">
+      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">03.7</span>Archivos y licencias</h2></div>
+      <div class="rows">
+        <div class="rows__item"><span class="rows__key">Bricolage Grotesque</span><span class="rows__val">Descarga oficial en <a href="https://fonts.google.com/specimen/Bricolage+Grotesque">Google Fonts</a>. Licencia SIL Open Font License 1.1.</span></div>
+        <div class="rows__item"><span class="rows__key">Manrope</span><span class="rows__val">Descarga oficial en <a href="https://fonts.google.com/specimen/Manrope">Google Fonts</a>. Licencia SIL Open Font License 1.1.</span></div>
+        <div class="rows__item"><span class="rows__key">Kit</span><span class="rows__val"><a href="brand-assets/fonts/README.md">Pesos, ejes y enlaces</a>. Las fuentes se descargan desde su origen; no circulan copias sueltas sin versión.</span></div>
+      </div>
+      <ul class="clauses" style="margin-top:1.4rem">
+        <li><span class="num">03.7.1</span>En PDF se incrustan las fuentes. Si el formato no permite incrustarlas, se convierten a curvas solo en el archivo final y se conserva un original editable con texto vivo.</li>
+        <li><span class="num">03.7.2</span>En documentos colaborativos sin fuentes de marca se usa Arial como reemplazo temporal de Manrope. Bricolage no se reemplaza en una pieza final.</li>
+        <li><span class="num">03.7.3</span>No descargar archivos de tipografía desde sitios de terceros ni mezclar versiones de una misma familia en el mismo documento.</li>
       </ul>
     </section>
   </div>
@@ -1232,6 +1312,23 @@ code { overflow-wrap: anywhere; }
         <div class="rows__item"><span class="rows__key">Garantía</span><span class="rows__val"><b>hasta 3 años de garantía</b>: la cifra en dígito, la unidad en palabra.</span></div>
       </div>
     </section>
+
+    <section class="spec">
+      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">05.8</span>Nombres y afirmaciones verificables</h2></div>
+      <p class="spec__note">El catálogo cambia. Los nombres y las garantías se copian de la API pública vigente; el manual fija cómo tratarlos, no congela una lista que pueda quedar vieja.</p>
+      <div class="rows">
+        <div class="rows__item"><span class="rows__key">Familias</span><span class="rows__val"><b>Roller, Verticales, Tradicionales, Horizontales y Dúo</b>. Son los nombres vigentes en la API al 15/07/2026.</span></div>
+        <div class="rows__item"><span class="rows__key">Colecciones</span><span class="rows__val">Respetar escritura, espacios, porcentaje y acentos del dato publicado: <b>Black Out</b>, <b>Sun Screen 5%</b>, <b>Dim Out</b>. No unificar por gusto.</span></div>
+        <div class="rows__item"><span class="rows__key">Garantía</span><span class="rows__val">Se informa la cantidad de meses de la colección concreta. “Hasta 3 años” solo describe el rango general y no reemplaza la condición del producto elegido.</span></div>
+        <div class="rows__item"><span class="rows__key">Fuente</span><span class="rows__val"><a href="https://www.rollershow.com.ar/api/v2">API pública de RollerShow</a>. Cada pieza guarda fecha de consulta o una exportación de respaldo.</span></div>
+      </div>
+      <ul class="clauses" style="margin-top:1.4rem">
+        <li><span class="num">05.8.1</span>Precio, stock, plazo, descuento, garantía, trayectoria, promedio de reseñas y desempeño del producto necesitan fuente, fecha y responsable antes de publicarse.</li>
+        <li><span class="num">05.8.2</span>Una afirmación comparativa identifica qué se comparó y con qué evidencia. “Mejor”, “más resistente” o “oscurece por completo” no se usan como adjetivos sueltos.</li>
+        <li><span class="num">05.8.3</span>Los testimonios conservan palabras reales. Se puede corregir un error tipográfico sin cambiar el sentido; nombre, foto y locación requieren permiso.</li>
+        <li><span class="num">05.8.4</span>Si la fuente no puede mostrarse o quedó vencida, se baja la afirmación. El diseño nunca rellena un vacío de evidencia.</li>
+      </ul>
+    </section>
   </div>
   </section>
 
@@ -1300,11 +1397,11 @@ code { overflow-wrap: anywhere; }
         <div class="product-viewer" data-product-viewer data-current="blackout">
           <div class="product-viewer__current" aria-live="polite">
             <div class="product-viewer__sample" aria-hidden="true"></div>
-            <div class="product-viewer__copy"><h3 data-product-name>Blackout</h3><p data-product-desc>Oscuridad y privacidad total para dormitorios y ambientes donde la luz necesita bloquearse.</p></div>
+            <div class="product-viewer__copy"><h3 data-product-name>Black Out</h3><p data-product-desc>Oscuridad y privacidad para dormitorios y ambientes donde se necesita bloquear la luz.</p></div>
           </div>
           <div class="product-viewer__switch" aria-label="Comparar con otro producto">
             <span>Comparar con</span>
-            <button type="button" data-product="blackout" hidden>Blackout</button>
+            <button type="button" data-product="blackout" hidden>Black Out</button>
             <button type="button" data-product="sunscreen">Sun Screen</button>
             <button type="button" data-product="doble">Doble cortina</button>
           </div>
@@ -1412,6 +1509,25 @@ code { overflow-wrap: anywhere; }
         <li><span class="num">06.9.3</span>Si existe una salida manual real, se ofrece: reintentar, cambiar archivo o escribir al equipo. Nunca culpar a la persona.</li>
       </ul>
     </section>
+
+    <section class="spec">
+      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">06.10</span>Accesibilidad operativa</h2></div>
+      <p class="spec__note">El contraste es una parte. Una pieza accesible conserva significado, orden y acción cuando alguien no ve la imagen, no usa mouse, amplía el contenido o apaga el movimiento.</p>
+      <div class="rows">
+        <div class="rows__item"><span class="rows__key">Objetivo</span><span class="rows__val">WCAG 2.2 nivel AA para web y componentes digitales. Cada implementación se prueba dentro de su contexto.</span></div>
+        <div class="rows__item"><span class="rows__key">Teclado</span><span class="rows__val">Orden de foco igual al orden visual, foco siempre visible y alternativa para arrastre, hover y gestos.</span></div>
+        <div class="rows__item"><span class="rows__key">Zoom y reflow</span><span class="rows__val">La lectura y las acciones siguen disponibles a 200% de zoom y a 320px de ancho, sin desplazamiento horizontal del documento.</span></div>
+        <div class="rows__item"><span class="rows__key">Actualizaciones</span><span class="rows__val">Error, éxito, progreso y cambios de resultado se anuncian a tecnologías de asistencia sin mover el foco de forma inesperada.</span></div>
+      </div>
+      <ul class="clauses" style="margin-top:1.4rem">
+        <li><span class="num">06.10.1</span>Toda imagen informativa lleva texto alternativo que comunica su función. Una textura o guarda decorativa usa alternativa vacía.</li>
+        <li><span class="num">06.10.2</span>El color nunca es la única diferencia entre estados. El texto indica qué pasó y qué acción corresponde.</li>
+        <li><span class="num">06.10.3</span>Video con voz lleva subtítulos sincronizados. Si la imagen aporta información que la voz no explica, suma descripción o una versión textual equivalente.</li>
+        <li><span class="num">06.10.4</span>En redes, el copy de publicación describe el dato esencial de una placa. No esconder una promoción, fecha o condición solo dentro de la imagen.</li>
+        <li><span class="num">06.10.5</span>PDF de lectura lleva etiquetas, títulos, idioma, orden lógico, enlaces descriptivos y texto alternativo. Se revisa con reflow y lector de pantalla antes de entregar.</li>
+        <li><span class="num">06.10.6</span>El control final incluye teclado, touch, lector de pantalla, zoom, alto contraste y movimiento reducido. Un validador automático ayuda, pero no reemplaza la prueba manual.</li>
+      </ul>
+    </section>
   </div>
   </section>
 
@@ -1487,7 +1603,7 @@ code { overflow-wrap: anywhere; }
       <div class="stage">
         <div class="stage__row" style="align-items:flex-start;">
           <div style="width:255px; aspect-ratio:85/54; background:var(--bg-elev); border:1px solid var(--border-strong); padding:1rem; display:flex; flex-direction:column; justify-content:space-between;">
-            <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,150px); height:auto; align-self:flex-start;" />
+            <img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,150px); height:auto; align-self:flex-start;" />
             <div style="border-top:1px solid var(--border); padding-top:.55rem;">
               <p style="font-family:var(--font-display); font-weight:800; font-size:.95rem;">Nombre Apellido</p>
               <p style="font-size:.68rem; color:var(--fg-mute);">Asesoramiento en cortinas a medida</p>
@@ -1496,7 +1612,7 @@ code { overflow-wrap: anywhere; }
           </div>
           <div style="width:255px; aspect-ratio:85/54; background:var(--cta); position:relative; border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; overflow:hidden;">
             <div style="position:absolute; inset:0; opacity:.28; mix-blend-mode:soft-light; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n3'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n3)'/%3E%3C/svg%3E&quot;);"></div>
-            <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,207px); height:auto; filter:brightness(0) invert(1); position:relative;" />
+            <img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,207px); height:auto; filter:brightness(0) invert(1); position:relative;" />
           </div>
         </div>
       </div>
@@ -1513,7 +1629,7 @@ code { overflow-wrap: anywhere; }
         <div class="stage__row" style="align-items:flex-start;">
           <div style="width:210px; aspect-ratio:210/297; background:var(--bg-elev); border:1px solid var(--border-strong); position:relative; flex-shrink:0;">
             <div style="position:absolute; inset:20px 15px 15px 15px;">
-              <div style="display:flex; justify-content:space-between; align-items:end; gap:8px; border-bottom:1px solid var(--fg); padding-bottom:6px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,92px); height:auto;" /><span style="font-size:.4rem; color:var(--fg-mute); font-style:italic;">Carta comercial</span></div>
+              <div style="display:flex; justify-content:space-between; align-items:end; gap:8px; border-bottom:1px solid var(--fg); padding-bottom:6px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,92px); height:auto;" /><span style="font-size:.4rem; color:var(--fg-mute); font-style:italic;">Carta comercial</span></div>
               <div style="margin-top:16px; font-family:var(--font-display); font-size:.7rem; font-weight:800; line-height:1.15;">Título del documento</div>
               <div style="margin-top:7px; display:grid; gap:5px;">
                 <span style="height:3px; background:var(--bg-muted); width:94%;"></span><span style="height:3px; background:var(--bg-muted); width:88%;"></span><span style="height:3px; background:var(--bg-muted); width:96%;"></span><span style="height:3px; background:var(--bg-muted); width:70%;"></span>
@@ -1625,7 +1741,7 @@ code { overflow-wrap: anywhere; }
             <div style="position:absolute; inset:0; background:linear-gradient(0deg, rgba(28,24,22,.78), transparent 55%);"></div>
             <div style="position:absolute; left:1rem; right:1rem; bottom:.9rem; display:flex; align-items:flex-end; justify-content:space-between; gap:1rem;">
               <span style="color:#fff; font-family:var(--font-display); font-weight:800; font-size:1.15rem; line-height:1.05; max-width:11ch;">La luz justa para dormir mejor.</span>
-              <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:28px; filter:brightness(0) invert(1); flex-shrink:0; margin-bottom:.2rem;" />
+              <img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:28px; filter:brightness(0) invert(1); flex-shrink:0; margin-bottom:.2rem;" />
             </div>
           </div>
           <span class="stage__hint">El titular vive abajo a la izquierda sobre la Penumbra, máximo dos líneas. El logo no cambia de esquina entre posts: la repetición de posición es lo que construye reconocimiento en el feed.</span>
@@ -1640,7 +1756,7 @@ code { overflow-wrap: anywhere; }
         <div class="stage__row" style="align-items:flex-start;">
           <div style="width:180px; aspect-ratio:9/16; position:relative; background:linear-gradient(165deg,#E8D2B0,#C9A876); border:1px solid var(--border-strong); overflow:hidden;">
             <div style="position:absolute; inset:0; background:linear-gradient(0deg, rgba(28,24,22,.8), transparent 45%);"></div>
-            <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="position:absolute; top:16%; left:.7rem; width:56px; filter:brightness(0) invert(1);" />
+            <img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="position:absolute; top:16%; left:.7rem; width:56px; filter:brightness(0) invert(1);" />
             <div style="position:absolute; left:.7rem; right:.7rem; bottom:22%; display:grid; gap:.5rem;">
               <span style="color:#fff; font-family:var(--font-display); font-weight:800; font-size:.95rem; line-height:1.05;">Tu ventana, a medida.</span>
               <span style="background:var(--cta); color:#fff; font-size:.58rem; font-weight:700; padding:.3rem .5rem; border-radius:4px; justify-self:start;">Cotizar en 2 minutos</span>
@@ -1649,6 +1765,25 @@ code { overflow-wrap: anywhere; }
           <span class="stage__hint">El logo blanco entra apenas pasada la franja superior libre; titular y CTA se apoyan en la Penumbra y terminan antes de la franja inferior del 20%. El CTA es el botón propio de la marca, nunca el sticker nativo de la plataforma.</span>
         </div>
       </div>
+    </section>
+
+    <section class="spec">
+      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">08.7</span>Video y reels</h2></div>
+      <p class="spec__note">El video muestra una transformación real de luz, privacidad, material o ambiente. El producto entra antes que la marca; no se gasta el primer segundo en una placa de presentación.</p>
+      <div class="rows">
+        <div class="rows__item"><span class="rows__key">Formato vertical</span><span class="rows__val">1080 × 1920px. Contenido entre 64px laterales, 270px superiores y 384px inferiores. Es la traducción redondeada de las zonas libres del 14% y 20%. Usar la <a href="brand-assets/templates/video/reel-1080x1920.svg" download>plantilla editable</a>.</span></div>
+        <div class="rows__item"><span class="rows__key">Apertura</span><span class="rows__val">En los primeros 2 segundos se ve el resultado, la pregunta o la diferencia de producto. Sin bumper ni logo aislado.</span></div>
+        <div class="rows__item"><span class="rows__key">Demostración</span><span class="rows__val">Una acción por plano: bajar, comparar, tocar, medir o instalar. El montaje mantiene dirección y continuidad.</span></div>
+        <div class="rows__item"><span class="rows__key">Cierre</span><span class="rows__val">Resultado, acción concreta y logotipo estático durante 1.2 a 2 segundos. No agregar una segunda llamada a la acción.</span></div>
+      </div>
+      <ul class="clauses" style="margin-top:1.4rem">
+        <li><span class="num">08.7.1</span>Subtítulos en Manrope 600, blanco sobre Penumbra localizada, máximo dos líneas. Se transcribe lo dicho sin convertir cada palabra en una animación.</li>
+        <li><span class="num">08.7.2</span>La placa de nombre o dato se alinea a la izquierda y se separa con hairline. Nunca una cápsula flotante ni una etiqueta sobre cada plano.</li>
+        <li><span class="num">08.7.3</span>Las transiciones usan 04.4. La roller de 1200ms se reserva a un cambio de ambiente importante; los cortes ordinarios no la repiten.</li>
+        <li><span class="num">08.7.4</span>La música acompaña y queda por debajo de la voz y del sonido útil del producto. No existe firma sonora aprobada; no se inventa una.</li>
+        <li><span class="num">08.7.5</span>Ningún video arranca con audio automático en web. En redes, debe entenderse sin sonido mediante imagen y subtítulos.</li>
+        <li><span class="num">08.7.6</span>Exportar H.264 en MP4 para distribución general y conservar un maestro de alta calidad. Revisar compresión en tela, líneas finas, degradés y texto chico.</li>
+      </ul>
     </section>
   </div>
   </section>
@@ -1662,8 +1797,7 @@ code { overflow-wrap: anywhere; }
         <h1 class="chapter__title">La fotografía de la marca.</h1>
       </div>
       <p class="chapter__intro">
-        Referencia de calibración: <code>img/blackout-gris-bedroom.jpg</code>, <code>img/sunscreen-living-bright.jpg</code>
-        y el resto de la carpeta <code>img/</code>: ambientes reales, no un banco de fotos genérico.
+        Referencias descargables para calibrar luz, material y encuadre: <a href="brand-assets/photography/blackout-gris-bedroom-reference.jpg" download>Black Out en dormitorio</a> y <a href="brand-assets/photography/sunscreen-living-bright-reference.jpg" download>Sun Screen en living</a>. Son ambientes reales que orientan el tratamiento; no reemplazan la selección y aprobación de cada toma.
       </p>
     </section>
 
@@ -1724,6 +1858,23 @@ code { overflow-wrap: anywhere; }
         <li><span class="num">09.3.4</span><b>Cortina cortada en el encuadre</b>: prohibido en piezas de venta. El producto completo es el protagonista, no un detalle recortado.</li>
       </ul>
     </section>
+
+    <section class="spec">
+      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">09.4</span>Origen, permisos y retoque</h2></div>
+      <p class="spec__note">Una imagen puede verse correcta y aun así no estar habilitada. Antes de entrar al banco de marca tiene que poder responder quién la hizo, qué muestra y dónde se puede publicar.</p>
+      <div class="rows">
+        <div class="rows__item"><span class="rows__key">Registro mínimo</span><span class="rows__val">Archivo original, autor, fecha, producto, locación, personas identificables, autorización, canales permitidos y vencimiento.</span></div>
+        <div class="rows__item"><span class="rows__key">Cliente</span><span class="rows__val">Una foto recibida por chat no implica permiso publicitario. La autorización se guarda por separado y permite retirarla.</span></div>
+        <div class="rows__item"><span class="rows__key">Retoque</span><span class="rows__val">Corregir exposición, balance, perspectiva y elementos accidentales. No cambiar color de tela, medida, caída ni instalación.</span></div>
+        <div class="rows__item"><span class="rows__key">Referencia</span><span class="rows__val"><a href="brand-assets/photography/README.md">Dos imágenes reales del kit</a> calibran luz y composición; no funcionan como stock libre.</span></div>
+      </div>
+      <ul class="clauses" style="margin-top:1.4rem">
+        <li><span class="num">09.4.1</span>Una imagen generada no se presenta como casa, instalación, cliente o producto real. Tampoco se usa para probar color, textura, transparencia o resistencia.</li>
+        <li><span class="num">09.4.2</span>La IA puede ayudar a limpiar una imagen aprobada si no altera el producto ni agrega información falsa. La herramienta y el cambio quedan en metadata o ficha de producción.</li>
+        <li><span class="num">09.4.3</span>No generar personas ni testimonios. La promesa de “real” exige personas, productos y experiencias que existieron.</li>
+        <li><span class="num">09.4.4</span>Un antes y después conserva cámara, encuadre, exposición y ambiente. La única diferencia principal es la cortina o su estado.</li>
+      </ul>
+    </section>
   </div>
   </section>
 
@@ -1772,8 +1923,8 @@ code { overflow-wrap: anywhere; }
         </div>
         <div class="fx__row">
           <span class="fx__name">Comparador de luz</span>
-          <p class="fx__desc">La persona arrastra con el dedo o el mouse para comparar Blackout y Sun Screen en el mismo ambiente. El paño sigue el gesto sin transición ni retraso. Las flechas del teclado avanzan en pasos de 5% con 80ms lineales. Las dos imágenes conservan encuadre, producto y perspectiva.</p>
-          <div class="compare-demo" data-compare-demo tabindex="0" role="slider" aria-label="Comparar Blackout y Sun Screen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><div class="compare-demo__before">Blackout</div><div class="compare-demo__after">Sun Screen</div><div class="compare-demo__line"></div><div class="compare-demo__handle">↔</div></div>
+          <p class="fx__desc">La persona arrastra con el dedo o el mouse para comparar Black Out y Sun Screen en el mismo ambiente. El paño sigue el gesto sin transición ni retraso. Las flechas del teclado avanzan en pasos de 5% con 80ms lineales. Las dos imágenes conservan encuadre, producto y perspectiva.</p>
+          <div class="compare-demo" data-compare-demo tabindex="0" role="slider" aria-label="Comparar Black Out y Sun Screen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><div class="compare-demo__before">Black Out</div><div class="compare-demo__after">Sun Screen</div><div class="compare-demo__line"></div><div class="compare-demo__handle">↔</div></div>
         </div>
         <div class="fx__row">
           <span class="fx__name">Tela con respuesta física</span>
@@ -1855,20 +2006,33 @@ code { overflow-wrap: anywhere; }
           </div>
         </div>
       </div>
+      <div class="rows" style="margin-top:1.6rem">
+        <div class="rows__item"><span class="rows__key">Trazo principal</span><span class="rows__val">1px digital o 0.25mm impreso, en Tinta. Contorno visible, sin sombra ni volumen falso.</span></div>
+        <div class="rows__item"><span class="rows__key">Trazo auxiliar</span><span class="rows__val">Lino, mismo grosor o menor. Ejes ocultos y proyecciones usan línea discontinua regular.</span></div>
+        <div class="rows__item"><span class="rows__key">Medida</span><span class="rows__val">Tics perpendiculares, cifra en Manrope con tabular-nums y unidad visible. Rojo Teja se reserva a la cota que la explicación necesita destacar.</span></div>
+        <div class="rows__item"><span class="rows__key">Dirección</span><span class="rows__val">Flecha solo cuando existe movimiento o sentido de instalación. Una medida usa tics, no flechas decorativas.</span></div>
+      </div>
+      <ul class="clauses" style="margin-top:1.4rem">
+        <li><span class="num">10.5.1</span>Un diagrama técnico explica medida, orientación, mecanismo, instalación o cuidado. Si solo parece un plano, se elimina.</li>
+        <li><span class="num">10.5.2</span>La vista se nombra cuando puede haber duda: frente, lateral, techo o detalle. Nunca asumir que el lector conoce la orientación.</li>
+        <li><span class="num">10.5.3</span>La cifra manda sobre el dibujo. No medir una ilustración ni confiar en que está a escala salvo que lo declare de forma explícita.</li>
+        <li><span class="num">10.5.4</span>Producto, soporte y espacio libre se diferencian con contorno, trama o etiqueta. El color no es la única clave.</li>
+        <li><span class="num">10.5.5</span>Para instalación y cuidado se numeran pasos en orden de acción. Cada paso muestra una sola maniobra.</li>
+      </ul>
     </section>
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">10.6</span>Aplicaciones por fondo</h2></div>
       <p class="spec__note">Qué versión del logotipo y qué acción se permite sobre cada fondo del sistema. Cualquier combinación que no esté acá, no existe.</p>
       <div class="palette">
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#FAF7F2; border-bottom:1px solid var(--border);"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,184px); height:auto;" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Crema y blanco</span><span class="prow__use">Logo Tinta. CTA Rojo Teja. La combinación por defecto de toda la marca.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#F1EBE0;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,150px); height:auto;" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Arena</span><span class="prow__use">Logo Tinta y CTA Rojo Teja permitidos. Sobre trama Lino, dejar una superficie limpia detrás del logo.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:repeating-linear-gradient(90deg,#F1EBE0 0 3px,#FAF7F2 3px 6px);"><div style="display:flex; align-items:center; padding:.9rem 1rem; min-height:64px;"><div style="background:#FAF7F2; padding:10px 12px; width:min(100%,174px);"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,150px); height:auto; display:block;" /></div></div></div><div class="prow__meta"><span class="prow__name">Trama de tejido</span><span class="prow__use">El logo necesita una superficie Crema limpia. No apoyar texto chico ni CTA directamente sobre la trama; funciona como campo material, no como fondo de lectura.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#1C1816;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Tinta</span><span class="prow__use">Logo blanco. CTA Rojo Teja. Para pies de página y bloques oscuros.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#C63A21;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:#fff; color:var(--fg);">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Rojo Teja</span><span class="prow__use">Logo blanco. La acción se invierte: botón blanco con texto Tinta. Texto corrido solo en blanco y en bloques breves.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band grain" style="width:auto; max-width:none; height:auto; min-height:74px; background:linear-gradient(135deg,#D2451E,#97290F);"><div style="position:relative; z-index:1; display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding:.9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:#fff; color:var(--fg);">Ver la promoción</span></div></div><div class="prow__meta"><span class="prow__name">Brasa</span><span class="prow__use">Solo campaña. Logo blanco, títulos breves y acción blanca. El grano queda detrás; nunca se mueve y nunca recibe párrafos largos.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#1F3D2B;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:#FAF7F2; color:var(--fg);">Conocer la edición</span></div></div><div class="prow__meta"><span class="prow__name">Bosque</span><span class="prow__use">Solo en la campaña excepcional definida en 02.8. Logo blanco o Crema y acción Crema con texto Tinta. Nunca suma Rojo Teja.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:linear-gradient(0deg,rgba(28,24,22,.78),rgba(28,24,22,.15) 65%), linear-gradient(160deg,#E8D2B0,#C9A876); "><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><span style="align-self:flex-end; margin-top:auto;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /></span><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Cotizar mi cortina</span></div></div><div class="prow__meta"><span class="prow__name">Fotografía</span><span class="prow__use">Solo con Penumbra (10.4). Logo blanco apoyado en la zona oscura del scrim. CTA Rojo Teja.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#FAF7F2; border-bottom:1px solid var(--border);"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,184px); height:auto;" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Crema y blanco</span><span class="prow__use">Logo Tinta. CTA Rojo Teja. La combinación por defecto de toda la marca.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#F1EBE0;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,150px); height:auto;" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Arena</span><span class="prow__use">Logo Tinta y CTA Rojo Teja permitidos. Sobre trama Lino, dejar una superficie limpia detrás del logo.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:repeating-linear-gradient(90deg,#F1EBE0 0 3px,#FAF7F2 3px 6px);"><div style="display:flex; align-items:center; padding:.9rem 1rem; min-height:64px;"><div style="background:#FAF7F2; padding:10px 12px; width:min(100%,174px);"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,150px); height:auto; display:block;" /></div></div></div><div class="prow__meta"><span class="prow__name">Trama de tejido</span><span class="prow__use">El logo necesita una superficie Crema limpia. No apoyar texto chico ni CTA directamente sobre la trama; funciona como campo material, no como fondo de lectura.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#1C1816;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Tinta</span><span class="prow__use">Logo blanco. CTA Rojo Teja. Para pies de página y bloques oscuros.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#C63A21;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:#fff; color:var(--fg);">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Rojo Teja</span><span class="prow__use">Logo blanco. La acción se invierte: botón blanco con texto Tinta. Texto corrido solo en blanco y en bloques breves.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band grain" style="width:auto; max-width:none; height:auto; min-height:74px; background:linear-gradient(135deg,#D2451E,#97290F);"><div style="position:relative; z-index:1; display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding:.9rem 1rem; min-height:64px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:#fff; color:var(--fg);">Ver la promoción</span></div></div><div class="prow__meta"><span class="prow__name">Brasa</span><span class="prow__use">Solo campaña. Logo blanco, títulos breves y acción blanca. El grano queda detrás; nunca se mueve y nunca recibe párrafos largos.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#1F3D2B;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:#FAF7F2; color:var(--fg);">Conocer la edición</span></div></div><div class="prow__meta"><span class="prow__name">Bosque</span><span class="prow__use">Solo en la campaña excepcional definida en 02.8. Logo blanco o Crema y acción Crema con texto Tinta. Nunca suma Rojo Teja.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:linear-gradient(0deg,rgba(28,24,22,.78),rgba(28,24,22,.15) 65%), linear-gradient(160deg,#E8D2B0,#C9A876); "><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><span style="align-self:flex-end; margin-top:auto;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /></span><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Cotizar mi cortina</span></div></div><div class="prow__meta"><span class="prow__name">Fotografía</span><span class="prow__use">Solo con Penumbra (10.4). Logo blanco apoyado en la zona oscura del scrim. CTA Rojo Teja.</span><span class="prow__hex"></span></div></div>
       </div>
     </section>
 
@@ -1928,7 +2092,7 @@ code { overflow-wrap: anywhere; }
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">10.9</span>Control final antes de publicar</h2></div>
-      <p class="spec__note">Los once barridos que se corren sobre toda pieza terminada, en este orden. Si uno falla, se corrige y se vuelve a empezar desde ese punto. Nada sale sin pasar los once.</p>
+      <p class="spec__note">Los diecisiete barridos que se corren sobre toda pieza terminada, en este orden. Si uno falla, se corrige y se vuelve a empezar desde ese punto. Nada sale sin pasar los diecisiete.</p>
       <ul class="clauses">
         <li><span class="num">10.9.1</span><b>Una sola acción primaria</b>, y es el elemento de mayor contraste de la pieza (00.4.3). Todo lo secundario bajó el volumen.</li>
         <li><span class="num">10.9.2</span><b>Barrido de caracteres</b>: ni un middot, em-dash, estrella, check o flecha decorativa en texto visible (05.3).</li>
@@ -1941,6 +2105,12 @@ code { overflow-wrap: anywhere; }
         <li><span class="num">10.9.9</span><b>Movimiento propio</b>: nace de cortina, tela, luz o medida; funciona con touch y teclado, no bloquea, no queda en loop y conserva una versión reducida (04.4 y 10.3).</li>
         <li><span class="num">10.9.10</span><b>Mobile primero, medido</b>: sin desborde horizontal a 375px reales, y el layout revisado ahí antes que en desktop (00.4.1).</li>
         <li><span class="num">10.9.11</span><b>Visto publicado, desde un teléfono</b>, antes de reportarlo terminado (00.4.7). "Debería verse bien" no es un estado.</li>
+        <li><span class="num">10.9.12</span><b>Activos correctos</b>: cada logo, ícono, fuente y plantilla sale del paquete compatible con esta versión del manual (01.7).</li>
+        <li><span class="num">10.9.13</span><b>Nombres y afirmaciones vigentes</b>: productos, garantía, precio, stock, fechas y reseñas tienen fuente y fecha (05.8).</li>
+        <li><span class="num">10.9.14</span><b>Accesibilidad probada</b>: significado sin color, alternativa de imagen, teclado, zoom, touch y movimiento reducido según el formato (06.10).</li>
+        <li><span class="num">10.9.15</span><b>Derechos registrados</b>: fotografía, testimonio, persona, locación y retoque tienen permiso y procedencia (09.4).</li>
+        <li><span class="num">10.9.16</span><b>Salida de producción correcta</b>: perfil, resolución, sangrado, fuentes y prueba de color corresponden al soporte final (02.9 y 04.7).</li>
+        <li><span class="num">10.9.17</span><b>Marcas externas autorizadas</b>: si hay otra identidad, se respetaron permiso, liderazgo, peso óptico y zonas de seguridad (01.8).</li>
       </ul>
     </section>
   </div>
@@ -1975,14 +2145,14 @@ code { overflow-wrap: anywhere; }
 
 <footer class="foot">
   <div class="wrap">
-    <span>Manual de Marca de RollerShow, v1.6, julio 2026</span>
+    <span>Manual de Marca de RollerShow, v1.7, julio 2026</span>
     <span class="num">11 capítulos</span>
   </div>
 </footer>
 
 <script type="application/json" id="rollershow-brand-tokens">
 {
-  "meta": { "brand": "RollerShow", "docVersion": "1.6", "updated": "2026-07-15" },
+  "meta": { "brand": "RollerShow", "docVersion": "1.7", "updated": "2026-07-15", "assetKitVersion": "1.0.0" },
   "brand": { "essence": "la calidad se reconoce en todo el recorrido: descubrimiento, asesoramiento, presupuesto, fabricacion, instalacion, uso y posventa; la experiencia es la misma en todo el catalogo", "positioning": "la empresa con mas trayectoria vendiendo cortinas a medida online en Argentina; catalogo del mejor precio a la mas alta calidad", "languageAnchor": "real: productos reales, atencion real, posventa real; la garantia es una prueba concreta de la posventa", "personality": "calida, directa y precisa; nunca grita, nunca ruega", "tagline": { "text": "Cortinas como imaginás", "status": "bajada de trabajo adoptada, afinable antes de lanzamiento formal" }, "decisionRule": "caso sin clausula: priorizar legibilidad, funcion de la pieza y maxima aplicable; documentar la excepcion" },
   "color": {
     "bg": "#FAF7F2", "bgElev": "#FFFFFF", "bgMuted": "#F1EBE0",
@@ -2001,7 +2171,17 @@ code { overflow-wrap: anywhere; }
   },
   "spacing": { "container": "1280px", "containerNarrow": "920px", "sectionY": "clamp(3.5rem,7vw,6rem)", "padInline": "clamp(1.1rem,4vw,2.5rem)" },
   "grid": { "columns": 12, "gutter": "24px", "margin": "= padInline (fluido)" },
-  "print": { "safeMargin": "15mm", "bleed": "3mm", "folioOffset": "10mm desde borde inferior" },
+  "print": { "safeMargin": "15mm", "bleed": "3mm", "folioOffset": "10mm desde borde inferior", "colorRule": "sRGB es canon digital; CMYK se aprueba por perfil+maquina+soporte mediante prueba fisica", "pdf": "fuentes incrustadas, imagenes 300ppi al tamano final, perfil ICC conservado" },
+  "assetKit": { "version": "1.0.0", "download": "downloads/rollershow-brand-assets-v1.0.0.zip", "manifest": "brand-assets/manifest.json", "logoViewBox": "0 0 600 52", "logoRatio": 11.54, "compactMark": "no existe isotipo o favicon compacto aprobado; no recortar letras", "contents": ["3 variantes del logo completo", "16 iconos SVG", "2 referencias fotograficas", "4 plantillas editables", "hoja de prueba de color", "fuentes y licencias"] },
+  "governance": { "sourceOfTruth": "manual publico + paquete compatible", "review": "cada 6 meses o ante cambio importante", "exception": "registrar pieza, motivo, responsable y vencimiento antes de publicar", "versionRule": "todo cambio declara reglas y activos afectados" },
+  "production": { "digital": "sRGB", "printApproval": ["perfil ICC", "maquina", "tinta", "soporte", "prueba fisica", "fecha y responsable"], "rule": "un cambio de perfil, maquina o soporte exige nueva prueba" },
+  "naming": { "families": ["Roller", "Verticales", "Tradicionales", "Horizontales", "Dúo"], "collectionExamples": ["Black Out", "Sun Screen 5%", "Dim Out"], "source": "https://www.rollershow.com.ar/api/v2", "rule": "copiar nombre, espacios, porcentaje y acentos del dato vigente" },
+  "claims": { "needSourceAndDate": ["precio", "stock", "plazo", "descuento", "garantia", "trayectoria", "promedio de resenas", "desempeno"], "warranty": "usar meses de la coleccion concreta; hasta 3 anos solo describe el rango general", "expiredRule": "si la fuente no puede mostrarse o vencio, bajar la afirmacion" },
+  "coBranding": { "leadRule": "la marca que lidera define composicion; la otra conserva su identidad", "permission": "obligatorio antes de publicar", "lockup": "equilibrar peso optico y separar con espacio, sin simbolos decorativos", "threePlus": "zona de apoyos independiente" },
+  "accessibility": { "target": "WCAG 2.2 AA", "tests": ["teclado", "touch", "lector de pantalla", "zoom 200%", "reflow 320px", "alto contraste", "movimiento reducido"], "media": "texto alternativo; subtitulos sincronizados; descripcion cuando la imagen agrega informacion", "pdf": "etiquetas, idioma, orden logico, enlaces descriptivos y alt text" },
+  "video": { "vertical": "1080x1920", "safeZone": "64px laterales, 14% superior, 20% inferior", "opening": "producto, resultado o pregunta dentro de 2s; sin bumper", "closing": "resultado + una accion + logo estatico 1.2-2s", "captions": "Manrope 600, blanco sobre Penumbra, maximo 2 lineas", "motion": "usar recetas 04.4" },
+  "rights": { "record": ["original", "autor", "fecha", "producto", "locacion", "personas", "permiso", "canales", "vencimiento"], "ai": "nunca representar como real una persona, instalacion, producto o testimonio generado; registrar retoque asistido", "beforeAfter": "misma camara, encuadre, exposicion y ambiente" },
+  "technicalDiagram": { "primaryStroke": "1px digital o 0.25mm impreso en Tinta", "auxiliaryStroke": "Lino, igual o menor", "dimension": "tics perpendiculares + Manrope tabular + unidad", "direction": "flecha solo para movimiento o instalacion", "rule": "la cifra manda sobre el dibujo; declarar vista y escala" },
   "radius": { "button": "6px", "small": "8px", "medium": "14px", "large": "22px", "pillFunctionalOnly": "999px" },
   "shadow": {
     "sm": "0 1px 2px rgba(28,24,22,.05)",
@@ -2028,7 +2208,7 @@ code { overflow-wrap: anywhere; }
     "reducedMotion": "duracion 0 para escenas y materia; roller sin cubrir contenido; tela estable; comparadores operables"
   },
   "breakpoints": { "xs": "420px", "sm": "480px", "md": "720px", "lg": "980px" },
-  "preflight": ["una sola accion primaria con maximo contraste", "barrido de caracteres prohibidos", "sin cajas anidadas, radio-cards, barras laterales de estado, count-ups, auroras, marcador ni revelados genericos", "todos los valores salen de las escalas", "contraste medido no estimado", "CTA de la biblioteca o formula verbo+beneficio", "numeros y precios en formato fijo", "logo correcto para el fondo + zona de seguridad", "movimiento nacido de cortina, tela, luz o medida; touch+teclado+reduced-motion", "sin overflow a 375px reales", "visto publicado desde un telefono antes de reportar"],
+  "preflight": ["una sola accion primaria con maximo contraste", "barrido de caracteres prohibidos", "sin cajas anidadas, radio-cards, barras laterales de estado, count-ups, auroras, marcador ni revelados genericos", "todos los valores salen de las escalas", "contraste medido no estimado", "CTA de la biblioteca o formula verbo+beneficio", "numeros y precios en formato fijo", "logo correcto para el fondo + zona de seguridad", "movimiento nacido de cortina, tela, luz o medida; touch+teclado+reduced-motion", "sin overflow a 375px reales", "visto publicado desde un telefono antes de reportar", "activos del paquete compatible", "nombres y claims con fuente y fecha", "accesibilidad probada", "derechos y procedencia registrados", "salida de produccion correcta", "marcas externas autorizadas"],
   "maxims": ["mobile primero (disenar a 375px)", "estructural antes que estetico", "una sola accion primaria por pantalla, maximo contraste", "cada elemento es parte de algo, nada flotando", "la calidad se demuestra en todo el recorrido y cada promesa necesita prueba", "la solucion mas simple gana", "nada terminado hasta verlo en vivo en un telefono"],
   "writing": { "price": "$ 143.200 (espacio tras $, punto de miles, sin decimales)", "measure": "120 × 180 cm (signo ×, espacio antes de unidad)", "dateInCopy": "hasta el 30 de junio", "dateInDocs": "21/07/2026", "phone": "+54 9 351 000 0000", "warranty": "hasta 3 años de garantía" },
   "formField": { "radius": "8px", "border": "1.5px #E4DCCE", "focus": "borde terracota + anillo rgba(184,102,44,.14)", "valid": "borde tinta suave + confirmacion textual, sin verde", "error": "borde y mensaje #97290F con instruccion concreta", "globalFeedback": "fila integrada entre hairlines con titulo y salida clara; nunca toast efimero, card flotante ni barra lateral de estado" },
@@ -2054,7 +2234,7 @@ code { overflow-wrap: anywhere; }
   });
   document.querySelectorAll('[data-product-viewer]').forEach(function (viewer) {
     var products = {
-      blackout: { name: 'Blackout', description: 'Oscuridad y privacidad total para dormitorios y ambientes donde la luz necesita bloquearse.' },
+      blackout: { name: 'Black Out', description: 'Oscuridad y privacidad para dormitorios y ambientes donde se necesita bloquear la luz.' },
       sunscreen: { name: 'Sun Screen', description: 'Filtra la luz y conserva la vista exterior para espacios de trabajo y áreas sociales.' },
       doble: { name: 'Doble cortina', description: 'Combina control de luz y privacidad en una misma abertura con dos telas independientes.' }
     };

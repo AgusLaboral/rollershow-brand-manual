@@ -1,0 +1,165 @@
+{
+    "package":  "RollerShow Brand Assets",
+    "version":  "1.0.0",
+    "manualVersion":  "1.7",
+    "generatedAt":  "2026-07-15",
+    "canonicalLogoSource":  "https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg",
+    "compactMarkStatus":  "No existe isotipo o favicon compacto aprobado. No recortar letras del wordmark.",
+    "files":  [
+                  {
+                      "path":  "fonts/README.md",
+                      "bytes":  655,
+                      "sha256":  "91f4bf969168422eae712b034af90aec06b09f6494acfa497b10c1f65ed5558d"
+                  },
+                  {
+                      "path":  "icons/ambiente.svg",
+                      "bytes":  244,
+                      "sha256":  "bc67a44d06f957874aef39921276f91380b099b482ad7d447047cb76970f2e33"
+                  },
+                  {
+                      "path":  "icons/consulta.svg",
+                      "bytes":  216,
+                      "sha256":  "a24c3bcb4b7439959a74267b9c6c05f67bab41482a496da206823126bef2297d"
+                  },
+                  {
+                      "path":  "icons/cuidado.svg",
+                      "bytes":  252,
+                      "sha256":  "14c8e5d635e87de62f78aa4cd3c26fcdf35797f6c94bd0fc2b909ac5b9d0bdca"
+                  },
+                  {
+                      "path":  "icons/entrega.svg",
+                      "bytes":  269,
+                      "sha256":  "325ebc7fa2dd260ad20cfd4cbdfa23109b57db413e70ea570dfd3d58209f0ff3"
+                  },
+                  {
+                      "path":  "icons/fabricacion.svg",
+                      "bytes":  223,
+                      "sha256":  "5b0c2fd0e0ff39fd69ef13ebbc84269d0d82b122240836541bac38368aa80711"
+                  },
+                  {
+                      "path":  "icons/garantia.svg",
+                      "bytes":  250,
+                      "sha256":  "ec7c2253f557413ddfc1a745b44b88f3ec11c328665552386ba2d450907a9661"
+                  },
+                  {
+                      "path":  "icons/horizontal.svg",
+                      "bytes":  238,
+                      "sha256":  "689e5aef32b74a85c9b589e9f1b860406abeb37c85b8573a18b5342e2086d96b"
+                  },
+                  {
+                      "path":  "icons/instalacion.svg",
+                      "bytes":  235,
+                      "sha256":  "1e93bb125992292e35f8bc61332298e0cec38ebd28433ceb2478444ad1f1168b"
+                  },
+                  {
+                      "path":  "icons/luz.svg",
+                      "bytes":  272,
+                      "sha256":  "326addd0690f8a7ac4bacb32c74756a5b27e11c9ff6a034354da6105a4135aee"
+                  },
+                  {
+                      "path":  "icons/medida.svg",
+                      "bytes":  248,
+                      "sha256":  "63886bc3fac3496830e3216a05b120af96b35f6132efed26887842319264d666"
+                  },
+                  {
+                      "path":  "icons/pago.svg",
+                      "bytes":  237,
+                      "sha256":  "072d2299c9cfd0b2ed23919f702d979a40e86fda73c40bd580a0ddb3fa715f49"
+                  },
+                  {
+                      "path":  "icons/posventa.svg",
+                      "bytes":  244,
+                      "sha256":  "c64b0d8faa6e30c34faf4419b52696aff7bf27485f0b08bff28ccdf550489783"
+                  },
+                  {
+                      "path":  "icons/presupuesto.svg",
+                      "bytes":  242,
+                      "sha256":  "5e2681a2837caaf5513976206428e8f5362631e480d984d998a91e78552c616f"
+                  },
+                  {
+                      "path":  "icons/roller.svg",
+                      "bytes":  293,
+                      "sha256":  "9c3618ce8fe0c2073dd7c3373b0be1724872f804374bd05b3e8ec97d459bf688"
+                  },
+                  {
+                      "path":  "icons/tradicional.svg",
+                      "bytes":  229,
+                      "sha256":  "47aed638a1d547e0706dd6d92c88c4578f08625a8ddfc1c0ec37744adc5aeef0"
+                  },
+                  {
+                      "path":  "icons/vertical.svg",
+                      "bytes":  238,
+                      "sha256":  "726c1a34755691f08b894b1674bc801c7b0f179efc3ec435ccbdf7618e75f330"
+                  },
+                  {
+                      "path":  "logo/rollershow-logo-animated-tinta.svg",
+                      "bytes":  32056,
+                      "sha256":  "3a7e91e137569175d460433ad865ac13eacd66a88e105fc03b37e647c57250a9"
+                  },
+                  {
+                      "path":  "logo/rollershow-logo-static-blanco.svg",
+                      "bytes":  3570,
+                      "sha256":  "6d75b307a7ad0929ceb2a811a5bb8656e5947efd2e36ed1244def3a230ca0eb4"
+                  },
+                  {
+                      "path":  "logo/rollershow-logo-static-tinta.svg",
+                      "bytes":  3570,
+                      "sha256":  "27c3d9103119cc7ad847054b217a15b84e1959c90043132ed04d29543de6b2f4"
+                  },
+                  {
+                      "path":  "photography/blackout-gris-bedroom-reference.jpg",
+                      "bytes":  1477332,
+                      "sha256":  "f094659947341ecaecd7fb5a27c21e59751694b0127fa3705a8b32ed629b2821"
+                  },
+                  {
+                      "path":  "photography/README.md",
+                      "bytes":  531,
+                      "sha256":  "61b9315b24110c1cc6f489911d29f985f8527d38a9dfe339d38dab03227791dd"
+                  },
+                  {
+                      "path":  "photography/sunscreen-living-bright-reference.jpg",
+                      "bytes":  1984262,
+                      "sha256":  "5e3fab3f6d68046a1df0a84e084106704ae8f0b9703ee975920ab50d2c915df8"
+                  },
+                  {
+                      "path":  "production/print-proof-sheet.svg",
+                      "bytes":  3043,
+                      "sha256":  "a74527395a35705f110cc545306b95184eb405b60fd7faa15fc2767bef78c970"
+                  },
+                  {
+                      "path":  "production/README.md",
+                      "bytes":  764,
+                      "sha256":  "c3e460e4dd52184a9b474b248697d6f126cdedcb76a4228f7bd0e5d68e1ec47a"
+                  },
+                  {
+                      "path":  "README.md",
+                      "bytes":  1451,
+                      "sha256":  "16df5615a66711a3b8c73ba7d978a98ca96ced4ab7bcd0700158bdfcb7c448d6"
+                  },
+                  {
+                      "path":  "templates/documents/letterhead-a4.svg",
+                      "bytes":  1673,
+                      "sha256":  "2767279529a880e5dae10e47303fa6e61fb9912d18d0a3deae5b4ef1f881ddda"
+                  },
+                  {
+                      "path":  "templates/README.md",
+                      "bytes":  411,
+                      "sha256":  "4bedb3e9e4907edd2eb906b20d2f2d7a2f706bbc02df12bd526106ba2bdd06b7"
+                  },
+                  {
+                      "path":  "templates/social/post-1080x1080.svg",
+                      "bytes":  1883,
+                      "sha256":  "c31d032b7252b625e94628eaf12dc4b3c128ebcebe04ac79933e5faf1dc6c5ae"
+                  },
+                  {
+                      "path":  "templates/social/story-1080x1920.svg",
+                      "bytes":  1877,
+                      "sha256":  "1d207abe7198bcf6290ef3634fe112aab8a3588b761089f9893a7b0aed86ce4a"
+                  },
+                  {
+                      "path":  "templates/video/reel-1080x1920.svg",
+                      "bytes":  1858,
+                      "sha256":  "a4345188675c5340576d9e20b698142f62bba245937f7981725d742bc0f293ca"
+                  }
+              ]
+}

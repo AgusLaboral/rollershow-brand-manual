@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <linearGradient id="photo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F1EBE0"/><stop offset="1" stop-color="#A98E73"/></linearGradient>
+    <linearGradient id="scrim" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#1C1816" stop-opacity=".84"/><stop offset=".58" stop-color="#1C1816" stop-opacity=".08"/><stop offset="1" stop-color="#1C1816" stop-opacity="0"/></linearGradient>
+    <pattern id="guide" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="18" fill="#C63A21" opacity=".13"/></pattern>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#photo)"/>
+  <text x="540" y="920" text-anchor="middle" font-family="Manrope, sans-serif" font-size="28" fill="#1C1816" opacity=".55">Reemplazar por fotografía real</text>
+  <rect width="1080" height="1920" fill="url(#scrim)"/>
+  <g id="contenido" transform="translate(86 0)">
+    <image href="../../logo/rollershow-logo-static-blanco.svg" x="0" y="300" width="330" height="29"/>
+    <text x="0" y="1180" font-family="Bricolage Grotesque, sans-serif" font-size="82" font-weight="800" fill="#FFFFFF"><tspan x="0">Privacidad sin</tspan><tspan x="0" dy="90">perder la luz.</tspan></text>
+    <text x="0" y="1430" font-family="Manrope, sans-serif" font-size="34" font-weight="700" fill="#FFFFFF">Ver cómo queda en tu ventana</text>
+  </g>
+  <g id="guias">
+    <rect x="64" y="270" width="952" height="1266" fill="none" stroke="#C63A21" stroke-width="2" stroke-dasharray="12 10"/>
+    <path d="M0 0H1080V270H0ZM0 1536H1080V1920H0ZM0 270H64V1536H0ZM1016 270H1080V1536H1016Z" fill="url(#guide)"/>
+    <text x="76" y="250" font-family="Manrope, sans-serif" font-size="18" font-weight="700" fill="#C63A21">zona segura 64 px, 14% arriba, 20% abajo</text>
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <linearGradient id="scene" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#E8D2B0"/><stop offset="1" stop-color="#8C7056"/></linearGradient>
+    <pattern id="guide" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="18" fill="#C63A21" opacity=".13"/></pattern>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#scene)"/>
+  <text x="540" y="800" text-anchor="middle" font-family="Manrope, sans-serif" font-size="30" fill="#1C1816" opacity=".6">Video de producto en contexto</text>
+  <g id="placa-texto" transform="translate(86 0)">
+    <text x="0" y="1120" font-family="Bricolage Grotesque, sans-serif" font-size="80" font-weight="800" fill="#FFFFFF"><tspan x="0">Mirá cómo cambia</tspan><tspan x="0" dy="88">la luz del ambiente.</tspan></text>
+    <text x="0" y="1380" font-family="Manrope, sans-serif" font-size="32" font-weight="600" fill="#FFFFFF">Subtítulo máximo de dos líneas</text>
+    <image href="../../logo/rollershow-logo-static-blanco.svg" x="0" y="1450" width="330" height="29"/>
+  </g>
+  <g id="guias">
+    <rect x="64" y="270" width="952" height="1266" fill="none" stroke="#C63A21" stroke-width="2" stroke-dasharray="12 10"/>
+    <path d="M0 0H1080V270H0ZM0 1536H1080V1920H0ZM0 270H64V1536H0ZM1016 270H1080V1536H1016Z" fill="url(#guide)"/>
+    <path d="M64 1410H1016" stroke="#C63A21" stroke-width="2" stroke-dasharray="12 10"/>
+    <text x="76" y="250" font-family="Manrope, sans-serif" font-size="18" font-weight="700" fill="#C63A21">zona segura: 64 px laterales, 14% arriba y 20% abajo</text>
+    <text x="76" y="1390" font-family="Manrope, sans-serif" font-size="18" font-weight="700" fill="#C63A21">subtítulos y cierre por encima de esta línea</text>
+  </g>
+</svg>

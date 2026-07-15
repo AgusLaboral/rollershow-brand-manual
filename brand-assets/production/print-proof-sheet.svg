@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+  <rect width="210" height="297" fill="#FFFFFF"/>
+  <text x="16" y="22" font-family="Bricolage Grotesque, sans-serif" font-size="8" font-weight="800" fill="#1C1816">Prueba física de color RollerShow</text>
+  <text x="16" y="31" font-family="Manrope, sans-serif" font-size="3.5" fill="#5F554D">Imprimir al 100%, sin corrección automática. Completar antes de aprobar.</text>
+  <g font-family="Manrope, sans-serif" font-size="3.4" fill="#1C1816">
+    <text x="16" y="45">Proveedor:</text><path d="M36 46H96" stroke="#E4DCCE" stroke-width=".3"/>
+    <text x="108" y="45">Fecha:</text><path d="M122 46H194" stroke="#E4DCCE" stroke-width=".3"/>
+    <text x="16" y="54">Máquina:</text><path d="M36 55H96" stroke="#E4DCCE" stroke-width=".3"/>
+    <text x="108" y="54">Perfil ICC:</text><path d="M128 55H194" stroke="#E4DCCE" stroke-width=".3"/>
+    <text x="16" y="63">Soporte:</text><path d="M36 64H96" stroke="#E4DCCE" stroke-width=".3"/>
+    <text x="108" y="63">Acabado:</text><path d="M128 64H194" stroke="#E4DCCE" stroke-width=".3"/>
+  </g>
+  <g font-family="Manrope, sans-serif" font-size="3.2" font-weight="700">
+    <rect x="16" y="78" width="54" height="30" fill="#FAF7F2" stroke="#E4DCCE" stroke-width=".25"/><text x="16" y="114" fill="#1C1816">Crema #FAF7F2</text>
+    <rect x="78" y="78" width="54" height="30" fill="#F1EBE0"/><text x="78" y="114" fill="#1C1816">Arena #F1EBE0</text>
+    <rect x="140" y="78" width="54" height="30" fill="#E4DCCE"/><text x="140" y="114" fill="#1C1816">Lino #E4DCCE</text>
+    <rect x="16" y="128" width="54" height="30" fill="#1C1816"/><text x="16" y="164" fill="#1C1816">Tinta #1C1816</text>
+    <rect x="78" y="128" width="54" height="30" fill="#C63A21"/><text x="78" y="164" fill="#1C1816">Rojo Teja #C63A21</text>
+    <rect x="140" y="128" width="54" height="30" fill="#B8662C"/><text x="140" y="164" fill="#1C1816">Terracota #B8662C</text>
+    <rect x="16" y="178" width="54" height="30" fill="#D2451E"/><text x="16" y="214" fill="#1C1816">Glow #D2451E</text>
+    <rect x="78" y="178" width="54" height="30" fill="#97290F"/><text x="78" y="214" fill="#1C1816">Profundo #97290F</text>
+    <rect x="140" y="178" width="54" height="30" fill="#1F3D2B"/><text x="140" y="214" fill="#1C1816">Bosque #1F3D2B</text>
+  </g>
+  <g font-family="Manrope, sans-serif" font-size="3.4" fill="#1C1816">
+    <text x="16" y="236">Valores CMYK resultantes:</text><path d="M60 237H194" stroke="#E4DCCE" stroke-width=".3"/>
+    <text x="16" y="247">Corrección aplicada:</text><path d="M52 248H194" stroke="#E4DCCE" stroke-width=".3"/>
+    <text x="16" y="258">Aprobó:</text><path d="M34 259H96" stroke="#E4DCCE" stroke-width=".3"/>
+    <text x="108" y="258">Firma:</text><path d="M122 259H194" stroke="#E4DCCE" stroke-width=".3"/>
+    <text x="16" y="278" font-size="2.8" fill="#87796D">Esta hoja registra una combinación concreta de perfil, máquina y soporte. No crea una conversión CMYK universal.</text>
+  </g>
+</svg>
