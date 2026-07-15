@@ -14,6 +14,15 @@ Este repo contiene UNA sola pieza: el manual de marca de RollerShow (`index.html
 
 Portada manifiesto (tesis: "RollerShow vende calidad y la calidad se nota antes de tocar el producto"; personalidad: "habla como un buen vendedor de local: cálido, directo y preciso, sin gritar") · 00 Cómo leer el manual (00.1 para qué existe: es árbitro y es el brief; 00.2 convenciones; 00.4 las 7 máximas) · 01 Marca · 02 Color (+ matriz de contraste WCAG medida) · 03 Tipografía · 04 Espaciado, grilla, sangrado, escala de espaciado · 05 Voz, copy, biblioteca de CTAs, ortotipografía · 06 Componentes web (+ anatomía y 5 estados del botón, campos y feedback) · 07 Papelería (presupuesto, firma, tarjeta, membrete) · 08 Redes (zonas seguras graficadas, plantillas de post y story) · 09 Fotografía · 10 Materia y efectos (fondos con nombre, elementos recurrentes, iconografía, catálogo sí/no, control final 10.9) · 11 Tokens (`<script type="application/json" id="rollershow-brand-tokens">` con TODO el sistema para lectura de máquina — mantenerlo sincronizado con cualquier cambio del cuerpo).
 
+## Definiciones de marca dictadas por Agus (canon, no reinterpretar)
+
+- **Tesis confirmada**: "la calidad se percibe antes de tocar el producto". Es el concepto rector de la portada y del manual.
+- **Concepto ancla "real"**: productos reales, atención real, equipo real. Viene de Nicolás y Agus pidió aplicarlo a lo largo del documento donde amerite. Es el statement de portada ("Productos reales. Atención real.").
+- **Espectro de catálogo**: va del producto intermedio a muy buen precio hasta el de altísima calidad. Se comunica como rango ("del mejor precio a la más alta calidad"), nunca con precios ni modelos específicos.
+- **Trayectoria**: "la empresa con más años haciendo cortinas a medida en la Argentina" es un claim usable.
+- **Bajada "Cortinas como imaginás"**: EN EXPLORACIÓN (sección 01.6). No confirmarla ni aplicarla en piezas públicas sin el visto de Agus; sí se pueden proponer variantes cuando él lo pida.
+- **Registro de redacción**: las partes blandas se escriben como los grandes manuales de marca, hablando de la marca en sí, con lenguaje agnóstico del lector (nada de conceptos internos del negocio que un lector externo no conoce). Lo técnico se mantiene técnico y claro. Prohibidos además de los tells de siempre: comparaciones autorreferenciales y frases que nadie diría en voz alta.
+
 ## Reglas duras (costaron rondas de corrección; no las rompas)
 
 1. **Agnóstico de aplicaciones.** El manual no menciona bots, archivos, proyectos ni landings específicas. Si una pieza real contradice al manual, se corrige la pieza, no el manual (regla 00.2.3). Bugs encontrados en otros proyectos NO se documentan acá.
