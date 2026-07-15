@@ -275,6 +275,9 @@ code { overflow-wrap: anywhere; }
 .tinted-shadow { width: 190px; max-width: 100%; height: 58px; background: var(--bg-elev); box-shadow: 0 14px 28px -10px rgba(198, 58, 33, .38); display: flex; align-items: center; justify-content: center; font-size: .78rem; color: var(--fg-mute); }
 .reveal-demo { width: 100%; max-width: 260px; height: 46px; background: var(--bg-muted); position: relative; overflow: hidden; border: 1px solid var(--border); }
 .reveal-demo span { position: absolute; inset: 0; display: flex; align-items: center; padding-inline: .8rem; font-size: .78rem; color: var(--fg-soft); font-weight: 600; animation: reveal 3.2s var(--ease) infinite !important; }
+@keyframes marker { from { transform: scaleX(0) rotate(-0.5deg); } 62% { transform: scaleX(1.025) rotate(-0.5deg); } to { transform: scaleX(1) rotate(-0.5deg); } }
+.hl-demo { position: relative; display: inline-block; isolation: isolate; padding: .05em .2em .06em; white-space: nowrap; color: #fff; }
+.hl-demo::before { content: ''; position: absolute; inset: 4% -1.5% 6%; background: var(--accent); border-radius: 9px 12px 8px 11px / 13px 9px 12px 10px; z-index: -1; transform-origin: left center; animation: marker .55s cubic-bezier(.65,0,.35,1) .4s both infinite alternate !important; animation-duration: .55s; animation-delay: .4s; }
 @keyframes reveal { 0% { clip-path: inset(0 100% 0 0); } 35%, 65% { clip-path: inset(0 0 0 0); } 100% { clip-path: inset(0 0 0 100%); } }
 .verdict { border-top: 2px solid var(--fg); margin-top: clamp(1.5rem,4vw,2.4rem); }
 .verdict__row { display: grid; grid-template-columns: 3.4rem 1fr; gap: .9rem; padding-block: .8rem; border-bottom: 1px solid var(--border); }
@@ -1534,16 +1537,18 @@ code { overflow-wrap: anywhere; }
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">10.4</span>Fondos de marca</h2></div>
-      <p class="spec__note">Tres fondos con nombre y receta. Cualquier degradé fuera de estos tres queda prohibido: el degradé genérico es uno de los tells más fuertes de pieza sin criterio.</p>
+      <p class="spec__note">Cuatro fondos con nombre y receta. Cualquier degradé o mancha fuera de estos cuatro queda prohibido: el degradé genérico es uno de los tells más fuertes de pieza sin criterio.</p>
       <div class="palette">
         <div class="prow"><div class="prow__band" style="background:linear-gradient(180deg,#FFFFFF,#FAF7F2 55%,#F1EBE0)"></div><div class="prow__meta"><span class="prow__name">Amanecer de lino</span><span class="prow__use">Fondo de secciones amplias y heros claros. <code>linear-gradient(180deg, #FFFFFF, #FAF7F2 55%, #F1EBE0)</code></span><span class="prow__hex num">vertical</span></div></div>
         <div class="prow"><div class="prow__band" style="background:linear-gradient(135deg,#D2451E,#97290F); position:relative;"><div style="position:absolute; inset:0; opacity:.3; mix-blend-mode:soft-light; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n2)'/%3E%3C/svg%3E&quot;)"></div></div><div class="prow__meta"><span class="prow__name">Brasa</span><span class="prow__use">Fondo de campaña y banners promo, siempre con texto y logo en blanco, y con grano de tela encima (10.3). <code>linear-gradient(135deg, #D2451E, #97290F)</code></span><span class="prow__hex num">135 grados</span></div></div>
         <div class="prow"><div class="prow__band" style="background:linear-gradient(0deg,rgba(28,24,22,.78),rgba(28,24,22,.2) 65%,transparent), linear-gradient(160deg,#E8D2B0,#C9A876)"></div><div class="prow__meta"><span class="prow__name">Penumbra</span><span class="prow__use">Scrim sobre fotografía para apoyar texto o logo (ver 08.3). <code>linear-gradient(0deg, rgba(28,24,22,.78), transparent 65%)</code></span><span class="prow__hex num">scrim</span></div></div>
+        <div class="prow"><div class="prow__band" style="position:relative; overflow:hidden; background:#FAF7F2;"><div style="position:absolute; top:-40%; left:-10%; width:65%; aspect-ratio:1; border-radius:50%; filter:blur(28px); background:radial-gradient(circle, rgba(184,102,44,.55), transparent 60%);"></div><div style="position:absolute; bottom:-45%; right:-8%; width:55%; aspect-ratio:1; border-radius:50%; filter:blur(24px); background:radial-gradient(circle, rgba(243,227,210,.95), transparent 62%);"></div></div><div class="prow__meta"><span class="prow__name">Aurora cálida</span><span class="prow__use">Solo pantallas de cierre y celebración (gracias, confirmación). Dos manchas radiales de Terracota y su tono suave sobre Crema, <code>filter: blur(55px)</code>. Nunca convive con un CTA primario ni carga texto largo encima.</span><span class="prow__hex num">radial ×2</span></div></div>
       </div>
       <ul class="clauses" style="margin-top:1.4rem">
         <li><span class="num">10.4.1</span>Amanecer de lino es el único degradé permitido sobre fondos de lectura; su recorrido nunca sale de la familia Crema y Arena.</li>
         <li><span class="num">10.4.2</span>Brasa es exclusivo de piezas de campaña. Nunca convive con el CTA estándar en la misma pantalla, y nunca se usa como fondo de texto largo.</li>
         <li><span class="num">10.4.3</span>Penumbra siempre nace del borde donde se apoya el texto (abajo o costado), nunca cubre la foto completa.</li>
+        <li><span class="num">10.4.4</span>Aurora cálida es la única mancha difusa permitida, y solo con los colores de la paleta. Cualquier blob borroso en otro color o contexto sigue prohibido por el catálogo (10.8).</li>
       </ul>
     </section>
 
@@ -1570,6 +1575,16 @@ code { overflow-wrap: anywhere; }
           <span class="fx__name">Folio</span>
           <p class="fx__desc">Cabecera y pie de documento: logo o nombre a la izquierda, dato de contexto a la derecha en itálica chica, separados del contenido por una línea de Tinta. Es la firma de todos los documentos y presupuestos.</p>
           <div style="width:190px; max-width:100%; border-bottom:1px solid var(--fg); padding-bottom:.4rem; display:flex; justify-content:space-between; align-items:baseline;"><span style="font-family:var(--font-display); font-weight:800; font-size:.8rem;">RollerShow</span><span style="font-size:.6rem; color:var(--fg-mute); font-style:italic;">Presupuesto</span></div>
+        </div>
+        <div class="fx__row">
+          <span class="fx__name">Punto final</span>
+          <p class="fx__desc">El punto de cierre de un titular display, en Terracota. Un solo punto de color por pieza, solo en titulares, nunca en texto corrido. Remata la frase sin agregar ningún elemento.</p>
+          <div style="font-family:var(--font-display); font-weight:800; font-size:1.7rem; letter-spacing:-0.02em;">Gracias<span style="color:var(--accent);">.</span></div>
+        </div>
+        <div class="fx__row">
+          <span class="fx__name">Resaltado marcador</span>
+          <p class="fx__desc">Una palabra o frase corta del titular sobre un rectángulo Terracota con radio asimétrico y rotación de -0.5 grados: trazo de marcador, no caja perfecta. Receta: <code>border-radius: 9px 12px 8px 11px / 13px 9px 12px 10px</code>, entra con barrido <code>scaleX</code> de 0.55s con leve rebote. Máximo uno por pieza, y solo en pantallas sin CTA primario a la vista (cierre, confirmación).</p>
+          <div style="font-family:var(--font-display); font-weight:800; font-size:1.35rem; letter-spacing:-0.02em;">Te respondemos <span class="hl-demo">ahora mismo.</span></div>
         </div>
       </div>
     </section>
@@ -1621,7 +1636,7 @@ code { overflow-wrap: anywhere; }
         <div class="verdict__row verdict--yes"><b>Sí</b><p>Numeración de sección fundida en el mismo renglón del título (ver 00.2.1): nunca una etiqueta separada antes del título.</p></div>
         <div class="verdict__row verdict--yes"><b>Sí</b><p>Sombra tintada al color de marca en vez de gris genérico (10.3).</p></div>
         <div class="verdict__row verdict--yes"><b>Sí</b><p>Un solo elemento de máximo contraste por pantalla: el Rojo Teja de la acción primaria.</p></div>
-        <div class="verdict__row verdict--no"><b>No</b><p>Gradientes púrpura-azul genéricos, orbes borrosos, bokeh, partículas decorativas. <em>No pertenecen a esta paleta ni a este rubro.</em></p></div>
+        <div class="verdict__row verdict--no"><b>No</b><p>Gradientes púrpura-azul genéricos, bokeh, partículas decorativas y toda mancha borrosa fuera de la Aurora cálida (10.4). <em>No pertenecen a esta paleta ni a este rubro.</em></p></div>
         <div class="verdict__row verdict--no"><b>No</b><p>Cajas dentro de cajas, tarjetas flotantes como sección completa. <em>El contenido se funde con el fondo; separa con hairline.</em></p></div>
         <div class="verdict__row verdict--no"><b>No</b><p>Punto de color titilante junto a un teléfono o estado ("dot de online"). <em>Es el tell más reincidente, no se introduce nunca.</em></p></div>
         <div class="verdict__row verdict--no"><b>No</b><p>Botón píldora verde-WhatsApp genérico con ícono + la palabra "WhatsApp". <em>Usar sólido sobrio con verbo, ver 06.1.</em></p></div>
@@ -1730,8 +1745,8 @@ code { overflow-wrap: anywhere; }
   "socialPost": { "ratio": "1:1", "structure": "foto a sangre + penumbra + titular blanco abajo-izquierda (max 2 lineas) + logo blanco esquina inferior derecha al 10% del ancho" },
   "contrast": { "tinta/crema": 16.5, "grisCalido/crema": 9.4, "tinta/arena": 14.9, "blanco/rojoTeja": 5.2, "blanco/rojoProfundo": 8.0, "topo/crema": "3.9 solo microcopy", "blanco/terracota": "4.2 solo texto grande", "blanco/whatsapp": "2.0 fuera de norma, solo el boton del canal" },
   "iconography": { "style": "linea 1.5px, terminaciones redondeadas, monocolor, reticula 24px", "sizes": [20, 24, 32], "rules": ["nunca emoji como icono", "nunca icono sin palabra", "nunca icono decorativo sobre titulos"] },
-  "backgrounds": { "amanecer-de-lino": "linear-gradient(180deg,#FFFFFF,#FAF7F2 55%,#F1EBE0)", "brasa": "linear-gradient(135deg,#D2451E,#97290F) + grano de tela", "penumbra-scrim": "linear-gradient(0deg,rgba(28,24,22,.78),transparent 65%)" },
-  "recurringElements": ["banda-de-color-full-bleed", "hairline-editorial-1px-lino", "trama-de-tejido repeating-linear-gradient(90deg,#F1EBE0 0 3px,#FAF7F2 3px 6px)", "folio-cabecera-documento"],
+  "backgrounds": { "aurora-calida": "2 manchas radiales terracota/terracota-suave sobre crema, blur 55px, solo pantallas de cierre sin CTA", "amanecer-de-lino": "linear-gradient(180deg,#FFFFFF,#FAF7F2 55%,#F1EBE0)", "brasa": "linear-gradient(135deg,#D2451E,#97290F) + grano de tela", "penumbra-scrim": "linear-gradient(0deg,rgba(28,24,22,.78),transparent 65%)" },
+  "recurringElements": ["punto-final-terracota-en-titular-display", "resaltado-marcador (radio asimetrico 9px 12px 8px 11px / 13px 9px 12px 10px, rotate -0.5deg, wipe scaleX .55s, max 1 por pieza, solo pantallas sin CTA)", "banda-de-color-full-bleed", "hairline-editorial-1px-lino", "trama-de-tejido repeating-linear-gradient(90deg,#F1EBE0 0 3px,#FAF7F2 3px 6px)", "folio-cabecera-documento"],
   "ctaLibrary": { "cotizar": "Recibir mi cotización", "descuento": "Recibir mi descuento", "promocion": "Aprovechar la promo", "visualizar": "Ver cómo queda en tu ventana", "contacto": "Escribinos", "explorar": "Ver telas (enlace, no botón)", "instalacion": "Coordinar mi instalación", "descartar": "No, gracias", "prohibidos": ["Enviar", "Click acá", "Más info", "Quiero..."] },
   "effectsApproved": ["barrido-de-luz", "degrade-brasa", "grano-de-tela", "sombra-tintada", "revelado-scroll-clip-path"],
   "effectsBanned": ["dot-online-pulsante", "boton-pildora-accion", "gradiente-purpura-azul-generico", "caja-dentro-de-caja", "eyebrow-badge", "contador-urgencia-falsa", "estrellas-ascii", "glassmorphism-pesado", "carrusel-autoplay", "fake-dashboard"]
