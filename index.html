@@ -53,7 +53,11 @@
   --shadow-md: 0 6px 18px rgba(28, 24, 22, .08), 0 2px 6px rgba(28, 24, 22, .04);
   --dur-fast: 180ms;
   --dur: 280ms;
+  --dur-scene: 480ms;
+  --dur-signature: 720ms;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.55, 0, 1, 0.45);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -97,6 +101,18 @@ code { overflow-wrap: anywhere; }
 }
 .cover__meta { margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--fg); padding-top: 1rem; display: flex; gap: 2rem; flex-wrap: wrap; font-size: .85rem; color: var(--fg-mute); }
 .cover__meta b { color: var(--fg-soft); font-weight: 600; }
+
+/* ---------- Recorrido de marca ---------- */
+.journey { border-block: 1px solid var(--border); display: grid; margin-top: 1.5rem; }
+.journey__step { display: grid; grid-template-columns: 2.8rem 1fr; gap: .8rem; padding-block: .8rem; border-bottom: 1px solid var(--border); align-items: baseline; }
+.journey__step:last-child { border-bottom: 0; }
+.journey__step b { font-family: var(--font-display); font-size: .92rem; }
+.journey__step span { color: var(--fg-soft); font-size: .86rem; }
+@media (min-width: 760px) {
+  .journey { grid-template-columns: repeat(4, 1fr); }
+  .journey__step { grid-template-columns: 1fr; gap: .35rem; padding: 1rem; border-bottom: 0; border-right: 1px solid var(--border); }
+  .journey__step:last-child { border-right: 0; }
+}
 
 /* ---------- Bloque capítulo ---------- */
 .chapterblock { border-top: 4px solid var(--fg); }
@@ -194,10 +210,10 @@ code { overflow-wrap: anywhere; }
   content: ''; position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.22) 50%, transparent 65%);
   transform: translateX(-110%);
-  animation: sweep 3.4s var(--ease) infinite !important;
   pointer-events: none;
 }
-@keyframes sweep { 0%, 55% { transform: translateX(-110%); } 85%, 100% { transform: translateX(110%); } }
+.btn--teja:hover::before, .btn--teja:focus-visible::before { animation: sweep .9s var(--ease) 1; }
+@keyframes sweep { from { transform: translateX(-110%); } to { transform: translateX(110%); } }
 .btn--ink { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 .btn--ink:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
 .btn--wa { background: var(--whatsapp); color: #fff; border-color: var(--whatsapp); }
@@ -207,11 +223,14 @@ code { overflow-wrap: anywhere; }
 .btn--brasa {
   background: linear-gradient(120deg, var(--cta-glow), var(--cta-deep), var(--cta-glow));
   background-size: 220% 220%;
-  animation: brasa 5s ease-in-out infinite !important;
+  background-position: 0% 50%;
   color: #fff; border: 0; padding: 16px 26px; font-weight: 700;
 }
-.btn--brasa:hover { transform: translateY(-1px); box-shadow: 0 10px 26px -8px rgba(151, 41, 15, .55); }
+.btn--brasa:hover { transform: translateY(-1px); box-shadow: 0 10px 26px -8px rgba(151, 41, 15, .55); background-position: 100% 50%; }
 @keyframes brasa { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+.motion-demo-loop .btn--teja::before { animation: sweep-demo 3.4s var(--ease) infinite; }
+.motion-demo-loop .btn--brasa { animation: brasa 5s var(--ease-standard) infinite; }
+@keyframes sweep-demo { 0%, 55% { transform: translateX(-110%); } 85%, 100% { transform: translateX(110%); } }
 .btn--fake { background: var(--bg); color: var(--fg-mute); border: 1px dashed var(--border-strong); cursor: not-allowed; }
 
 /* Stepper real (formularios) */
@@ -274,12 +293,30 @@ code { overflow-wrap: anywhere; }
 .grain::after { content: ''; position: absolute; inset: 0; opacity: .35; mix-blend-mode: soft-light; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E"); }
 .tinted-shadow { width: 190px; max-width: 100%; height: 58px; background: var(--bg-elev); box-shadow: 0 14px 28px -10px rgba(198, 58, 33, .38); display: flex; align-items: center; justify-content: center; font-size: .78rem; color: var(--fg-mute); }
 .reveal-demo { width: 100%; max-width: 260px; height: 46px; background: var(--bg-muted); position: relative; overflow: hidden; border: 1px solid var(--border); }
-.reveal-demo span { position: absolute; inset: 0; display: flex; align-items: center; padding-inline: .8rem; font-size: .78rem; color: var(--fg-soft); font-weight: 600; animation: reveal 3.2s var(--ease) infinite !important; }
+.reveal-demo span { position: absolute; inset: 0; display: flex; align-items: center; padding-inline: .8rem; font-size: .78rem; color: var(--fg-soft); font-weight: 600; animation: reveal 3.2s var(--ease) infinite; }
 @keyframes telon { 0%, 12% { transform: translateY(0); } 42%, 68% { transform: translateY(-101%); } 100% { transform: translateY(0); } }
 @keyframes marker { from { transform: scaleX(0) rotate(-0.5deg); } 62% { transform: scaleX(1.025) rotate(-0.5deg); } to { transform: scaleX(1) rotate(-0.5deg); } }
 .hl-demo { position: relative; display: inline-block; isolation: isolate; padding: .05em .2em .06em; white-space: nowrap; color: #fff; }
-.hl-demo::before { content: ''; position: absolute; inset: 4% -1.5% 6%; background: var(--accent); border-radius: 9px 12px 8px 11px / 13px 9px 12px 10px; z-index: -1; transform-origin: left center; animation: marker .55s cubic-bezier(.65,0,.35,1) .4s both infinite alternate !important; animation-duration: .55s; animation-delay: .4s; }
+.hl-demo::before { content: ''; position: absolute; inset: 4% -1.5% 6%; background: var(--accent); border-radius: 9px 12px 8px 11px / 13px 9px 12px 10px; z-index: -1; transform-origin: left center; animation: marker .55s cubic-bezier(.65,0,.35,1) .4s both infinite alternate; animation-duration: .55s; animation-delay: .4s; }
 @keyframes reveal { 0% { clip-path: inset(0 100% 0 0); } 35%, 65% { clip-path: inset(0 0 0 0); } 100% { clip-path: inset(0 0 0 100%); } }
+.motion-cota { width: 190px; max-width: 100%; height: 64px; position: relative; display: grid; place-items: end center; padding-bottom: 10px; background: var(--bg-muted); border: 1px solid var(--border); overflow: hidden; }
+.motion-cota__line { width: 72%; border-top: 1px solid var(--fg-soft); position: relative; transform-origin: left; animation: cota-line 3.6s var(--ease) infinite; }
+.motion-cota__line::before, .motion-cota__line::after { content: ''; position: absolute; top: -5px; width: 1px; height: 10px; background: var(--fg-soft); }
+.motion-cota__line::before { left: 0; }
+.motion-cota__line::after { right: 0; }
+.motion-cota__value { position: absolute; inset: 16px 0 auto; text-align: center; font-family: var(--font-display); font-weight: 800; color: var(--cta); font-size: .9rem; animation: cota-value 3.6s var(--ease) infinite; }
+@keyframes cota-line { 0%, 12% { transform: scaleX(0); } 38%, 76% { transform: scaleX(1); } 100% { transform: scaleX(0); transform-origin: right; } }
+@keyframes cota-value { 0%, 28% { opacity: 0; transform: translateY(5px); } 44%, 78% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; } }
+.motion-scene { width: 190px; max-width: 100%; height: 82px; position: relative; overflow: hidden; border: 1px solid var(--border); background: var(--bg-muted); perspective: 500px; }
+.motion-scene__plane { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: .78rem; }
+.motion-scene__plane.-out { background: var(--bg-elev); color: var(--fg-soft); animation: scene-out 4s var(--ease-exit) infinite; }
+.motion-scene__plane.-in { background: var(--cta); color: #fff; animation: scene-in 4s var(--ease) infinite; }
+@keyframes scene-out { 0%, 18% { opacity: 1; transform: translateY(0) scale(1); } 42%, 100% { opacity: 0; transform: translateY(-18%) scale(.92); } }
+@keyframes scene-in { 0%, 20% { opacity: 0; transform: translateY(26%) scale(1.08); } 48%, 82% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-8%) scale(.98); } }
+.motion-light { width: 190px; max-width: 100%; height: 82px; position: relative; overflow: hidden; border: 1px solid var(--border); background: linear-gradient(135deg,#F6E3B8,#C99B62); }
+.motion-light::after { content: ''; position: absolute; inset: 0; background: rgba(28,24,22,.82); transform-origin: top; animation: light-filter 4.4s var(--ease-standard) infinite alternate; }
+.motion-light span { position: absolute; z-index: 1; left: 10px; bottom: 8px; color: #fff; font-size: .7rem; font-weight: 700; }
+@keyframes light-filter { from { transform: scaleY(.08); opacity: .2; } to { transform: scaleY(1); opacity: .92; } }
 .verdict { border-top: 2px solid var(--fg); margin-top: clamp(1.5rem,4vw,2.4rem); }
 .verdict__row { display: grid; grid-template-columns: 3.4rem 1fr; gap: .9rem; padding-block: .8rem; border-bottom: 1px solid var(--border); }
 .verdict__row b { font-family: var(--font-display); font-weight: 700; font-size: .82rem; }
@@ -335,6 +372,20 @@ code { overflow-wrap: anywhere; }
 .foot { border-top: 4px solid var(--fg); margin-top: clamp(2.2rem, 6vw, 3.5rem); }
 .foot .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-block: 1.4rem 2.6rem; font-size: .8rem; color: var(--fg-mute); }
 
+/* ---------- Movimiento reducido ---------- */
+@media screen and (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal-demo span { clip-path: none; }
+  .telon-demo-cover { transform: translateY(-101%); }
+  .motion-cota__line { transform: scaleX(1); }
+  .motion-cota__value { opacity: 1; transform: none; }
+  .motion-scene__plane.-out { opacity: 0; }
+  .motion-scene__plane.-in { opacity: 1; transform: none; }
+  .motion-light::after { transform: scaleY(1); opacity: .72; }
+  .hl-demo::before { transform: scaleX(1) rotate(-0.5deg); }
+}
+
 /* ---------- Impresión ---------- */
 @page { size: A4; margin: 20mm 16mm 22mm; }
 @media print {
@@ -364,16 +415,15 @@ code { overflow-wrap: anywhere; }
     <h1 class="cover__title">Así se reconoce RollerShow.</h1>
     <p style="margin-top:.9rem; font-size:1.05rem; font-weight:500; color:var(--fg-soft); letter-spacing:.01em;">Cortinas como imaginás</p>
     <p class="cover__eyebrow-free">
-      En RollerShow la calidad está en todo el recorrido: desde el primer presupuesto hasta la
-      cortina instalada, y en los años de uso que siguen. Cada paso lleva la misma atención, la
-      misma tecnología y la misma estética. Por eso quien elige el producto más accesible recibe
-      la misma experiencia que quien elige el más premium: la de la empresa con más trayectoria
-      vendiendo cortinas a medida online en la Argentina, que sabe lo que hace y responde.
-      Este manual define cómo se ve y cómo habla esa experiencia.
+      La experiencia RollerShow empieza antes de cotizar, en un anuncio, una recomendación o la
+      primera conversación. Sigue en el asesoramiento, el presupuesto, la fabricación y la
+      instalación. Continúa cada día que la cortina funciona bien y cuando el equipo responde si
+      aparece un problema. Esa atención es la misma en todo el catálogo, del mejor precio a la más
+      alta calidad. Este manual define cómo se ve, cómo se mueve y cómo habla esa experiencia.
     </p>
-    <p style="margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--border); padding-top: 1rem; font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,4.5vw,2.4rem); letter-spacing:-0.02em; line-height:1.15;">Productos reales.<br>Atención real.<br>Garantía real.</p>
+    <p style="margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--border); padding-top: 1rem; font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,4.5vw,2.4rem); letter-spacing:-0.02em; line-height:1.15;">Productos reales.<br>Atención real.<br>Posventa real.</p>
     <div class="cover__meta">
-      <span><b>Versión</b> 1.2</span>
+      <span><b>Versión</b> 1.3</span>
       <span><b>Vigencia</b> julio 2026 en adelante</span>
       <span><b>Formato</b> HTML de una pieza, imprimible a PDF (Ctrl/Cmd + P)</span>
     </div>
@@ -388,16 +438,22 @@ code { overflow-wrap: anywhere; }
         <h1 class="chapter__title">Cómo leer este manual.</h1>
       </div>
       <p class="chapter__intro">
-        Escrito para dos lectores a la vez: una persona que necesita aplicar la marca sin
-        preguntar, y una IA que arma una pieza nueva sin ver ningún otro contexto.
+        Una guía de trabajo para gráfica, web, redes, impresos y movimiento. Reúne las decisiones
+        necesarias para aplicar la marca sin depender del gusto de quien arma cada pieza.
       </p>
     </section>
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">00.1</span>Para qué existe</h2></div>
-      <p class="spec__note">Detrás de RollerShow hay años de oficio, un equipo real y un catálogo que va del mejor precio a la más alta calidad. Nada de eso se nota si cada pieza depende del gusto de quien la arma. Este manual reúne las decisiones ya tomadas, para que todo lo que la marca publica esté a la altura de lo que la marca es.</p>
+      <p class="spec__note">Detrás de RollerShow hay años de oficio, un equipo real y un catálogo que va del mejor precio a la más alta calidad. Este manual convierte esa experiencia en decisiones gráficas concretas para que un anuncio, un presupuesto, una pantalla, una instalación y una respuesta de posventa se reconozcan como partes de la misma marca.</p>
+      <div class="journey" aria-label="Recorrido de la experiencia RollerShow">
+        <div class="journey__step"><b class="num">01</b><span>Descubrimiento: anuncio, recomendación, redes y showroom.</span></div>
+        <div class="journey__step"><b class="num">02</b><span>Decisión: asesoramiento, simulación, presupuesto y compra.</span></div>
+        <div class="journey__step"><b class="num">03</b><span>Entrega: fabricación, coordinación e instalación.</span></div>
+        <div class="journey__step"><b class="num">04</b><span>Uso: cuidado, garantía, posventa y nueva recomendación.</span></div>
+      </div>
       <ul class="clauses">
-        <li><span class="num">00.1.1</span><b>Es el árbitro.</b> Cualquier discusión de diseño o copy se resuelve citando una cláusula, no por opinión. Si dos lecturas del manual chocan, gana la más restrictiva.</li>
+        <li><span class="num">00.1.1</span><b>Es la referencia.</b> Las decisiones de diseño y copy se comparan con una cláusula o un ejemplo aprobado. Si dos reglas chocan, se priorizan la legibilidad, la función de la pieza y la máxima correspondiente; la excepción se documenta.</li>
         <li><span class="num">00.1.2</span><b>Se abre antes de empezar, no para corregir después.</b> Al armar cualquier pieza nueva, al encargar trabajo a un tercero (imprenta, agencia, freelance) y al brifear a una IA: este documento es el brief.</li>
         <li><span class="num">00.1.3</span><b>Cubre el caso no previsto con la personalidad.</b> Si una situación no tiene cláusula, se decide con la personalidad de la portada y las máximas de 00.4, y la decisión se escribe acá para la próxima vez.</li>
       </ul>
@@ -409,7 +465,7 @@ code { overflow-wrap: anywhere; }
         <li><span class="num">00.2.1</span><b>Numeración de cláusula</b>: capítulo.sección.regla (ej. <code>02.2.3</code>). Cada regla es atómica: se puede citar sola sin ambigüedad.</li>
         <li><span class="num">00.2.2</span><b>Todo valor entre paréntesis o en monoespaciada</b> es literal, un hex, un px, un rem, un nombre de variable CSS. Copiar tal cual, no aproximar.</li>
         <li><span class="num">00.2.3</span><b>Este documento manda</b>: si una pieza existente contradice al manual, lo que se corrige es la pieza, no el manual. Las excepciones se aprueban por escrito antes de publicarse.</li>
-        <li><span class="num">00.2.4</span><b>Cero decoración sin función</b>: este documento aplica sus propias reglas sobre sí mismo: sin badges, sin cajas anidadas, sin bullets, sin íconos decorativos. Si algo en este PDF se ve como plantilla genérica, es un error del documento, repórtalo.</li>
+        <li><span class="num">00.2.4</span><b>Cero decoración sin función</b>: este documento aplica sus propias reglas sobre sí mismo: sin badges, sin cajas anidadas, sin bullets, sin íconos decorativos. Si algo en este PDF se ve como plantilla genérica, es un error del documento, reportalo.</li>
       </ul>
     </section>
 
@@ -426,7 +482,7 @@ code { overflow-wrap: anywhere; }
         <li><span class="num">00.4.2</span><b>Primero lo estructural, después lo estético.</b> La jerarquía, el orden de lectura y la acción se resuelven antes de tocar colores o efectos. Pulir una estructura equivocada es tirar el trabajo.</li>
         <li><span class="num">00.4.3</span><b>Una sola acción primaria por pantalla.</b> El elemento de mayor contraste tiene que ser lo que el negocio necesita que el cliente haga. Todo lo demás baja el volumen.</li>
         <li><span class="num">00.4.4</span><b>Cada elemento es parte de algo.</b> Nada de texto flotando sin contenedor ni legibilidad que dependa de un fondo variable. El contenido se integra a una composición, no se apila en cajas.</li>
-        <li><span class="num">00.4.5</span><b>La percepción de calidad es lo que vende.</b> El diferencial de RollerShow es calidad más asesoramiento humano. Una pieza que parece plantilla genérica destruye ese diferencial aunque "funcione".</li>
+        <li><span class="num">00.4.5</span><b>La calidad se demuestra en todo el recorrido.</b> La gráfica puede prometerla, pero la atención, el producto, la instalación y la posventa tienen que sostenerla. Una pieza genérica o una promesa sin prueba rompe esa continuidad.</li>
         <li><span class="num">00.4.6</span><b>La solución más simple que funciona, gana.</b> Ante dos formas de resolver una pieza, la de menos elementos, menos efectos y menos texto. Se agrega solo lo que aporta a la decisión del cliente.</li>
         <li><span class="num">00.4.7</span><b>Nada está terminado hasta verlo en vivo.</b> Toda pieza se revisa publicada y desde un teléfono real antes de darse por lista. "Debería verse bien" no es un estado.</li>
       </ul>
@@ -444,7 +500,7 @@ code { overflow-wrap: anywhere; }
         <a href="#cap-07"><span class="toc__num num">07</span>Presupuesto y papelería<em>cotización de ejemplo, firma de email</em></a>
         <a href="#cap-08"><span class="toc__num num">08</span>Redes y avisos<em>formatos, zonas seguras, CTA</em></a>
         <a href="#cap-09"><span class="toc__num num">09</span>Fotografía<em>luz, encuadre, color</em></a>
-        <a href="#cap-10"><span class="toc__num num">10</span>Materia y efectos<em>catálogo sí / no</em></a>
+        <a href="#cap-10"><span class="toc__num num">10</span>Movimiento y materia<em>recursos, recetas y límites</em></a>
         <a href="#cap-11"><span class="toc__num num">11</span>Tokens<em>bloque de datos para máquina</em></a>
       </nav>
     </section>
@@ -489,7 +545,7 @@ code { overflow-wrap: anywhere; }
         <div class="stage__row" style="align-items:flex-end; gap:2.5rem;">
           <div>
             <div style="display:inline-block; background:repeating-linear-gradient(45deg, rgba(198,58,33,.14) 0 6px, transparent 6px 12px); padding:22px;">
-              <div style="background:var(--bg-elev); padding:10px 14px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="Zona de seguridad del logotipo" style="height:22px; display:block;" /></div>
+              <div style="background:var(--bg-elev); padding:10px 14px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="Zona de seguridad del logotipo" style="width:min(100%,253px); height:auto; display:block;" /></div>
             </div>
             <p class="num" style="font-size:.68rem; font-weight:700; color:var(--fg-soft); margin-top:.4rem;">zona rayada = despeje mínimo (un anillo)</p>
           </div>
@@ -529,7 +585,7 @@ code { overflow-wrap: anywhere; }
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.4</span>Fondos prohibidos</h2></div>
       <ul class="clauses">
-        <li><span class="num">01.4.1</span>Sobre Arena (<code>#F1EBE0</code>) o Lino (<code>#E4DCCE</code>): el contraste con la versión Tinta cae por debajo del mínimo legible para el trazo fino del logo. Usar siempre sobre Crema o blanco puro.</li>
+        <li><span class="num">01.4.1</span>Sobre Lino (<code>#E4DCCE</code>) usado como divisor o trama: no apoyar el logo porque el fondo deja de verse limpio. Sobre Arena (<code>#F1EBE0</code>) la versión Tinta sí está permitida y conserva contraste suficiente. La prohibición depende de la textura o el ruido del fondo, no del color Arena.</li>
         <li><span class="num">01.4.2</span>Sobre foto sin overlay: nunca directo. Requiere una franja o degradé de contraste detrás (ver <a href="#cap-10">cap. 10</a>).</li>
         <li><span class="num">01.4.3</span>Nunca reconstruir el logo tipeando "ROLLERSHOW" en Bricolage Grotesque, el trazo del logo es un dibujo propio, no la fuente de marca.</li>
       </ul>
@@ -585,7 +641,7 @@ code { overflow-wrap: anywhere; }
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">02.1</span>Paleta base</h2></div>
-      <p class="spec__note">Los neutros hacen el 90% del trabajo. El terracota queda como acento cálido de apoyo y cede el rol de acción al Rojo Teja.</p>
+      <p class="spec__note">Inventario completo del sistema. Los neutros hacen la mayor parte del trabajo; Rojo Teja concentra la acción; WhatsApp y Bosque son excepciones con un contexto cerrado.</p>
       <div class="palette">
         <div class="prow"><div class="prow__band" style="background:#FAF7F2"></div><div class="prow__meta"><span class="prow__name">Crema</span><span class="prow__use">Fondo general, <code>--bg</code></span><span class="prow__hex">#FAF7F2</span></div></div>
         <div class="prow"><div class="prow__band" style="background:#FFFFFF; border:1px solid var(--border)"></div><div class="prow__meta"><span class="prow__name">Blanco</span><span class="prow__use">Superficies elevadas, <code>--bg-elev</code></span><span class="prow__hex">#FFFFFF</span></div></div>
@@ -594,7 +650,9 @@ code { overflow-wrap: anywhere; }
         <div class="prow"><div class="prow__band" style="background:#87796D"></div><div class="prow__meta"><span class="prow__name">Topo</span><span class="prow__use">Texto secundario y notas, <code>--fg-mute</code></span><span class="prow__hex">#87796D</span></div></div>
         <div class="prow"><div class="prow__band" style="background:#1C1816"></div><div class="prow__meta"><span class="prow__name">Tinta</span><span class="prow__use">Texto principal y titulares, <code>--fg</code></span><span class="prow__hex">#1C1816</span></div></div>
         <div class="prow"><div class="prow__band" style="background:#B8662C"></div><div class="prow__meta"><span class="prow__name">Terracota</span><span class="prow__use">Acento de apoyo (focus rings, hover secundario): <code>--accent</code>. Nunca acción.</span><span class="prow__hex">#B8662C</span></div></div>
+        <div class="prow"><div class="prow__band" style="background:#C63A21"></div><div class="prow__meta"><span class="prow__name">Rojo Teja</span><span class="prow__use">Acción primaria y firma de campaña, <code>--cta</code>. Su escala y combinaciones están en 02.2.</span><span class="prow__hex">#C63A21</span></div></div>
         <div class="prow"><div class="prow__band" style="background:#25D366"></div><div class="prow__meta"><span class="prow__name">WhatsApp</span><span class="prow__use">Exclusivo del canal WhatsApp, <code>--whatsapp</code>. No usar como acento decorativo fuera de ese contexto.</span><span class="prow__hex">#25D366</span></div></div>
+        <div class="prow"><div class="prow__band" style="background:#1F3D2B"></div><div class="prow__meta"><span class="prow__name">Bosque</span><span class="prow__use">Excepción para campañas premium y ediciones limitadas. Nunca convive con Rojo Teja; reglas completas en 02.8.</span><span class="prow__hex">#1F3D2B</span></div></div>
       </div>
     </section>
 
@@ -677,6 +735,7 @@ code { overflow-wrap: anywhere; }
         <span>10 Tinta</span>
         <span>5 Rojo Teja</span>
       </div>
+      <p class="spec__note" style="margin-top:1rem;">WhatsApp y Bosque no entran en esta proporción porque no forman parte de la composición cotidiana. Aparecen solo cuando el canal o la campaña habilitan su uso.</p>
     </section>
 
     <section class="spec">
@@ -884,12 +943,25 @@ code { overflow-wrap: anywhere; }
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">04.4</span>Movimiento</h2></div>
+      <p class="spec__note">La marca se mueve como trabaja: muestra, mide, transforma y responde. El movimiento ayuda a entender una acción o el cambio de un ambiente; nunca se agrega para llenar una pantalla quieta.</p>
       <div class="rows">
         <div class="rows__item"><span class="rows__key"><code>--dur-fast</code></span><span class="rows__val">180ms: micro-interacciones (hover, focus).</span></div>
         <div class="rows__item"><span class="rows__key"><code>--dur</code></span><span class="rows__val">280ms: transiciones de layout o estado.</span></div>
-        <div class="rows__item"><span class="rows__key"><code>--ease</code></span><span class="rows__val"><code>cubic-bezier(0.22, 1, 0.36, 1)</code>: el único easing del sistema. Nunca <code>ease</code>, <code>linear</code> ni <code>ease-in-out</code> por defecto del navegador.</span></div>
-        <div class="rows__item"><span class="rows__key">Reduced motion</span><span class="rows__val">Las animaciones de marca (barrido, brasa, anillos del logo) corren siempre, incluso con <code>prefers-reduced-motion: reduce</code> activado, son livianas y aportan información, no decoración pura. Sí se respeta <code>reduced-motion</code> en transiciones de layout grandes (parallax, scroll-jacking).</span></div>
+        <div class="rows__item"><span class="rows__key"><code>--dur-scene</code></span><span class="rows__val">480ms: cambio entre ambientes, pasos o estados completos. No bloquea la interacción y se puede interrumpir.</span></div>
+        <div class="rows__item"><span class="rows__key"><code>--dur-signature</code></span><span class="rows__val">720ms: revelados de marca como Telón o Cota activa. Solo una vez, sin frenar lectura ni controles.</span></div>
+        <div class="rows__item"><span class="rows__key"><code>--ease</code></span><span class="rows__val"><code>cubic-bezier(0.22, 1, 0.36, 1)</code>: entrada y asentamiento. Llega con decisión y frena suave.</span></div>
+        <div class="rows__item"><span class="rows__key"><code>--ease-standard</code></span><span class="rows__val"><code>cubic-bezier(0.4, 0, 0.2, 1)</code>: cambios de estado, color y opacidad.</span></div>
+        <div class="rows__item"><span class="rows__key"><code>--ease-exit</code></span><span class="rows__val"><code>cubic-bezier(0.55, 0, 1, 0.45)</code>: salida. Siempre más breve que la entrada para que la interfaz responda rápido.</span></div>
       </div>
+      <ul class="clauses" style="margin-top:1.4rem">
+        <li><span class="num">04.4.1</span><b>Identidad</b>: Telón, Cota activa, barrido de luz y anillos del logo. Son gestos propios y se usan de a uno por escena.</li>
+        <li><span class="num">04.4.2</span><b>Narrativa</b>: transición de ambientes, cambio de luz y continuidad del producto. Explican qué cambió y mantienen la relación espacial entre antes y después.</li>
+        <li><span class="num">04.4.3</span><b>Interfaz</b>: hover, presión, selección, carga y confirmación. La respuesta aparece dentro de 100ms y la acción sigue disponible mientras la transición termina.</li>
+        <li><span class="num">04.4.4</span><b>Propiedades</b>: animar <code>transform</code>, <code>opacity</code>, <code>clip-path</code> o posición de fondo. No animar ancho, alto, márgenes ni propiedades que reacomodan la página.</li>
+        <li><span class="num">04.4.5</span><b>Movimiento continuo</b>: se reserva al logo y a una demostración o campaña donde el movimiento sea el contenido. Botones, textos, fondos y métricas no quedan latiendo en loop.</li>
+        <li><span class="num">04.4.6</span><b>Movimiento reducido</b>: con <code>prefers-reduced-motion: reduce</code>, cada efecto muestra su estado final sin recorrido, parallax, conteo ni loop. La información y la jerarquía quedan intactas.</li>
+        <li><span class="num">04.4.7</span><b>Prueba real</b>: revisar a 60fps en un teléfono medio, con touch y con movimiento reducido. Si baja la legibilidad, bloquea el gesto o genera mareo, el efecto no pasa.</li>
+      </ul>
     </section>
 
     <section class="spec">
@@ -973,10 +1045,10 @@ code { overflow-wrap: anywhere; }
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">05.1</span>Principios</h2></div>
       <ul class="clauses">
-        <li><span class="num">05.1.1</span><b>Cierre asuntivo</b>: no se pregunta si quiere, se da por hecho el sí y se pregunta el cómo/dónde. "¿A qué WhatsApp preferís recibirlo?", no "¿Querés que te lo mandemos?".</li>
-        <li><span class="num">05.1.2</span><b>El beneficio ya está logrado</b>: "Tu descuento ya está listo", no "te damos un descuento".</li>
+        <li><span class="num">05.1.1</span><b>Cierre claro</b>: cuando la persona ya eligió avanzar, se pregunta el cómo o el dónde. "¿A qué WhatsApp preferís recibirlo?". Nunca se da por aceptado un pago, un consentimiento, una condición o una garantía.</li>
+        <li><span class="num">05.1.2</span><b>El beneficio se afirma cuando es real</b>: "Tu descuento ya está listo" solo si ya fue aplicado o reservado. La seguridad de la voz no habilita promesas que el sistema todavía no cumplió.</li>
         <li><span class="num">05.1.3</span><b>CTA = verbo + beneficio concreto, primera persona</b>: "Recibir mi descuento", nunca un genérico "Enviar" ni un rogado "Quiero…".</li>
-        <li><span class="num">05.1.4</span><b>Cero repetición de palabras</b> en una misma pieza, usar sinónimos, no clonar el mismo término tres veces.</li>
+        <li><span class="num">05.1.4</span><b>Cero repetición torpe</b>: no clonar una palabra comercial tres veces en dos líneas. Los nombres de producto, acciones y condiciones se repiten cuando cambiar el término puede generar dudas.</li>
         <li><span class="num">05.1.5</span><b>Directo, sin relleno, sin ruego.</b> Confiado pero nunca condescendiente.</li>
         <li><span class="num">05.1.6</span><b>Cero doble sentido</b>: releer todo copy en voz alta antes de publicar.</li>
       </ul>
@@ -1009,9 +1081,13 @@ code { overflow-wrap: anywhere; }
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">05.4</span>Tono según canal</h2></div>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key">Web</span><span class="rows__val">Conciso, escaneable, sin relleno.</span></div>
-        <div class="rows__item"><span class="rows__key">Mensajes directos</span><span class="rows__val">Conversacional, oraciones cortas, un mensaje una idea. Emojis con moderación y nunca más de uno. Todo asistente automático se identifica como tal.</span></div>
-        <div class="rows__item"><span class="rows__key">Redes</span><span class="rows__val">Directo, gancho en la primera línea, ver capítulo 8.</span></div>
+        <div class="rows__item"><span class="rows__key">Anuncios y redes</span><span class="rows__val">Una idea concreta en la primera línea, una prueba visible y una acción. La urgencia se usa solo cuando existe una fecha o un stock real.</span></div>
+        <div class="rows__item"><span class="rows__key">Web y catálogo</span><span class="rows__val">Conciso y escaneable. Explica la diferencia entre productos con datos que ayudan a elegir, sin llenar cada pantalla de claims.</span></div>
+        <div class="rows__item"><span class="rows__key">Asesoramiento</span><span class="rows__val">Conversacional y preciso. Primero entiende ambiente, medida y necesidad; después recomienda. Un mensaje, una idea.</span></div>
+        <div class="rows__item"><span class="rows__key">Presupuesto y compra</span><span class="rows__val">Condiciones, producto, medidas, precio y próximos pasos sin ambigüedad. La confianza sale de que todo está claro.</span></div>
+        <div class="rows__item"><span class="rows__key">Instalación y entrega</span><span class="rows__val">Operativo y calmo. Informa qué se va a hacer, cuándo y qué necesita preparar la persona.</span></div>
+        <div class="rows__item"><span class="rows__key">Uso y cuidado</span><span class="rows__val">Didáctico y breve. Muestra el gesto correcto antes de enumerar prohibiciones.</span></div>
+        <div class="rows__item"><span class="rows__key">Posventa</span><span class="rows__val">Empieza por entender el problema y explicar el siguiente paso. No discute culpas antes de diagnosticar; informa cobertura y plazos con precisión.</span></div>
       </div>
     </section>
 
@@ -1038,6 +1114,10 @@ code { overflow-wrap: anywhere; }
         <div class="compare--no"><span class="compare__tag">Genérico</span><p class="compare__why" style="font-size:.95rem; color:var(--fg);">"¡Últimos días de descuento! No te lo pierdas."</p></div>
         <div class="compare--yes"><span class="compare__tag">RollerShow</span><p class="compare__why" style="font-size:.95rem; color:var(--fg);">"El descuento de este mes termina el 30. Después vuelve al precio de lista."</p></div>
       </div>
+      <div class="compare">
+        <div class="compare--no"><span class="compare__tag">Genérico</span><p class="compare__why" style="font-size:.95rem; color:var(--fg);">"Su reclamo fue recibido y será evaluado por el área correspondiente."</p></div>
+        <div class="compare--yes"><span class="compare__tag">RollerShow</span><p class="compare__why" style="font-size:.95rem; color:var(--fg);">"Ya recibimos las fotos. Hoy revisamos qué está fallando y te decimos cómo lo resolvemos."</p></div>
+      </div>
     </section>
 
     <section class="spec">
@@ -1051,6 +1131,8 @@ code { overflow-wrap: anywhere; }
         <div class="rows__item"><span class="rows__key">Contacto directo</span><span class="rows__val">"Escribinos"</span></div>
         <div class="rows__item"><span class="rows__key">Explorar</span><span class="rows__val">"Ver telas" y "Ver cómo trabajamos", siempre como enlace, nunca botón sólido</span></div>
         <div class="rows__item"><span class="rows__key">Instalación</span><span class="rows__val">"Coordinar mi instalación"</span></div>
+        <div class="rows__item"><span class="rows__key">Cuidado</span><span class="rows__val">"Ver cómo cuidar mi cortina"</span></div>
+        <div class="rows__item"><span class="rows__key">Posventa</span><span class="rows__val">"Resolver un problema" o "Iniciar mi consulta de garantía", según el caso</span></div>
         <div class="rows__item"><span class="rows__key">Descartar</span><span class="rows__val">"No, gracias" (sobrio, sin culpa: nunca "No quiero ahorrar")</span></div>
         <div class="rows__item"><span class="rows__key">Prohibidos</span><span class="rows__val">"Enviar", "Click acá", "Más info", "Quiero..." y cualquier CTA sin beneficio explícito.</span></div>
       </div>
@@ -1284,7 +1366,7 @@ code { overflow-wrap: anywhere; }
       <div class="stage">
         <div class="stage__row" style="align-items:flex-start;">
           <div style="width:255px; aspect-ratio:85/54; background:var(--bg-elev); border:1px solid var(--border-strong); padding:1rem; display:flex; flex-direction:column; justify-content:space-between;">
-            <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="height:13px; align-self:flex-start;" />
+            <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,150px); height:auto; align-self:flex-start;" />
             <div style="border-top:1px solid var(--border); padding-top:.55rem;">
               <p style="font-family:var(--font-display); font-weight:800; font-size:.95rem;">Nombre Apellido</p>
               <p style="font-size:.68rem; color:var(--fg-mute);">Asesoramiento en cortinas a medida</p>
@@ -1293,7 +1375,7 @@ code { overflow-wrap: anywhere; }
           </div>
           <div style="width:255px; aspect-ratio:85/54; background:var(--cta); position:relative; border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; overflow:hidden;">
             <div style="position:absolute; inset:0; opacity:.28; mix-blend-mode:soft-light; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n3'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n3)'/%3E%3C/svg%3E&quot;);"></div>
-            <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="height:18px; filter:brightness(0) invert(1); position:relative;" />
+            <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,207px); height:auto; filter:brightness(0) invert(1); position:relative;" />
           </div>
         </div>
       </div>
@@ -1309,7 +1391,7 @@ code { overflow-wrap: anywhere; }
         <div class="stage__row" style="align-items:flex-start;">
           <div style="width:210px; aspect-ratio:210/297; background:var(--bg-elev); border:1px solid var(--border-strong); position:relative; flex-shrink:0;">
             <div style="position:absolute; inset:20px 15px 15px 15px; border:1px dashed var(--border-strong);">
-              <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="height:11px; margin:10px;" />
+              <img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,126px); height:auto; margin:10px;" />
               <div style="margin:4px 10px; display:grid; gap:5px;">
                 <span style="height:5px; background:var(--bg-muted); width:88%;"></span>
                 <span style="height:5px; background:var(--bg-muted); width:94%;"></span>
@@ -1518,7 +1600,7 @@ code { overflow-wrap: anywhere; }
     <section class="chapter">
       <div class="chapter__head">
         <span class="chapter__numeral num">10</span>
-        <h1 class="chapter__title">Recursos vivos y patrones prohibidos.</h1>
+        <h1 class="chapter__title">Movimiento, materia y recursos gráficos.</h1>
       </div>
       <p class="chapter__intro">
         Cada efecto aprobado tiene nombre propio y receta exacta. Cada patrón prohibido tiene el porqué: no es gusto personal, es lo que hace que una pieza se vea genérica y le baje la percepción de calidad a la marca.
@@ -1529,9 +1611,9 @@ code { overflow-wrap: anywhere; }
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">10.1</span>Barrido de luz</h2></div>
       <p class="spec__note">Un reflejo cruza el botón primario, como la luz sobre una tela. Firma del CTA principal, una sola vez por pantalla, nunca en dos botones a la vez.</p>
       <div class="fx">
-        <div class="fx__row">
+        <div class="fx__row motion-demo-loop">
           <span class="fx__name">Receta</span>
-          <p class="fx__desc"><code>::before</code> con <code>linear-gradient(115deg, transparent 35%, rgba(255,255,255,.22) 50%, transparent 65%)</code>, <code>transform: translateX(-110%)</code>, animado a <code>translateX(110%)</code> en loop de 3.4s con <code>--ease</code>.</p>
+          <p class="fx__desc"><code>::before</code> con <code>linear-gradient(115deg, transparent 35%, rgba(255,255,255,.22) 50%, transparent 65%)</code>, de <code>translateX(-110%)</code> a <code>translateX(110%)</code> en 900ms. En producción corre una vez al entrar o al primer hover. Acá se repite para mostrar la receta.</p>
           <a class="btn btn--teja" href="#" onclick="return false"><span>Cotizar mi cortina</span></a>
         </div>
       </div>
@@ -1539,18 +1621,19 @@ code { overflow-wrap: anywhere; }
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">10.2</span>Degradé brasa</h2></div>
-      <p class="spec__note">Reservado a CTAs de campaña y promociones, nunca convive con el botón primario estándar en la misma pantalla.</p>
+      <p class="spec__note">Reservado a campañas y promociones, nunca convive con el botón primario estándar en la misma pantalla. En producción cambia al entrar o al interactuar; no queda en loop.</p>
       <div class="fx">
-        <div class="fx__row">
+        <div class="fx__row motion-demo-loop">
           <span class="fx__name">Receta</span>
-          <p class="fx__desc"><code>linear-gradient(120deg, var(--cta-glow), var(--cta-deep), var(--cta-glow))</code>, <code>background-size: 220% 220%</code>, animado entre <code>0% 50%</code> y <code>100% 50%</code> en 5s <code>ease-in-out</code> infinito.</p>
+          <p class="fx__desc"><code>linear-gradient(120deg, var(--cta-glow), var(--cta-deep), var(--cta-glow))</code>, <code>background-size: 220% 220%</code>. Pasa de <code>0% 50%</code> a <code>100% 50%</code> con <code>--ease-standard</code>. El loop de esta fila es solo demostrativo.</p>
           <a class="btn btn--brasa" href="#" onclick="return false"><span>Aprovechar la promo</span></a>
         </div>
       </div>
     </section>
 
     <section class="spec">
-      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">10.3</span>Otros recursos aprobados</h2></div>
+      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">10.3</span>Recursos de movimiento y materia</h2></div>
+      <p class="spec__note">Recetas que completan el lenguaje gráfico. Los ejemplos animados se repiten para poder verlos; en una pieza real corren una vez o responden a una acción.</p>
       <div class="fx">
         <div class="fx__row">
           <span class="fx__name">Grano de tela</span>
@@ -1569,15 +1652,30 @@ code { overflow-wrap: anywhere; }
         </div>
         <div class="fx__row">
           <span class="fx__name">Telón</span>
-          <p class="fx__desc">El revelado propio de la marca: un panel liso sube y descubre el contenido, como una cortina roller al abrirse. Para presentar imágenes o secciones en piezas de campaña. <code>translateY</code> de 0 a -101% con el ease del sistema; el panel siempre en un color pleno de la paleta.</p>
+          <p class="fx__desc">El revelado propio de la marca: un panel liso sube y descubre contenido, como una cortina roller. Presenta imágenes, productos o secciones de campaña. <code>translateY</code> de 0 a -101% con <code>--dur-signature</code>; sin pliegues ni gesto teatral.</p>
           <div style="width:190px; max-width:100%; height:58px; position:relative; overflow:hidden; border:1px solid var(--border);">
             <div style="position:absolute; inset:0; background:var(--cta); color:#fff; display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:700;">lo revelado</div>
-            <div style="position:absolute; inset:0; background:var(--bg-muted); animation: telon 4.2s var(--ease) infinite !important;"></div>
+            <div class="telon-demo-cover" style="position:absolute; inset:0; background:var(--bg-muted); animation: telon 4.2s var(--ease) infinite;"></div>
           </div>
         </div>
         <div class="fx__row">
+          <span class="fx__name">Cota activa</span>
+          <p class="fx__desc">La línea se dibuja primero y el valor aparece cuando la medida queda cerrada. Sirve para simuladores, guías, presupuestos animados y piezas donde la fabricación a medida es el argumento. La cifra no cambia después de asentarse.</p>
+          <div class="motion-cota"><span class="motion-cota__value num">180 cm</span><span class="motion-cota__line"></span></div>
+        </div>
+        <div class="fx__row">
+          <span class="fx__name">Recorrido de ambientes</span>
+          <p class="fx__desc">La escena que sale conserva presencia mientras entra la siguiente. Usa traslación y escala en planos opuestos para que el cambio se entienda como un recorrido, no como dos fotos que parpadean. El producto mantiene posición e identidad entre escenas.</p>
+          <div class="motion-scene"><div class="motion-scene__plane -out">Ambiente actual</div><div class="motion-scene__plane -in">Ambiente siguiente</div></div>
+        </div>
+        <div class="fx__row">
+          <span class="fx__name">Cambio de luz</span>
+          <p class="fx__desc">La luz cambia dentro del mismo encuadre para explicar Sun Screen, Black Out o una doble cortina. Se anima el filtro o la máscara, no se reemplaza el ambiente. Siempre incluye nombre del producto o texto que explique el resultado.</p>
+          <div class="motion-light"><span>control de luz</span></div>
+        </div>
+        <div class="fx__row">
           <span class="fx__name">Cifra viva</span>
-          <p class="fx__desc">Los números importantes entran contando hasta su valor, en tabular-nums, una sola vez por pieza. Para hitos y volúmenes; nunca para precios, que aparecen quietos y exactos.</p>
+          <p class="fx__desc">Los números importantes entran contando hasta su valor, en tabular-nums, una sola vez por pieza. Para hitos reales y volúmenes; nunca para precios, garantías, plazos ni cifras que la persona necesita leer de inmediato.</p>
           <div class="num" id="cifra-demo" style="font-family:var(--font-display); font-weight:800; font-size:1.5rem; color:var(--cta); min-width:190px;">+1.200.000</div>
         </div>
       </div>
@@ -1590,7 +1688,7 @@ code { overflow-wrap: anywhere; }
         <div class="prow"><div class="prow__band" style="background:linear-gradient(180deg,#FFFFFF,#FAF7F2 55%,#F1EBE0)"></div><div class="prow__meta"><span class="prow__name">Amanecer de lino</span><span class="prow__use">Fondo de secciones amplias y heros claros. <code>linear-gradient(180deg, #FFFFFF, #FAF7F2 55%, #F1EBE0)</code></span><span class="prow__hex num">vertical</span></div></div>
         <div class="prow"><div class="prow__band" style="background:linear-gradient(135deg,#D2451E,#97290F); position:relative;"><div style="position:absolute; inset:0; opacity:.3; mix-blend-mode:soft-light; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n2)'/%3E%3C/svg%3E&quot;)"></div></div><div class="prow__meta"><span class="prow__name">Brasa</span><span class="prow__use">Fondo de campaña y banners promo, siempre con texto y logo en blanco, y con grano de tela encima (10.3). <code>linear-gradient(135deg, #D2451E, #97290F)</code></span><span class="prow__hex num">135 grados</span></div></div>
         <div class="prow"><div class="prow__band" style="background:linear-gradient(0deg,rgba(28,24,22,.78),rgba(28,24,22,.2) 65%,transparent), linear-gradient(160deg,#E8D2B0,#C9A876)"></div><div class="prow__meta"><span class="prow__name">Penumbra</span><span class="prow__use">Scrim sobre fotografía para apoyar texto o logo (ver 08.3). <code>linear-gradient(0deg, rgba(28,24,22,.78), transparent 65%)</code></span><span class="prow__hex num">scrim</span></div></div>
-        <div class="prow"><div class="prow__band" style="position:relative; overflow:hidden; background:#FAF7F2;"><div style="position:absolute; top:-40%; left:-10%; width:65%; aspect-ratio:1; border-radius:50%; filter:blur(28px); background:radial-gradient(circle, rgba(184,102,44,.55), transparent 60%);"></div><div style="position:absolute; bottom:-45%; right:-8%; width:55%; aspect-ratio:1; border-radius:50%; filter:blur(24px); background:radial-gradient(circle, rgba(243,227,210,.95), transparent 62%);"></div></div><div class="prow__meta"><span class="prow__name">Aurora cálida</span><span class="prow__use">Solo pantallas de cierre y celebración (gracias, confirmación). Dos manchas radiales de Terracota y su tono suave sobre Crema, <code>filter: blur(55px)</code>. Nunca convive con un CTA primario ni carga texto largo encima.</span><span class="prow__hex num">radial ×2</span></div></div>
+        <div class="prow"><div class="prow__band" style="position:relative; overflow:hidden; background:#FAF7F2;"><div style="position:absolute; top:-40%; left:-10%; width:65%; aspect-ratio:1; border-radius:50%; filter:blur(28px); background:radial-gradient(circle, rgba(184,102,44,.55), transparent 60%);"></div><div style="position:absolute; bottom:-45%; right:0; width:55%; aspect-ratio:1; border-radius:50%; filter:blur(24px); background:radial-gradient(circle, rgba(243,227,210,.95), transparent 62%);"></div></div><div class="prow__meta"><span class="prow__name">Aurora cálida</span><span class="prow__use">Solo pantallas de cierre y celebración (gracias, confirmación). Dos manchas radiales de Terracota y su tono suave sobre Crema, <code>filter: blur(55px)</code>. Nunca convive con un CTA primario ni carga texto largo encima.</span><span class="prow__hex num">radial ×2</span></div></div>
       </div>
       <ul class="clauses" style="margin-top:1.4rem">
         <li><span class="num">10.4.1</span>Amanecer de lino es el único degradé permitido sobre fondos de lectura; su recorrido nunca sale de la familia Crema y Arena.</li>
@@ -1655,11 +1753,12 @@ code { overflow-wrap: anywhere; }
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">10.6</span>Aplicaciones por fondo</h2></div>
       <p class="spec__note">Qué versión del logotipo y qué acción se permite sobre cada fondo del sistema. Cualquier combinación que no esté acá, no existe.</p>
       <div class="palette">
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#FAF7F2; border-bottom:1px solid var(--border);"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="height:16px;" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Crema y blanco</span><span class="prow__use">Logo Tinta. CTA Rojo Teja. La combinación por defecto de toda la marca.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#F1EBE0;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Arena y Lino</span><span class="prow__use">Sin logotipo (contraste insuficiente, ver 01.4.1). CTA Rojo Teja permitido.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#1C1816;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="height:16px; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Tinta</span><span class="prow__use">Logo blanco. CTA Rojo Teja. Para pies de página y bloques oscuros.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#C63A21;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="height:16px; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:#fff; color:var(--fg);">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Rojo Teja y Brasa</span><span class="prow__use">Logo blanco. La acción se invierte: botón blanco con texto Tinta, nunca un segundo rojo.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:linear-gradient(0deg,rgba(28,24,22,.78),rgba(28,24,22,.15) 65%), linear-gradient(160deg,#E8D2B0,#C9A876); "><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><span style="align-self:flex-end; margin-top:auto;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="height:16px; filter:brightness(0) invert(1);" /></span><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Cotizar mi cortina</span></div></div><div class="prow__meta"><span class="prow__name">Fotografía</span><span class="prow__use">Solo con Penumbra (10.4). Logo blanco apoyado en la zona oscura del scrim. CTA Rojo Teja.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#FAF7F2; border-bottom:1px solid var(--border);"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,184px); height:auto;" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Crema y blanco</span><span class="prow__use">Logo Tinta. CTA Rojo Teja. La combinación por defecto de toda la marca.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#F1EBE0;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,150px); height:auto;" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Arena</span><span class="prow__use">Logo Tinta y CTA Rojo Teja permitidos. Sobre trama Lino, dejar una superficie limpia detrás del logo.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#1C1816;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Tinta</span><span class="prow__use">Logo blanco. CTA Rojo Teja. Para pies de página y bloques oscuros.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#C63A21;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:#fff; color:var(--fg);">Recibir mi cotización</span></div></div><div class="prow__meta"><span class="prow__name">Rojo Teja y Brasa</span><span class="prow__use">Logo blanco. La acción se invierte: botón blanco con texto Tinta, nunca un segundo rojo.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#1F3D2B;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:#FAF7F2; color:var(--fg);">Conocer la edición</span></div></div><div class="prow__meta"><span class="prow__name">Bosque</span><span class="prow__use">Solo en la campaña excepcional definida en 02.8. Logo blanco o Crema y acción Crema con texto Tinta. Nunca suma Rojo Teja.</span><span class="prow__hex"></span></div></div>
+        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:linear-gradient(0deg,rgba(28,24,22,.78),rgba(28,24,22,.15) 65%), linear-gradient(160deg,#E8D2B0,#C9A876); "><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><span style="align-self:flex-end; margin-top:auto;"><img src="https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /></span><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Cotizar mi cortina</span></div></div><div class="prow__meta"><span class="prow__name">Fotografía</span><span class="prow__use">Solo con Penumbra (10.4). Logo blanco apoyado en la zona oscura del scrim. CTA Rojo Teja.</span><span class="prow__hex"></span></div></div>
       </div>
     </section>
 
@@ -1714,7 +1813,7 @@ code { overflow-wrap: anywhere; }
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">10.9</span>Control final antes de publicar</h2></div>
-      <p class="spec__note">Los diez barridos que se corren sobre toda pieza terminada, en este orden. Si uno falla, se corrige y se vuelve a empezar desde ese punto. Nada sale sin pasar los diez.</p>
+      <p class="spec__note">Los once barridos que se corren sobre toda pieza terminada, en este orden. Si uno falla, se corrige y se vuelve a empezar desde ese punto. Nada sale sin pasar los once.</p>
       <ul class="clauses">
         <li><span class="num">10.9.1</span><b>Una sola acción primaria</b>, y es el elemento de mayor contraste de la pieza (00.4.3). Todo lo secundario bajó el volumen.</li>
         <li><span class="num">10.9.2</span><b>Barrido de caracteres</b>: ni un middot, em-dash, estrella, check o flecha decorativa en texto visible (05.3).</li>
@@ -1724,8 +1823,9 @@ code { overflow-wrap: anywhere; }
         <li><span class="num">10.9.6</span><b>El CTA sale de la biblioteca</b> (05.6) o se redactó con la fórmula verbo + beneficio y se sumó a ella.</li>
         <li><span class="num">10.9.7</span><b>Números, precios y medidas</b> en los formatos fijos de 05.7.</li>
         <li><span class="num">10.9.8</span><b>Logo correcto para el fondo</b> (10.6) con su zona de seguridad respetada (01.2).</li>
-        <li><span class="num">10.9.9</span><b>Mobile primero, medido</b>: sin desborde horizontal a 375px reales, y el layout revisado ahí antes que en desktop (00.4.1).</li>
-        <li><span class="num">10.9.10</span><b>Visto publicado, desde un teléfono</b>, antes de reportarlo terminado (00.4.7). "Debería verse bien" no es un estado.</li>
+        <li><span class="num">10.9.9</span><b>Movimiento con función</b>: una animación de identidad por escena, sin loop innecesario, sin bloqueo de interacción y con versión reducida (04.4).</li>
+        <li><span class="num">10.9.10</span><b>Mobile primero, medido</b>: sin desborde horizontal a 375px reales, y el layout revisado ahí antes que en desktop (00.4.1).</li>
+        <li><span class="num">10.9.11</span><b>Visto publicado, desde un teléfono</b>, antes de reportarlo terminado (00.4.7). "Debería verse bien" no es un estado.</li>
       </ul>
     </section>
   </div>
@@ -1760,15 +1860,15 @@ code { overflow-wrap: anywhere; }
 
 <footer class="foot">
   <div class="wrap">
-    <span>Manual de Marca de RollerShow, v1.2, julio 2026</span>
+    <span>Manual de Marca de RollerShow, v1.3, julio 2026</span>
     <span class="num">11 capítulos</span>
   </div>
 </footer>
 
 <script type="application/json" id="rollershow-brand-tokens">
 {
-  "meta": { "brand": "RollerShow", "docVersion": "1.2", "updated": "2026-07-15" },
-  "brand": { "essence": "la calidad esta en todo el recorrido: del presupuesto a la instalacion y la posventa; el producto mas accesible recibe la misma experiencia que el mas premium", "positioning": "la empresa con mas trayectoria vendiendo cortinas a medida online en Argentina; catalogo del mejor precio a la mas alta calidad", "languageAnchor": "real: productos reales, atencion real, garantia real; usarlo donde amerite en copy", "personality": "calida, directa y precisa; nunca grita, nunca ruega", "tagline": { "text": "Cortinas como imaginás", "status": "bajada de trabajo adoptada, afinable antes de lanzamiento formal" }, "decisionRule": "caso sin clausula: decidir con la personalidad y las maximas, luego documentar" },
+  "meta": { "brand": "RollerShow", "docVersion": "1.3", "updated": "2026-07-15" },
+  "brand": { "essence": "la calidad se reconoce en todo el recorrido: descubrimiento, asesoramiento, presupuesto, fabricacion, instalacion, uso y posventa; la experiencia es la misma en todo el catalogo", "positioning": "la empresa con mas trayectoria vendiendo cortinas a medida online en Argentina; catalogo del mejor precio a la mas alta calidad", "languageAnchor": "real: productos reales, atencion real, posventa real; la garantia es una prueba concreta de la posventa", "personality": "calida, directa y precisa; nunca grita, nunca ruega", "tagline": { "text": "Cortinas como imaginás", "status": "bajada de trabajo adoptada, afinable antes de lanzamiento formal" }, "decisionRule": "caso sin clausula: priorizar legibilidad, funcion de la pieza y maxima aplicable; documentar la excepcion" },
   "color": {
     "bg": "#FAF7F2", "bgElev": "#FFFFFF", "bgMuted": "#F1EBE0",
     "fg": "#1C1816", "fgSoft": "#4A4039", "fgMute": "#87796D",
@@ -1794,10 +1894,10 @@ code { overflow-wrap: anywhere; }
     "lg": "0 30px 60px -16px rgba(28,24,22,.22), 0 10px 24px -8px rgba(28,24,22,.08)",
     "tintRule": "siempre rgba(28,24,22,..) salvo hover del CTA que tinta a rgba(151,41,15,..)"
   },
-  "motion": { "durationFast": "180ms", "duration": "280ms", "easing": "cubic-bezier(0.22,1,0.36,1)", "reducedMotionException": "animaciones de marca (barrido, brasa, anillos del logo) corren siempre" },
+  "motion": { "durationFast": "180ms", "duration": "280ms", "durationScene": "480ms", "durationSignature": "720ms", "easeEnter": "cubic-bezier(0.22,1,0.36,1)", "easeStandard": "cubic-bezier(0.4,0,0.2,1)", "easeExit": "cubic-bezier(0.55,0,1,0.45)", "productionRule": "una animacion de identidad por escena; sin loops en botones, textos, fondos o metricas", "reducedMotion": "mostrar el estado final sin recorrido, parallax, conteo ni loop; conservar informacion y jerarquia" },
   "breakpoints": { "xs": "420px", "sm": "480px", "md": "720px", "lg": "980px" },
-  "preflight": ["una sola accion primaria con maximo contraste", "barrido de caracteres prohibidos", "barrido de tells de plantilla", "todos los valores salen de las escalas", "contraste medido no estimado", "CTA de la biblioteca o formula verbo+beneficio", "numeros y precios en formato fijo", "logo correcto para el fondo + zona de seguridad", "sin overflow a 375px reales", "visto publicado desde un telefono antes de reportar"],
-  "maxims": ["mobile primero (disenar a 375px)", "estructural antes que estetico", "una sola accion primaria por pantalla, maximo contraste", "cada elemento es parte de algo, nada flotando", "la percepcion de calidad vende", "la solucion mas simple gana", "nada terminado hasta verlo en vivo en un telefono"],
+  "preflight": ["una sola accion primaria con maximo contraste", "barrido de caracteres prohibidos", "barrido de tells de plantilla", "todos los valores salen de las escalas", "contraste medido no estimado", "CTA de la biblioteca o formula verbo+beneficio", "numeros y precios en formato fijo", "logo correcto para el fondo + zona de seguridad", "movimiento con funcion, sin loop innecesario y con version reducida", "sin overflow a 375px reales", "visto publicado desde un telefono antes de reportar"],
+  "maxims": ["mobile primero (disenar a 375px)", "estructural antes que estetico", "una sola accion primaria por pantalla, maximo contraste", "cada elemento es parte de algo, nada flotando", "la calidad se demuestra en todo el recorrido y cada promesa necesita prueba", "la solucion mas simple gana", "nada terminado hasta verlo en vivo en un telefono"],
   "writing": { "price": "$ 143.200 (espacio tras $, punto de miles, sin decimales)", "measure": "120 × 180 cm (signo ×, espacio antes de unidad)", "dateInCopy": "hasta el 30 de junio", "dateInDocs": "21/07/2026", "phone": "+54 9 351 000 0000", "warranty": "hasta 3 años de garantía" },
   "formField": { "radius": "8px", "border": "1.5px #E4DCCE", "focus": "borde terracota + anillo rgba(184,102,44,.14)", "error": "borde y mensaje #97290F, nunca rojo teja", "success": "confirmacion textual en tinta, sin verde" },
   "letterhead": { "size": "A4", "margins": "20mm superior, 15mm resto", "footer": "dos locales separados por hairline" },
@@ -1810,8 +1910,8 @@ code { overflow-wrap: anywhere; }
   "iconography": { "style": "linea 1.5px, terminaciones redondeadas, monocolor, reticula 24px", "sizes": [20, 24, 32], "rules": ["nunca emoji como icono", "nunca icono sin palabra", "nunca icono decorativo sobre titulos"] },
   "backgrounds": { "aurora-calida": "2 manchas radiales terracota/terracota-suave sobre crema, blur 55px, solo pantallas de cierre sin CTA", "amanecer-de-lino": "linear-gradient(180deg,#FFFFFF,#FAF7F2 55%,#F1EBE0)", "brasa": "linear-gradient(135deg,#D2451E,#97290F) + grano de tela", "penumbra-scrim": "linear-gradient(0deg,rgba(28,24,22,.78),transparent 65%)" },
   "recurringElements": ["la-cota (linea de medicion con tics y valor, firma grafica de la medida)", "punto-final-terracota-en-titular-display", "resaltado-marcador (radio asimetrico 9px 12px 8px 11px / 13px 9px 12px 10px, rotate -0.5deg, wipe scaleX .55s, max 1 por pieza, solo pantallas sin CTA)", "banda-de-color-full-bleed", "hairline-editorial-1px-lino", "trama-de-tejido repeating-linear-gradient(90deg,#F1EBE0 0 3px,#FAF7F2 3px 6px)", "folio-cabecera-documento"],
-  "ctaLibrary": { "cotizar": "Recibir mi cotización", "descuento": "Recibir mi descuento", "promocion": "Aprovechar la promo", "visualizar": "Ver cómo queda en tu ventana", "contacto": "Escribinos", "explorar": "Ver telas (enlace, no botón)", "instalacion": "Coordinar mi instalación", "descartar": "No, gracias", "prohibidos": ["Enviar", "Click acá", "Más info", "Quiero..."] },
-  "effectsApproved": ["barrido-de-luz", "degrade-brasa", "grano-de-tela", "sombra-tintada", "revelado-scroll-clip-path", "telon (panel que sube como cortina, translateY 0 a -101%)", "cifra-viva (count-up tabular-nums, hitos si, precios no)"],
+  "ctaLibrary": { "cotizar": "Recibir mi cotización", "descuento": "Recibir mi descuento", "promocion": "Aprovechar la promo", "visualizar": "Ver cómo queda en tu ventana", "contacto": "Escribinos", "explorar": "Ver telas (enlace, no botón)", "instalacion": "Coordinar mi instalación", "cuidado": "Ver cómo cuidar mi cortina", "posventa": ["Resolver un problema", "Iniciar mi consulta de garantía"], "descartar": "No, gracias", "prohibidos": ["Enviar", "Click acá", "Más info", "Quiero..."] },
+  "effectsApproved": ["barrido-de-luz (900ms, una vez en produccion)", "degrade-brasa (sin loop en produccion)", "grano-de-tela", "sombra-tintada", "revelado-scroll-clip-path", "telon (panel liso que sube, 720ms, sin pliegues)", "cota-activa (linea primero, valor despues)", "recorrido-de-ambientes (planos saliente y entrante coexistentes, producto continuo)", "cambio-de-luz (mismo encuadre, filtro o mascara)", "cifra-viva (count-up tabular-nums, hitos reales; nunca precios, garantias ni plazos)"],
   "effectsBanned": ["dot-online-pulsante", "boton-pildora-accion", "gradiente-purpura-azul-generico", "caja-dentro-de-caja", "eyebrow-badge", "contador-urgencia-falsa", "estrellas-ascii", "glassmorphism-pesado", "carrusel-autoplay", "fake-dashboard"]
 }
 </script>
@@ -1822,6 +1922,11 @@ code { overflow-wrap: anywhere; }
   (function () {
     var el = document.getElementById('cifra-demo');
     if (!el) return;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduceMotion.matches) {
+      el.textContent = '+1.200.000';
+      return;
+    }
     function run() {
       var t0 = performance.now(), dur = 1800, to = 1200000;
       function f(now) {
