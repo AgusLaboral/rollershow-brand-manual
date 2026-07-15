@@ -10,7 +10,7 @@
   <g id="contenido" transform="translate(86 0)">
     <image href="../../logo/rollershow-logo-static-blanco.svg" x="0" y="78" width="330" height="29"/>
     <text x="0" y="790" font-family="Bricolage Grotesque, sans-serif" font-size="76" font-weight="800" fill="#FFFFFF"><tspan x="0">La luz que querés.</tspan><tspan x="0" dy="82">La privacidad también.</tspan></text>
-    <text x="0" y="972" font-family="Manrope, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">Cotizar mi cortina</text>
+    <text x="0" y="972" font-family="Manrope, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">Cotizá tu cortina</text>
   </g>
   <g id="guias" opacity=".9">
     <path d="M64 64H1016V1016H64Z" fill="none" stroke="#C63A21" stroke-width="2" stroke-dasharray="12 10"/>

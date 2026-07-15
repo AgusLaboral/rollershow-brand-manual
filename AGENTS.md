@@ -5,7 +5,7 @@ Este repo contiene el manual de marca de RollerShow (`index.html`, single-file H
 ## Datos del proyecto
 
 - **Manual**: `index.html`. Cero dependencias de ejecución salvo Google Fonts (Bricolage Grotesque + Manrope) y recursos propios.
-- **Activos**: `brand-assets/` contiene maestros y plantillas editables; `brand-assets/manifest.json` registra versión, peso y SHA-256; `downloads/rollershow-brand-assets-v1.0.2.zip` es la entrega consolidada.
+- **Activos**: `brand-assets/` contiene maestros y plantillas editables; `brand-assets/manifest.json` registra versión, peso y SHA-256; `downloads/rollershow-brand-assets-v1.1.0.zip` es la entrega consolidada.
 - **Generador**: `scripts/build-brand-assets.ps1` toma el logo oficial, extrae los 16 iconos del manual, copia las fotos reales de referencia, recalcula el manifiesto y recompone el ZIP. Ejecutarlo después de cualquier cambio en esos recursos.
 - **Repo GitHub**: `AgusLaboral/rollershow-brand-manual` (público, por GitHub Pages).
 - **URL viva**: https://aguslaboral.github.io/rollershow-brand-manual/
@@ -94,3 +94,4 @@ Comprobar además que el ZIP, el manifiesto y cada enlace de descarga respondan 
 - v1.7: el manual pasó a ser un sistema entregable. Se corrigió el maestro del logo y su proporción, se explicitó que no existe marca compacta aprobada, y se agregó un paquete verificable con logos, 16 iconos, fotos reales de referencia, plantillas editables y hojas de producción. El cuerpo sumó gobierno, co-branding, impresión, licencias, nomenclatura y claims, accesibilidad, video, derechos de imagen y diagramas técnicos.
 - v1.8: se eliminó el lenguaje interno de IA del documento público, las etiquetas visuales tipo eyebrow y las referencias que normalizaban cards. Se corrigió la contradicción de “logo compacto” y el stepper pasó a ser operable con teclado sin imponer un rango que pertenezca a una colección específica.
 - v1.9: se corrigió la referencia de índice que anunciaba una cotización de ejemplo inexistente. La sección 07 ahora nombra lo que entrega hoy y explicita que el futuro espécimen se construye desde un presupuesto aprobado, nunca ficticio.
+- v2.0: se reescribió la identidad de portada para explicar primero qué hace RollerShow y por qué, sin asumir que el lector ya entiende “cotizar”. Las acciones de cotización ahora nombran cortinas a medida; se corrigieron títulos y textos que hablaban desde el proceso interno en lugar de describir la marca o la función de la pieza.

@@ -1,6 +1,6 @@
-# RollerShow Brand Assets 1.0.2
+# RollerShow Brand Assets 1.1.0
 
-Este paquete acompaña al Manual de Marca v1.9. Los archivos se usan sin redibujar, deformar ni recolorear fuera de las versiones provistas.
+Este paquete acompaña al Manual de Marca v2.0. Los archivos se usan sin redibujar, deformar ni recolorear fuera de las versiones provistas.
 
 ## Contenido
 
