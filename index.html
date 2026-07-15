@@ -192,6 +192,24 @@ code { overflow-wrap: anywhere; }
   .prow__use { grid-column: auto; }
 }
 
+/* Aplicaciones por fondo: la muestra manda; el CTA acompaña sin convertirse en inventario de botones. */
+.application-matrix .prow__band { height: auto; min-height: 118px; }
+.application-matrix .prow__meta { padding-block: 1rem 1.2rem; }
+.application-sample { min-height: 118px; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 18px; padding: 20px; }
+.application-sample__logo { display: block; width: min(100%, 184px); height: auto; }
+.application-sample__logo--light { filter: brightness(0) invert(1); }
+.application-sample__action { display: inline-flex; align-items: center; min-height: 34px; padding: 7px 12px; border-radius: 6px; font-size: .68rem; font-weight: 700; line-height: 1.15; }
+.application-sample__action--teja { background: var(--cta); color: #fff; }
+.application-sample__action--light { background: #fff; color: var(--fg); }
+.application-sample__action--cream { background: var(--bg); color: var(--fg); }
+.application-sample--weave { justify-content: center; padding-inline: 0; background: repeating-linear-gradient(90deg,#F1EBE0 0 3px,#FAF7F2 3px 6px); }
+.application-sample__clean-band { width: 100%; padding: 14px 20px; background: var(--bg); }
+.application-sample--photo { min-height: 150px; justify-content: flex-end; background-image: linear-gradient(0deg,rgba(28,24,22,.84) 0 66%,rgba(28,24,22,.16) 100%), url('brand-assets/photography/sunscreen-living-bright-reference.jpg'); background-size: cover; background-position: center; }
+@media (min-width: 700px) {
+  .application-matrix .prow { grid-template-columns: minmax(270px, 31%) 1fr; }
+  .application-matrix .prow__meta { grid-template-columns: 160px minmax(0,1fr); }
+}
+
 /* ---------- Rojo Teja ---------- */
 .teja { background: var(--cta); color: #fff; padding: clamp(1.8rem, 5vw, 3rem) var(--pad); margin-inline: calc(-1 * var(--pad)); }
 .teja__name { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.025em; font-size: clamp(2.6rem, 10vw, 5rem); line-height: .95; }
@@ -233,12 +251,30 @@ code { overflow-wrap: anywhere; }
 .btn--fake { background: var(--bg); color: var(--fg-mute); border: 1px dashed var(--border-strong); cursor: not-allowed; }
 
 /* Stepper real (formularios) */
-.stepper { display: grid; grid-template-columns: 38px minmax(0,1fr) auto 38px; align-items: stretch; border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--bg-elev); overflow: hidden; transition: border-color var(--dur-exit) var(--ease-exit), box-shadow var(--dur-exit) var(--ease-exit); max-width: 220px; }
+.stepper { display: inline-grid; grid-template-columns: 44px auto 44px; align-items: stretch; min-height: 48px; border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--bg-elev); overflow: hidden; transition: border-color var(--dur-exit) var(--ease-exit), box-shadow var(--dur-exit) var(--ease-exit); }
 .stepper:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(184, 102, 44, .14); transition-duration: var(--dur-fast); transition-timing-function: var(--ease-standard); }
-.stepper__btn { width: 38px; display: grid; place-items: center; font-size: 1.3rem; color: var(--fg-soft); background: transparent; border: 0; font-family: var(--font-body); }
-.stepper input { width: 100%; min-width: 0; padding: 13px 4px; border: 0; background: transparent; text-align: center; font-size: 1.05rem; font-weight: 600; color: var(--fg); font-variant-numeric: tabular-nums; }
+.stepper__btn { width: 44px; min-height: 48px; display: grid; place-items: center; font-size: 1.2rem; line-height: 1; color: var(--fg-soft); background: transparent; border: 0; font-family: var(--font-body); cursor: pointer; }
+.stepper__btn:first-child { border-right: 1px solid var(--border); }
+.stepper__btn:last-child { border-left: 1px solid var(--border); }
+.stepper__btn:hover { background: var(--bg-muted); color: var(--fg); }
+.stepper__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
+.stepper__value { display: flex; align-items: baseline; justify-content: center; gap: 6px; min-width: 92px; padding-inline: 12px; }
+.stepper input { appearance: textfield; width: 4ch; min-width: 0; padding: 0; border: 0; background: transparent; text-align: right; font-size: 1.05rem; font-weight: 600; color: var(--fg); font-variant-numeric: tabular-nums; }
+.stepper input::-webkit-inner-spin-button, .stepper input::-webkit-outer-spin-button { appearance: none; margin: 0; }
 .stepper input:focus { outline: none; }
-.stepper__unit { display: grid; place-items: center; padding-right: 10px; font-size: .8rem; color: var(--fg-mute); }
+.stepper__unit { font-size: .8rem; color: var(--fg-mute); }
+
+/* Cota técnica: una sola línea continua, vinculada al ancho que mide. */
+.dimension-demo { width: 190px; max-width: 100%; }
+.dimension-demo__object { height: 44px; background: var(--bg-muted); border: 1px solid var(--border); }
+.dimension-demo__dimension { position: relative; height: 30px; margin-top: 6px; }
+.dimension-demo__dimension::before { content: ''; position: absolute; left: 0; right: 0; top: 14px; border-top: 1px solid var(--fg-soft); }
+.dimension-demo__tick { position: absolute; top: 4px; width: 1px; height: 20px; background: var(--fg-soft); }
+.dimension-demo__tick--start { left: 0; }
+.dimension-demo__tick--end { right: 0; }
+.dimension-demo__label { position: absolute; left: 50%; top: 4px; transform: translateX(-50%); padding-inline: 8px; background: var(--bg); color: var(--fg-soft); font-size: .7rem; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dimension-demo__dimension--stage { margin-top: 0; margin-bottom: 6px; }
+.dimension-demo__dimension--stage .dimension-demo__label { background: var(--bg-muted); }
 
 /* Visor de producto activo */
 .product-viewer { width: 100%; }
@@ -698,7 +734,7 @@ code { overflow-wrap: anywhere; }
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.7</span>Paquete de activos</h2></div>
       <p class="spec__note">El manual explica las reglas. El paquete entrega los originales. Una gráfica no reconstruye un logo, un ícono ni una plantilla mirando una captura.</p>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key">Descarga completa</span><span class="rows__val"><a href="downloads/rollershow-brand-assets-v1.1.0.zip" download><b>RollerShow Brand Assets 1.1.0</b></a>, compatible con este manual v2.0.</span></div>
+        <div class="rows__item"><span class="rows__key">Descarga completa</span><span class="rows__val"><a href="downloads/rollershow-brand-assets-v1.1.1.zip" download><b>RollerShow Brand Assets 1.1.1</b></a>, compatible con este manual v2.1.</span></div>
         <div class="rows__item"><span class="rows__key">Inventario</span><span class="rows__val"><a href="brand-assets/manifest.json">Manifest JSON</a> con versión, peso y SHA-256 de cada archivo.</span></div>
         <div class="rows__item"><span class="rows__key">Logos</span><span class="rows__val">SVG animado Tinta y SVG estáticos Tinta y Blanco. No hay PNG como maestro ni marca compacta.</span></div>
         <div class="rows__item"><span class="rows__key">Biblioteca</span><span class="rows__val">16 íconos SVG, referencias fotográficas, plantillas editables, fuentes y hoja de prueba física de color.</span></div>
@@ -1373,13 +1409,12 @@ code { overflow-wrap: anywhere; }
       <div class="stage">
         <div class="stepper" data-stepper>
           <button class="stepper__btn" type="button" aria-label="Restar un centímetro">−</button>
-          <input type="number" value="120" min="1" aria-label="Ancho en centímetros" />
-          <span class="stepper__unit">cm</span>
+          <span class="stepper__value"><input type="number" value="120" min="1" aria-label="Ancho en centímetros" /><span class="stepper__unit" aria-hidden="true">cm</span></span>
           <button class="stepper__btn" type="button" aria-label="Sumar un centímetro">+</button>
         </div>
       </div>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key">Estructura</span><span class="rows__val">Grid <code>38px minmax(0,1fr) auto 38px</code>, borde <code>1.5px solid var(--border)</code>, radio <code>14px</code>.</span></div>
+        <div class="rows__item"><span class="rows__key">Estructura</span><span class="rows__val">Grid <code>44px auto 44px</code>, alto mínimo <code>48px</code>, grupo central con <code>6px</code> entre cifra y unidad, borde <code>1.5px solid var(--border)</code>, radio <code>14px</code>.</span></div>
         <div class="rows__item"><span class="rows__key">Foco</span><span class="rows__val">Borde Terracota + <code>box-shadow: 0 0 0 4px rgba(184,102,44,.14)</code> en <code>:focus-within</code>.</span></div>
         <div class="rows__item"><span class="rows__key">Rango</span><span class="rows__val">Los botones cambian de a 1cm. El mínimo y máximo salen de la colección elegida; el componente no inventa un límite general.</span></div>
       </div>
@@ -1808,12 +1843,10 @@ code { overflow-wrap: anywhere; }
       <div class="stage" style="margin-top:1.6rem;">
         <div class="stage__row" style="flex-direction:column; align-items:flex-start;">
           <div style="width:100%; max-width:430px;">
-            <div style="width:36%; display:flex; align-items:center; margin-bottom:.35rem;">
-              <span style="width:1px; height:9px; background:var(--fg-mute);"></span>
-              <span style="flex:1; border-top:1px solid var(--fg-mute); position:relative; top:-4px;"></span>
-              <span class="num" style="font-size:.68rem; font-weight:700; color:var(--fg-soft); padding:0 .45rem; position:relative; top:-10px;">30 a 40%</span>
-              <span style="flex:1; border-top:1px solid var(--fg-mute); position:relative; top:-4px;"></span>
-              <span style="width:1px; height:9px; background:var(--fg-mute);"></span>
+            <div class="dimension-demo__dimension dimension-demo__dimension--stage" style="width:36%;">
+              <span class="dimension-demo__tick dimension-demo__tick--start"></span>
+              <span class="dimension-demo__label num">30 a 40%</span>
+              <span class="dimension-demo__tick dimension-demo__tick--end"></span>
             </div>
             <div style="aspect-ratio:16/9; position:relative; background:linear-gradient(160deg,#E8D2B0,#C9A876); border:1px solid var(--border-strong); overflow:hidden;">
               <div style="position:absolute; top:0; bottom:0; left:0; width:36%; background:rgba(250,247,242,.6); border-right:1px dashed var(--border-strong); display:flex; flex-direction:column; justify-content:center; gap:.45rem; padding:.8rem;">
@@ -1989,14 +2022,12 @@ code { overflow-wrap: anywhere; }
         <div class="fx__row">
           <span class="fx__name">La cota</span>
           <p class="fx__desc">La línea de medición con tics y valor, tomada del plano técnico, como firma gráfica. La marca vive de la medida exacta: la cota lo dice sin escribirlo. Para piezas de campaña y redes, señalando una medida real de la escena. Trazo de 1px en Tinta o blanco, valor en tabular-nums.</p>
-          <div style="width:190px; max-width:100%;">
-            <div style="height:44px; background:var(--bg-muted); border:1px solid var(--border);"></div>
-            <div style="display:flex; align-items:center; margin-top:.35rem;">
-              <span style="width:1px; height:9px; background:var(--fg-soft);"></span>
-              <span style="flex:1; border-top:1px solid var(--fg-soft); position:relative; top:-4px;"></span>
-              <span class="num" style="font-size:.7rem; font-weight:700; color:var(--fg-soft); padding:0 .5rem; position:relative; top:-10px;">180 cm</span>
-              <span style="flex:1; border-top:1px solid var(--fg-soft); position:relative; top:-4px;"></span>
-              <span style="width:1px; height:9px; background:var(--fg-soft);"></span>
+          <div class="dimension-demo" role="img" aria-label="Cota horizontal de 180 centímetros">
+            <div class="dimension-demo__object"></div>
+            <div class="dimension-demo__dimension">
+              <span class="dimension-demo__tick dimension-demo__tick--start"></span>
+              <span class="dimension-demo__label num">180 cm</span>
+              <span class="dimension-demo__tick dimension-demo__tick--end"></span>
             </div>
           </div>
         </div>
@@ -2019,15 +2050,15 @@ code { overflow-wrap: anywhere; }
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">10.6</span>Aplicaciones por fondo</h2></div>
       <p class="spec__note">Qué versión del logotipo y qué acción se permite sobre cada fondo del sistema. Cualquier combinación que no esté acá, no existe.</p>
-      <div class="palette">
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#FAF7F2; border-bottom:1px solid var(--border);"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,184px); height:auto;" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Cotizá tus cortinas a medida</span></div></div><div class="prow__meta"><span class="prow__name">Crema y blanco</span><span class="prow__use">Logo Tinta. CTA Rojo Teja. La combinación por defecto de toda la marca.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#F1EBE0;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,150px); height:auto;" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Cotizá tus cortinas a medida</span></div></div><div class="prow__meta"><span class="prow__name">Arena</span><span class="prow__use">Logo Tinta y CTA Rojo Teja permitidos. Sobre trama Lino, dejar una superficie limpia detrás del logo.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:repeating-linear-gradient(90deg,#F1EBE0 0 3px,#FAF7F2 3px 6px);"><div style="display:flex; align-items:center; padding:.9rem 1rem; min-height:64px;"><div style="background:#FAF7F2; padding:10px 12px; width:min(100%,174px);"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,150px); height:auto; display:block;" /></div></div></div><div class="prow__meta"><span class="prow__name">Trama de tejido</span><span class="prow__use">El logo necesita una superficie Crema limpia. No apoyar texto chico ni CTA directamente sobre la trama; funciona como campo material, no como fondo de lectura.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#1C1816;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Cotizá tus cortinas a medida</span></div></div><div class="prow__meta"><span class="prow__name">Tinta</span><span class="prow__use">Logo blanco. CTA Rojo Teja. Para pies de página y bloques oscuros.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#C63A21;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:#fff; color:var(--fg);">Cotizá tus cortinas a medida</span></div></div><div class="prow__meta"><span class="prow__name">Rojo Teja</span><span class="prow__use">Logo blanco. La acción se invierte: botón blanco con texto Tinta. Texto corrido solo en blanco y en bloques breves.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band grain" style="width:auto; max-width:none; height:auto; min-height:74px; background:linear-gradient(135deg,#D2451E,#97290F);"><div style="position:relative; z-index:1; display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding:.9rem 1rem; min-height:64px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:#fff; color:var(--fg);">Ver la promoción</span></div></div><div class="prow__meta"><span class="prow__name">Brasa</span><span class="prow__use">Solo campaña. Logo blanco, títulos breves y acción blanca. El grano queda detrás; nunca se mueve y nunca recibe párrafos largos.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:#1F3D2B;"><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:#FAF7F2; color:var(--fg);">Conocer la edición</span></div></div><div class="prow__meta"><span class="prow__name">Bosque</span><span class="prow__use">Solo en la campaña excepcional definida en 02.8. Logo blanco o Crema y acción Crema con texto Tinta. Nunca suma Rojo Teja.</span><span class="prow__hex"></span></div></div>
-        <div class="prow"><div class="prow__band" style="height:auto; min-height:74px; background:linear-gradient(0deg,rgba(28,24,22,.78),rgba(28,24,22,.15) 65%), linear-gradient(160deg,#E8D2B0,#C9A876); "><div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; padding: .9rem 1rem; min-height:64px;"><span style="align-self:flex-end; margin-top:auto;"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" style="width:min(100%,184px); height:auto; filter:brightness(0) invert(1);" /></span><span style="display:inline-flex; padding:8px 14px; border-radius:6px; font-size:.72rem; font-weight:700; background:var(--cta); color:#fff;">Cotizá tu cortina</span></div></div><div class="prow__meta"><span class="prow__name">Fotografía</span><span class="prow__use">Solo con Penumbra (10.4). Logo blanco apoyado en la zona oscura del scrim. CTA Rojo Teja.</span><span class="prow__hex"></span></div></div>
+      <div class="palette application-matrix">
+        <div class="prow"><div class="prow__band"><div class="application-sample" style="background:#FAF7F2"><img class="application-sample__logo" src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" /><span class="application-sample__action application-sample__action--teja">Cotizá tu cortina</span></div></div><div class="prow__meta"><span class="prow__name">Crema y blanco</span><span class="prow__use">Logo Tinta. CTA Rojo Teja. La combinación por defecto de toda la marca.</span></div></div>
+        <div class="prow"><div class="prow__band"><div class="application-sample" style="background:#F1EBE0"><img class="application-sample__logo" src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" /><span class="application-sample__action application-sample__action--teja">Cotizá tu cortina</span></div></div><div class="prow__meta"><span class="prow__name">Arena</span><span class="prow__use">Logo Tinta y CTA Rojo Teja permitidos.</span></div></div>
+        <div class="prow"><div class="prow__band"><div class="application-sample application-sample--weave"><div class="application-sample__clean-band"><img class="application-sample__logo" src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" /></div></div></div><div class="prow__meta"><span class="prow__name">Trama de tejido</span><span class="prow__use">El logo vive en una banda Crema limpia que atraviesa la trama. No apoyar texto chico ni CTA sobre el tejido.</span></div></div>
+        <div class="prow"><div class="prow__band"><div class="application-sample" style="background:#1C1816"><img class="application-sample__logo application-sample__logo--light" src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" /><span class="application-sample__action application-sample__action--teja">Cotizá tu cortina</span></div></div><div class="prow__meta"><span class="prow__name">Tinta</span><span class="prow__use">Logo blanco. CTA Rojo Teja. Para pies de página y bloques oscuros.</span></div></div>
+        <div class="prow"><div class="prow__band"><div class="application-sample" style="background:#C63A21"><img class="application-sample__logo application-sample__logo--light" src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" /><span class="application-sample__action application-sample__action--light">Cotizá tu cortina</span></div></div><div class="prow__meta"><span class="prow__name">Rojo Teja</span><span class="prow__use">Logo blanco. La acción se invierte: botón blanco con texto Tinta. Texto corrido solo en blanco y en bloques breves.</span></div></div>
+        <div class="prow"><div class="prow__band grain" style="width:auto; max-width:none; background:linear-gradient(135deg,#D2451E,#97290F)"><div class="application-sample" style="position:relative; z-index:1"><img class="application-sample__logo application-sample__logo--light" src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" /><span class="application-sample__action application-sample__action--light">Ver la promoción</span></div></div><div class="prow__meta"><span class="prow__name">Brasa</span><span class="prow__use">Solo campaña. Logo blanco, títulos breves y acción blanca. El grano queda detrás; nunca se mueve ni recibe párrafos largos.</span></div></div>
+        <div class="prow"><div class="prow__band"><div class="application-sample" style="background:#1F3D2B"><img class="application-sample__logo application-sample__logo--light" src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" /><span class="application-sample__action application-sample__action--cream">Conocer la edición</span></div></div><div class="prow__meta"><span class="prow__name">Bosque</span><span class="prow__use">Solo en la campaña excepcional definida en 02.8. Logo blanco o Crema y acción Crema con texto Tinta. Nunca suma Rojo Teja.</span></div></div>
+        <div class="prow"><div class="prow__band"><div class="application-sample application-sample--photo"><img class="application-sample__logo application-sample__logo--light" src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="RollerShow" /><span class="application-sample__action application-sample__action--teja">Cotizá tu cortina</span></div></div><div class="prow__meta"><span class="prow__name">Fotografía</span><span class="prow__use">Solo con Penumbra (10.4). Logo blanco y CTA apoyados en la zona oscura del scrim; nunca sobre detalle visual activo.</span></div></div>
       </div>
     </section>
 
@@ -2139,14 +2170,14 @@ code { overflow-wrap: anywhere; }
 
 <footer class="foot">
   <div class="wrap">
-    <span>Manual de Marca de RollerShow, v2.0, julio 2026</span>
+    <span>Manual de Marca de RollerShow, v2.1, julio 2026</span>
     <span class="num">11 capítulos</span>
   </div>
 </footer>
 
 <script type="application/json" id="rollershow-brand-tokens">
 {
-  "meta": { "brand": "RollerShow", "docVersion": "2.0", "updated": "2026-07-15", "assetKitVersion": "1.1.0" },
+  "meta": { "brand": "RollerShow", "docVersion": "2.1", "updated": "2026-07-15", "assetKitVersion": "1.1.1" },
   "brand": { "what": "empresa argentina especializada en cortinas a medida", "purpose": "regular la luz, dar privacidad y hacer los ambientes mas habitables", "essence": "la calidad se reconoce en todo el recorrido: descubrimiento, asesoramiento, presupuesto, fabricacion, instalacion, uso y posventa; la experiencia es la misma en todo el catalogo", "positioning": "la empresa con mas trayectoria vendiendo cortinas a medida online en Argentina; catalogo del mejor precio a la mas alta calidad", "languageAnchor": "real: productos reales, atencion real, posventa real; la garantia es una prueba concreta de la posventa", "personality": "calida, directa y precisa; nunca grita, nunca ruega", "tagline": { "text": "Cortinas como imaginás", "status": "bajada de trabajo adoptada, afinable antes de lanzamiento formal" }, "decisionRule": "caso sin clausula: priorizar legibilidad, funcion de la pieza y maxima aplicable; documentar la excepcion" },
   "color": {
     "bg": "#FAF7F2", "bgElev": "#FFFFFF", "bgMuted": "#F1EBE0",
@@ -2166,7 +2197,7 @@ code { overflow-wrap: anywhere; }
   "spacing": { "container": "1280px", "containerNarrow": "920px", "sectionY": "clamp(3.5rem,7vw,6rem)", "padInline": "clamp(1.1rem,4vw,2.5rem)" },
   "grid": { "columns": 12, "gutter": "24px", "margin": "= padInline (fluido)" },
   "print": { "safeMargin": "15mm", "bleed": "3mm", "folioOffset": "10mm desde borde inferior", "colorRule": "sRGB es canon digital; CMYK se aprueba por perfil+maquina+soporte mediante prueba fisica", "pdf": "fuentes incrustadas, imagenes 300ppi al tamano final, perfil ICC conservado" },
-  "assetKit": { "version": "1.1.0", "download": "downloads/rollershow-brand-assets-v1.1.0.zip", "manifest": "brand-assets/manifest.json", "logoViewBox": "0 0 600 52", "logoRatio": 11.54, "compactMark": "no existe isotipo o favicon compacto aprobado; no recortar letras", "contents": ["3 variantes del logo completo", "16 iconos SVG", "2 referencias fotograficas", "4 plantillas editables", "hoja de prueba de color", "fuentes y licencias"] },
+  "assetKit": { "version": "1.1.1", "download": "downloads/rollershow-brand-assets-v1.1.1.zip", "manifest": "brand-assets/manifest.json", "logoViewBox": "0 0 600 52", "logoRatio": 11.54, "compactMark": "no existe isotipo o favicon compacto aprobado; no recortar letras", "contents": ["3 variantes del logo completo", "16 iconos SVG", "2 referencias fotograficas", "4 plantillas editables", "hoja de prueba de color", "fuentes y licencias"] },
   "governance": { "sourceOfTruth": "manual publico + paquete compatible", "review": "cada 6 meses o ante cambio importante", "exception": "registrar pieza, motivo, responsable y vencimiento antes de publicar", "versionRule": "todo cambio declara reglas y activos afectados" },
   "production": { "digital": "sRGB", "printApproval": ["perfil ICC", "maquina", "tinta", "soporte", "prueba fisica", "fecha y responsable"], "rule": "un cambio de perfil, maquina o soporte exige nueva prueba" },
   "naming": { "families": ["Roller", "Verticales", "Tradicionales", "Horizontales", "Dúo"], "collectionExamples": ["Black Out", "Sun Screen 5%", "Dim Out"], "source": "https://www.rollershow.com.ar/api/v2", "rule": "copiar nombre, espacios, porcentaje y acentos del dato vigente" },
@@ -2205,7 +2236,7 @@ code { overflow-wrap: anywhere; }
   "preflight": ["una sola accion primaria con maximo contraste", "barrido de caracteres prohibidos", "sin cajas anidadas, radio-cards, barras laterales de estado, count-ups, auroras, marcador ni revelados genericos", "todos los valores salen de las escalas", "contraste medido no estimado", "CTA de la biblioteca o formula verbo+beneficio", "numeros y precios en formato fijo", "logo correcto para el fondo + zona de seguridad", "movimiento nacido de cortina, tela, luz o medida; touch+teclado+reduced-motion", "sin overflow a 375px reales", "visto publicado desde un telefono antes de reportar", "activos del paquete compatible", "nombres y claims con fuente y fecha", "accesibilidad probada", "derechos y procedencia registrados", "salida de produccion correcta", "marcas externas autorizadas"],
   "maxims": ["mobile primero (disenar a 375px)", "estructural antes que estetico", "una sola accion primaria por pantalla, maximo contraste", "cada elemento es parte de algo, nada flotando", "la calidad se demuestra en todo el recorrido y cada promesa necesita prueba", "la solucion mas simple gana", "nada terminado hasta verlo en vivo en un telefono"],
   "writing": { "price": "$ 143.200 (espacio tras $, punto de miles, sin decimales)", "measure": "120 × 180 cm (signo ×, espacio antes de unidad)", "dateInCopy": "hasta el 30 de junio", "dateInDocs": "21/07/2026", "phone": "+54 9 351 000 0000", "warranty": "hasta 3 años de garantía" },
-  "stepper": { "min": 1, "step": 1, "unit": "cm", "range": "minimo y maximo vienen de la coleccion elegida", "controls": "botones de sumar y restar operables por teclado" },
+  "stepper": { "min": 1, "step": 1, "unit": "cm", "grid": "44px auto 44px", "minHeight": "48px", "valueUnitGap": "6px", "range": "minimo y maximo vienen de la coleccion elegida", "controls": "botones de sumar y restar operables por teclado" },
   "formField": { "radius": "8px", "border": "1.5px #E4DCCE", "focus": "borde terracota + anillo rgba(184,102,44,.14)", "valid": "borde tinta suave + confirmacion textual, sin verde", "error": "borde y mensaje #97290F con instruccion concreta", "globalFeedback": "fila integrada entre hairlines con titulo y salida clara; nunca toast efimero, card flotante ni barra lateral de estado" },
   "selection": { "pattern": "visor de producto activo + alternativas de comparacion", "active": "el producto ocupa la muestra principal con nombre y funcion; su accion se oculta", "alternatives": "acciones de texto sin marcador de estado", "banned": ["barra lateral", "borde o fondo de seleccionado", "radio circular", "check", "punto", "badge Seleccionada", "cards separadas", "cajas dentro de cajas"] },
   "letterhead": { "size": "A4 vertical", "margins": "20mm superior, 15mm laterales e inferior", "usefulArea": "180x262mm", "header": "logo tinta 38mm + tipo de documento 8pt italica + hairline tinta", "body": "titulo Bricolage 18/20pt, Manrope 10/15pt, ancho maximo 145mm", "footer": "web izquierda + telefono derecha, Manrope 7.5pt, hairline lino", "continuation": "logo 28mm + documento + pagina N de N" },

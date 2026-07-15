@@ -5,7 +5,7 @@ Este repo contiene el manual de marca de RollerShow (`index.html`, single-file H
 ## Datos del proyecto
 
 - **Manual**: `index.html`. Cero dependencias de ejecución salvo Google Fonts (Bricolage Grotesque + Manrope) y recursos propios.
-- **Activos**: `brand-assets/` contiene maestros y plantillas editables; `brand-assets/manifest.json` registra versión, peso y SHA-256; `downloads/rollershow-brand-assets-v1.1.0.zip` es la entrega consolidada.
+- **Activos**: `brand-assets/` contiene maestros y plantillas editables; `brand-assets/manifest.json` registra versión, peso y SHA-256; `downloads/rollershow-brand-assets-v1.1.1.zip` es la entrega consolidada.
 - **Generador**: `scripts/build-brand-assets.ps1` toma el logo oficial, extrae los 16 iconos del manual, copia las fotos reales de referencia, recalcula el manifiesto y recompone el ZIP. Ejecutarlo después de cualquier cambio en esos recursos.
 - **Repo GitHub**: `AgusLaboral/rollershow-brand-manual` (público, por GitHub Pages).
 - **URL viva**: https://aguslaboral.github.io/rollershow-brand-manual/
@@ -95,3 +95,4 @@ Comprobar además que el ZIP, el manifiesto y cada enlace de descarga respondan 
 - v1.8: se eliminó el lenguaje interno de IA del documento público, las etiquetas visuales tipo eyebrow y las referencias que normalizaban cards. Se corrigió la contradicción de “logo compacto” y el stepper pasó a ser operable con teclado sin imponer un rango que pertenezca a una colección específica.
 - v1.9: se corrigió la referencia de índice que anunciaba una cotización de ejemplo inexistente. La sección 07 ahora nombra lo que entrega hoy y explicita que el futuro espécimen se construye desde un presupuesto aprobado, nunca ficticio.
 - v2.0: se reescribió la identidad de portada para explicar primero qué hace RollerShow y por qué, sin asumir que el lector ya entiende “cotizar”. Las acciones de cotización ahora nombran cortinas a medida; se corrigieron títulos y textos que hablaban desde el proceso interno en lugar de describir la marca o la función de la pieza.
+- v2.1: se reconstruyó el stepper con controles táctiles de 44px y grupo central inseparable; la cota técnica ahora tiene línea continua y tics completos; la matriz de fondos ganó muestras amplias, banda limpia para trama y fotografía real con Penumbra.

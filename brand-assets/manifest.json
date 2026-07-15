@@ -1,7 +1,7 @@
 {
     "package":  "RollerShow Brand Assets",
-    "version":  "1.1.0",
-    "manualVersion":  "2.0",
+    "version":  "1.1.1",
+    "manualVersion":  "2.1",
     "generatedAt":  "2026-07-15",
     "canonicalLogoSource":  "https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg",
     "compactMarkStatus":  "No existe isotipo o favicon compacto aprobado. No recortar letras del wordmark.",
@@ -134,7 +134,7 @@
                   {
                       "path":  "README.md",
                       "bytes":  1453,
-                      "sha256":  "25aec9b3715aff6df5ac287b24d3a77c96e930617bcc7531200ba68fedc8065a"
+                      "sha256":  "05357db3ad481af0cc9ca457d61754bba2d6e1c9e9a4bc6a87318221fe9b4f9e"
                   },
                   {
                       "path":  "templates/documents/letterhead-a4.svg",
