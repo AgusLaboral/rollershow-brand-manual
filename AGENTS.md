@@ -5,7 +5,7 @@ Este repo contiene el manual de marca de RollerShow (`index.html`, single-file H
 ## Datos del proyecto
 
 - **Manual**: `index.html`. Cero dependencias de ejecución salvo Google Fonts (Bricolage Grotesque + Manrope) y recursos propios.
-- **Activos**: `brand-assets/` contiene maestros y plantillas editables; `brand-assets/manifest.json` registra versión, peso y SHA-256; `downloads/rollershow-brand-assets-v1.0.0.zip` es la entrega consolidada.
+- **Activos**: `brand-assets/` contiene maestros y plantillas editables; `brand-assets/manifest.json` registra versión, peso y SHA-256; `downloads/rollershow-brand-assets-v1.0.1.zip` es la entrega consolidada.
 - **Generador**: `scripts/build-brand-assets.ps1` toma el logo oficial, extrae los 16 iconos del manual, copia las fotos reales de referencia, recalcula el manifiesto y recompone el ZIP. Ejecutarlo después de cualquier cambio en esos recursos.
 - **Repo GitHub**: `AgusLaboral/rollershow-brand-manual` (público, por GitHub Pages).
 - **URL viva**: https://aguslaboral.github.io/rollershow-brand-manual/
@@ -92,3 +92,4 @@ Comprobar además que el ZIP, el manifiesto y cada enlace de descarga respondan 
 - v1.5: la selección dejó de representarse mediante una barra lateral o cualquier marcador decorativo. El producto activo pasa a ser el contenido principal y las alternativas son acciones de comparación. La prohibición se extendió a avisos y a todo estado de interfaz.
 - v1.6: movimiento pasó de tokens sueltos a recetas operativas. Se definieron duración, curva, propiedades, disparador, interrupción y movimiento reducido para feedback, estados, cambios de escena, respuesta material, comparadores, Cota activa y la secuencia roller completa de 1200ms.
 - v1.7: el manual pasó a ser un sistema entregable. Se corrigió el maestro del logo y su proporción, se explicitó que no existe marca compacta aprobada, y se agregó un paquete verificable con logos, 16 iconos, fotos reales de referencia, plantillas editables y hojas de producción. El cuerpo sumó gobierno, co-branding, impresión, licencias, nomenclatura y claims, accesibilidad, video, derechos de imagen y diagramas técnicos.
+- v1.8: se eliminó el lenguaje interno de IA del documento público, las etiquetas visuales tipo eyebrow y las referencias que normalizaban cards. Se corrigió la contradicción de “logo compacto” y el stepper pasó a ser operable con teclado sin imponer un rango que pertenezca a una colección específica.

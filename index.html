@@ -80,10 +80,6 @@ code { overflow-wrap: anywhere; }
 .wrap { max-width: var(--container); margin: 0 auto; padding-inline: var(--pad); }
 .wrap--wide { max-width: 1160px; }
 
-.tag {
-  font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-  color: var(--fg-mute);
-}
 .num { font-variant-numeric: tabular-nums; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 
@@ -482,7 +478,7 @@ code { overflow-wrap: anywhere; }
     </p>
     <p style="margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--border); padding-top: 1rem; font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,4.5vw,2.4rem); letter-spacing:-0.02em; line-height:1.15;">Productos reales.<br>Atención real.<br>Posventa real.</p>
     <div class="cover__meta">
-      <span><b>Versión</b> 1.7</span>
+      <span><b>Versión</b> 1.8</span>
       <span><b>Vigencia</b> julio 2026 en adelante</span>
       <span><b>Formato</b> HTML de una pieza, imprimible a PDF (Ctrl/Cmd + P)</span>
     </div>
@@ -513,7 +509,7 @@ code { overflow-wrap: anywhere; }
       </div>
       <ul class="clauses">
         <li><span class="num">00.1.1</span><b>Es la referencia.</b> Las decisiones de diseño y copy se comparan con una cláusula o un ejemplo aprobado. Si dos reglas chocan, se priorizan la legibilidad, la función de la pieza y la máxima correspondiente; la excepción se documenta.</li>
-        <li><span class="num">00.1.2</span><b>Se abre antes de empezar, no para corregir después.</b> Al armar cualquier pieza nueva, al encargar trabajo a un tercero (imprenta, agencia, freelance) y al brifear a una IA: este documento es el brief.</li>
+        <li><span class="num">00.1.2</span><b>Se abre antes de empezar, no para corregir después.</b> Al armar cualquier pieza nueva o encargar trabajo a una imprenta, agencia o profesional externo, este documento define el punto de partida.</li>
         <li><span class="num">00.1.3</span><b>Cubre el caso no previsto con la personalidad.</b> Si una situación no tiene cláusula, se decide con la personalidad de la portada y las máximas de 00.4, y la decisión se escribe acá para la próxima vez.</li>
       </ul>
     </section>
@@ -529,8 +525,8 @@ code { overflow-wrap: anywhere; }
     </section>
 
     <section class="spec">
-      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">00.3</span>El capítulo 11 no hace falta leerlo</h2></div>
-      <p class="spec__note">El último capítulo repite todos los números de este manual pegados en un formato para que una IA los lea directo, sin tener que interpretar el texto, como pasarle al asistente "los datos ya digeridos" en vez de que los adivine. Es para cuando en el futuro alguien le pida a un agente que arme una pieza nueva de RollerShow: el agente lee ese bloque y usa los valores exactos, sin inventar nada. Vos no necesitás abrirlo ni entenderlo, está colapsado por default, es solo por las dudas.</p>
+      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">00.3</span>Datos estructurados</h2></div>
+      <p class="spec__note">El capítulo 11 reúne los valores del sistema en un formato estructurado. Sirve para mantener consistencia entre archivos, plantillas y futuras implementaciones; las reglas de lectura y aplicación siguen estando en los capítulos anteriores.</p>
     </section>
 
     <section class="spec">
@@ -560,7 +556,7 @@ code { overflow-wrap: anywhere; }
         <a href="#cap-08"><span class="toc__num num">08</span>Redes y avisos<em>formatos, zonas seguras, CTA</em></a>
         <a href="#cap-09"><span class="toc__num num">09</span>Fotografía<em>luz, encuadre, color</em></a>
         <a href="#cap-10"><span class="toc__num num">10</span>Movimiento y materia<em>recursos, recetas y límites</em></a>
-        <a href="#cap-11"><span class="toc__num num">11</span>Tokens<em>bloque de datos para máquina</em></a>
+        <a href="#cap-11"><span class="toc__num num">11</span>Datos del sistema<em>valores estructurados y control de producción</em></a>
       </nav>
     </section>
 
@@ -612,7 +608,7 @@ code { overflow-wrap: anywhere; }
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.2</span>Zona de seguridad y tamaño mínimo</h2></div>
       <ul class="clauses">
-        <li><span class="num">01.2.1</span>Espacio libre mínimo alrededor: el ancho de uno de los anillos de la “O” (≈ 1/12 del ancho total del wordmark), en los cuatro lados. Ningún texto, borde de card o segundo logo entra en esa zona.</li>
+        <li><span class="num">01.2.1</span>Espacio libre mínimo alrededor: el ancho de uno de los anillos de la “O” (≈ 1/12 del ancho total del wordmark), en los cuatro lados. Ningún texto, borde de contenedor o segundo logo entra en esa zona.</li>
         <li><span class="num">01.2.2</span>Tamaño mínimo digital: <b>96px</b> de ancho para el logotipo completo. Por debajo de eso se omite la marca gráfica; no se recorta una letra para resolver el espacio.</li>
         <li><span class="num">01.2.3</span>Tamaño mínimo impreso: <b>25mm</b> de ancho para el lockup completo.</li>
       </ul>
@@ -642,11 +638,11 @@ code { overflow-wrap: anywhere; }
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.3</span>Color del logotipo</h2></div>
       <p class="spec__note">Solo existen dos versiones. Nunca una tercera.</p>
       <div class="stage">
-        <span class="tag stage__label">Versión Tinta, sobre fondos claros</span>
+        <p class="stage__hint stage__label">Versión Tinta, sobre fondos claros.</p>
         <div class="stage__row"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="Logotipo RollerShow, versión tinta" style="width:min(100%, 415px); height:auto;" /></div>
       </div>
       <div class="stage" style="background:var(--cta)">
-        <span class="tag stage__label" style="color:rgba(255,255,255,.75)">Versión Blanco, sobre Rojo Teja o foto oscura</span>
+        <p class="stage__hint stage__label" style="color:rgba(255,255,255,.75)">Versión Blanco, sobre Rojo Teja o foto oscura.</p>
         <div class="stage__row"><img src="brand-assets/logo/rollershow-logo-static-tinta.svg" alt="Logotipo RollerShow, versión blanca" style="width:min(100%, 415px); height:auto; filter:brightness(0) invert(1);" /></div>
       </div>
       <ul class="clauses" style="margin-top:1.4rem">
@@ -701,7 +697,7 @@ code { overflow-wrap: anywhere; }
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.7</span>Paquete de activos</h2></div>
       <p class="spec__note">El manual explica las reglas. El paquete entrega los originales. Una gráfica no reconstruye un logo, un ícono ni una plantilla mirando una captura.</p>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key">Descarga completa</span><span class="rows__val"><a href="downloads/rollershow-brand-assets-v1.0.0.zip" download><b>RollerShow Brand Assets 1.0</b></a>, compatible con este manual v1.7.</span></div>
+        <div class="rows__item"><span class="rows__key">Descarga completa</span><span class="rows__val"><a href="downloads/rollershow-brand-assets-v1.0.1.zip" download><b>RollerShow Brand Assets 1.0.1</b></a>, compatible con este manual v1.8.</span></div>
         <div class="rows__item"><span class="rows__key">Inventario</span><span class="rows__val"><a href="brand-assets/manifest.json">Manifest JSON</a> con versión, peso y SHA-256 de cada archivo.</span></div>
         <div class="rows__item"><span class="rows__key">Logos</span><span class="rows__val">SVG animado Tinta y SVG estáticos Tinta y Blanco. No hay PNG como maestro ni marca compacta.</span></div>
         <div class="rows__item"><span class="rows__key">Biblioteca</span><span class="rows__val">16 íconos SVG, referencias fotográficas, plantillas editables, fuentes y hoja de prueba física de color.</span></div>
@@ -812,18 +808,16 @@ code { overflow-wrap: anywhere; }
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">02.4</span>En uso</h2></div>
       <p class="spec__note">Especímenes reales del sistema web: rectangulares, radio 6px, peso fuerte. La marca no usa botones píldora.</p>
       <div class="stage">
-        <span class="tag stage__label">Acción primaria</span>
         <div class="stage__row">
           <a class="btn btn--teja" href="#" onclick="return false"><span>Recibir mi cotización</span></a>
           <a class="btn btn--link" href="#" onclick="return false"><span>Ver telas</span></a>
-          <span class="stage__hint">El Rojo Teja manda y lo secundario baja el volumen.</span>
+          <span class="stage__hint">Acción primaria: el Rojo Teja manda y lo secundario baja el volumen.</span>
         </div>
       </div>
       <div class="stage">
-        <span class="tag stage__label">Segundo orden</span>
         <div class="stage__row">
           <a class="btn btn--ink" href="#" onclick="return false"><span>Ver cómo trabajamos</span></a>
-          <span class="stage__hint">La tinta con hover terracota queda para acciones de apoyo.</span>
+          <span class="stage__hint">Segundo orden: la tinta con hover terracota queda para acciones de apoyo.</span>
         </div>
       </div>
     </section>
@@ -979,7 +973,7 @@ code { overflow-wrap: anywhere; }
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">03.4</span>Reglas de uso</h2></div>
       <ul class="clauses">
         <li><span class="num">03.4.1</span>Bricolage Grotesque no tiene eje itálico: nunca usar su itálica sintética (oblicua falsa que el navegador genera).</li>
-        <li><span class="num">03.4.2</span>Mayúsculas solo en microcopy de ficha técnica (<code>.tag</code>, cláusulas cortas). Nunca un titular completo en mayúsculas.</li>
+        <li><span class="num">03.4.2</span>Mayúsculas solo en microcopy de ficha técnica y cláusulas cortas. Nunca un titular completo en mayúsculas.</li>
         <li><span class="num">03.4.3</span>Nunca combinar más de dos pesos en una misma composición de tres líneas.</li>
         <li><span class="num">03.4.4</span>La jerarquía se construye con tamaño y peso, no agregando un tercer color al texto.</li>
         <li><span class="num">03.4.5</span>Toda cifra que se compare en columna (precios, medidas, folios) lleva <code>font-variant-numeric: tabular-nums</code>.</li>
@@ -1060,9 +1054,9 @@ code { overflow-wrap: anywhere; }
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">04.2</span>Radios, escala de cuatro, rol fijo</h2></div>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key">6px</span><span class="rows__val">Solo botones (<code>--radius-btn</code>). Nunca en cards ni inputs.</span></div>
+        <div class="rows__item"><span class="rows__key">6px</span><span class="rows__val">Solo botones de acción (<code>--radius-btn</code>).</span></div>
         <div class="rows__item"><span class="rows__key">8px</span><span class="rows__val">Inputs y chips chicos (<code>--radius-sm</code>).</span></div>
-        <div class="rows__item"><span class="rows__key">14px</span><span class="rows__val">Cards, stepper, contenedores medianos (<code>--radius</code>).</span></div>
+        <div class="rows__item"><span class="rows__key">14px</span><span class="rows__val">Stepper, visor de producto y módulos de interacción (<code>--radius</code>).</span></div>
         <div class="rows__item"><span class="rows__key">22px</span><span class="rows__val">Módulos grandes e imágenes hero (<code>--radius-lg</code>).</span></div>
         <div class="rows__item"><span class="rows__key">999px</span><span class="rows__val">Solo pills funcionales del producto (ej. <code>.phone-pill</code> del header): nunca botones de acción, ver 06.1.</span></div>
         <div class="rows__item"><span class="rows__key">0px</span><span class="rows__val">Este mismo manual: piel editorial, hairlines, sin radio en su propia estructura.</span></div>
@@ -1072,7 +1066,7 @@ code { overflow-wrap: anywhere; }
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">04.3</span>Sombras</h2></div>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key">sm</span><span class="rows__val"><code>0 1px 2px rgba(28,24,22,.05)</code>: apenas separación, bordes de card.</span></div>
+        <div class="rows__item"><span class="rows__key">sm</span><span class="rows__val"><code>0 1px 2px rgba(28,24,22,.05)</code>: separación mínima entre una superficie funcional y su contexto.</span></div>
         <div class="rows__item"><span class="rows__key">md</span><span class="rows__val"><code>0 6px 18px rgba(28,24,22,.08), 0 2px 6px rgba(28,24,22,.04)</code>: elementos flotantes (menús, tooltips).</span></div>
         <div class="rows__item"><span class="rows__key">lg</span><span class="rows__val"><code>0 30px 60px -16px rgba(28,24,22,.22), 0 10px 24px -8px rgba(28,24,22,.08)</code>: modales, overlays.</span></div>
         <div class="rows__item"><span class="rows__key">Regla de color</span><span class="rows__val">Siempre tintadas a Tinta (<code>rgba(28,24,22,…)</code>), nunca gris puro ni negro puro. La única excepción es la sombra tintada al Rojo Teja del botón primario en hover (ver 06.7).</span></div>
@@ -1129,7 +1123,7 @@ code { overflow-wrap: anywhere; }
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">04.5</span>Quiebres reales del producto</h2></div>
       <div class="rows">
         <div class="rows__item"><span class="rows__key">420px</span><span class="rows__val">Elementos que se reducen a solo ícono (ej. pill de WhatsApp del header).</span></div>
-        <div class="rows__item"><span class="rows__key">480px</span><span class="rows__val">Logo compacto, tipografía hero reducida.</span></div>
+        <div class="rows__item"><span class="rows__key">480px</span><span class="rows__val">El logotipo completo reduce su ancho disponible y la tipografía hero baja un paso. No cambia por una marca compacta.</span></div>
         <div class="rows__item"><span class="rows__key">720px</span><span class="rows__val">Colapso a una columna, se ocultan elementos secundarios del header.</span></div>
         <div class="rows__item"><span class="rows__key">980px</span><span class="rows__val">Paso de layout mobile/tablet a desktop de dos columnas.</span></div>
       </div>
@@ -1142,7 +1136,7 @@ code { overflow-wrap: anywhere; }
         <div class="rows__item"><span class="rows__key">Columnas</span><span class="rows__val">12, dentro de <code>--container</code> (1280px) o <code>--container-narrow</code> (920px).</span></div>
         <div class="rows__item"><span class="rows__key">Canaleta (gutter)</span><span class="rows__val">24px entre columnas.</span></div>
         <div class="rows__item"><span class="rows__key">Margen lateral</span><span class="rows__val">El mismo <code>--pad</code> fluido de 04.1, nunca un margen fijo distinto al del resto del sistema.</span></div>
-        <div class="rows__item"><span class="rows__key">Bloques típicos</span><span class="rows__val">Texto de lectura: 6 a 8 columnas. Imagen o media hero: 12 columnas (ancho completo). Card o formulario lateral: 4 columnas.</span></div>
+        <div class="rows__item"><span class="rows__key">Bloques típicos</span><span class="rows__val">Texto de lectura: 6 a 8 columnas. Imagen o media hero: 12 columnas (ancho completo). Formulario lateral o módulo de consulta: 4 columnas.</span></div>
       </div>
     </section>
 
@@ -1181,7 +1175,7 @@ code { overflow-wrap: anywhere; }
         <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">8px</span><span style="width:8px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">entre elementos de un mismo grupo</span></div>
         <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">12px</span><span style="width:12px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">padding interno chico</span></div>
         <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">16px</span><span style="width:16px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">entre grupos relacionados</span></div>
-        <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">24px</span><span style="width:24px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">canaleta de grilla, padding de card</span></div>
+        <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">24px</span><span style="width:24px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">canaleta de grilla, padding interno de módulo</span></div>
         <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">32px</span><span style="width:32px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">entre bloques de una sección</span></div>
         <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">48px</span><span style="width:48px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">aire alrededor de la acción primaria</span></div>
         <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">64px</span><span style="width:64px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">entre secciones (mínimo)</span></div>
@@ -1348,7 +1342,6 @@ code { overflow-wrap: anywhere; }
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">06.1</span>Botones</h2></div>
       <div class="stage">
-        <span class="tag stage__label">Primario, secundario, WhatsApp, enlace</span>
         <div class="stage__row">
           <a class="btn btn--teja" href="#" onclick="return false"><span>Recibir mi cotización</span></a>
           <a class="btn btn--ink" href="#" onclick="return false"><span>Ver cómo trabajamos</span></a>
@@ -1377,16 +1370,17 @@ code { overflow-wrap: anywhere; }
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">06.3</span>Campos numéricos (stepper)</h2></div>
       <div class="stage">
-        <div class="stepper">
-          <button class="stepper__btn" type="button" tabindex="-1">−</button>
-          <input type="number" value="120" readonly />
+        <div class="stepper" data-stepper>
+          <button class="stepper__btn" type="button" aria-label="Restar un centímetro">−</button>
+          <input type="number" value="120" min="1" aria-label="Ancho en centímetros" />
           <span class="stepper__unit">cm</span>
-          <button class="stepper__btn" type="button" tabindex="-1">+</button>
+          <button class="stepper__btn" type="button" aria-label="Sumar un centímetro">+</button>
         </div>
       </div>
       <div class="rows">
         <div class="rows__item"><span class="rows__key">Estructura</span><span class="rows__val">Grid <code>38px minmax(0,1fr) auto 38px</code>, borde <code>1.5px solid var(--border)</code>, radio <code>14px</code>.</span></div>
         <div class="rows__item"><span class="rows__key">Foco</span><span class="rows__val">Borde Terracota + <code>box-shadow: 0 0 0 4px rgba(184,102,44,.14)</code> en <code>:focus-within</code>.</span></div>
+        <div class="rows__item"><span class="rows__key">Rango</span><span class="rows__val">Los botones cambian de a 1cm. El mínimo y máximo salen de la colección elegida; el componente no inventa un límite general.</span></div>
       </div>
     </section>
 
@@ -2122,17 +2116,16 @@ code { overflow-wrap: anywhere; }
     <section class="chapter">
       <div class="chapter__head">
         <span class="chapter__numeral num">11</span>
-        <h1 class="chapter__title">Los datos del manual, para máquinas.</h1>
+        <h1 class="chapter__title">Datos estructurados del sistema.</h1>
       </div>
       <p class="chapter__intro">
-        Los mismos números de los capítulos 1 a 11, pegados una sola vez más en un formato que lee una máquina.
-        Este capítulo es opcional para vos, está pensado para un agente de IA, no para leerlo de corrido.
+        Valores y reglas de los capítulos anteriores reunidos en un formato estructurado para producción, control de versiones e integración con plantillas.
       </p>
     </section>
 
     <section class="spec">
-      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">11.1</span>Bloque de tokens</h2></div>
-      <p class="spec__note">Tocá "Ver los datos" solo si sos vos quien se lo va a pegar a una IA. Si no, seguí de largo, el manual termina acá.</p>
+      <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">11.1</span>Valores estructurados</h2></div>
+      <p class="spec__note">El bloque conserva los valores exactos del sistema. Se consulta cuando se implementa, se automatiza una plantilla o se controla una entrega.</p>
       <details>
         <summary style="cursor:pointer; font-weight:700; color:var(--cta); font-size:.9rem;">Ver los datos técnicos (opcional)</summary>
         <div class="tokens-block" style="margin-top:1rem;"><pre id="tokens-visible"></pre></div>
@@ -2145,14 +2138,14 @@ code { overflow-wrap: anywhere; }
 
 <footer class="foot">
   <div class="wrap">
-    <span>Manual de Marca de RollerShow, v1.7, julio 2026</span>
+    <span>Manual de Marca de RollerShow, v1.8, julio 2026</span>
     <span class="num">11 capítulos</span>
   </div>
 </footer>
 
 <script type="application/json" id="rollershow-brand-tokens">
 {
-  "meta": { "brand": "RollerShow", "docVersion": "1.7", "updated": "2026-07-15", "assetKitVersion": "1.0.0" },
+  "meta": { "brand": "RollerShow", "docVersion": "1.8", "updated": "2026-07-15", "assetKitVersion": "1.0.1" },
   "brand": { "essence": "la calidad se reconoce en todo el recorrido: descubrimiento, asesoramiento, presupuesto, fabricacion, instalacion, uso y posventa; la experiencia es la misma en todo el catalogo", "positioning": "la empresa con mas trayectoria vendiendo cortinas a medida online en Argentina; catalogo del mejor precio a la mas alta calidad", "languageAnchor": "real: productos reales, atencion real, posventa real; la garantia es una prueba concreta de la posventa", "personality": "calida, directa y precisa; nunca grita, nunca ruega", "tagline": { "text": "Cortinas como imaginás", "status": "bajada de trabajo adoptada, afinable antes de lanzamiento formal" }, "decisionRule": "caso sin clausula: priorizar legibilidad, funcion de la pieza y maxima aplicable; documentar la excepcion" },
   "color": {
     "bg": "#FAF7F2", "bgElev": "#FFFFFF", "bgMuted": "#F1EBE0",
@@ -2172,7 +2165,7 @@ code { overflow-wrap: anywhere; }
   "spacing": { "container": "1280px", "containerNarrow": "920px", "sectionY": "clamp(3.5rem,7vw,6rem)", "padInline": "clamp(1.1rem,4vw,2.5rem)" },
   "grid": { "columns": 12, "gutter": "24px", "margin": "= padInline (fluido)" },
   "print": { "safeMargin": "15mm", "bleed": "3mm", "folioOffset": "10mm desde borde inferior", "colorRule": "sRGB es canon digital; CMYK se aprueba por perfil+maquina+soporte mediante prueba fisica", "pdf": "fuentes incrustadas, imagenes 300ppi al tamano final, perfil ICC conservado" },
-  "assetKit": { "version": "1.0.0", "download": "downloads/rollershow-brand-assets-v1.0.0.zip", "manifest": "brand-assets/manifest.json", "logoViewBox": "0 0 600 52", "logoRatio": 11.54, "compactMark": "no existe isotipo o favicon compacto aprobado; no recortar letras", "contents": ["3 variantes del logo completo", "16 iconos SVG", "2 referencias fotograficas", "4 plantillas editables", "hoja de prueba de color", "fuentes y licencias"] },
+  "assetKit": { "version": "1.0.1", "download": "downloads/rollershow-brand-assets-v1.0.1.zip", "manifest": "brand-assets/manifest.json", "logoViewBox": "0 0 600 52", "logoRatio": 11.54, "compactMark": "no existe isotipo o favicon compacto aprobado; no recortar letras", "contents": ["3 variantes del logo completo", "16 iconos SVG", "2 referencias fotograficas", "4 plantillas editables", "hoja de prueba de color", "fuentes y licencias"] },
   "governance": { "sourceOfTruth": "manual publico + paquete compatible", "review": "cada 6 meses o ante cambio importante", "exception": "registrar pieza, motivo, responsable y vencimiento antes de publicar", "versionRule": "todo cambio declara reglas y activos afectados" },
   "production": { "digital": "sRGB", "printApproval": ["perfil ICC", "maquina", "tinta", "soporte", "prueba fisica", "fecha y responsable"], "rule": "un cambio de perfil, maquina o soporte exige nueva prueba" },
   "naming": { "families": ["Roller", "Verticales", "Tradicionales", "Horizontales", "Dúo"], "collectionExamples": ["Black Out", "Sun Screen 5%", "Dim Out"], "source": "https://www.rollershow.com.ar/api/v2", "rule": "copiar nombre, espacios, porcentaje y acentos del dato vigente" },
@@ -2211,6 +2204,7 @@ code { overflow-wrap: anywhere; }
   "preflight": ["una sola accion primaria con maximo contraste", "barrido de caracteres prohibidos", "sin cajas anidadas, radio-cards, barras laterales de estado, count-ups, auroras, marcador ni revelados genericos", "todos los valores salen de las escalas", "contraste medido no estimado", "CTA de la biblioteca o formula verbo+beneficio", "numeros y precios en formato fijo", "logo correcto para el fondo + zona de seguridad", "movimiento nacido de cortina, tela, luz o medida; touch+teclado+reduced-motion", "sin overflow a 375px reales", "visto publicado desde un telefono antes de reportar", "activos del paquete compatible", "nombres y claims con fuente y fecha", "accesibilidad probada", "derechos y procedencia registrados", "salida de produccion correcta", "marcas externas autorizadas"],
   "maxims": ["mobile primero (disenar a 375px)", "estructural antes que estetico", "una sola accion primaria por pantalla, maximo contraste", "cada elemento es parte de algo, nada flotando", "la calidad se demuestra en todo el recorrido y cada promesa necesita prueba", "la solucion mas simple gana", "nada terminado hasta verlo en vivo en un telefono"],
   "writing": { "price": "$ 143.200 (espacio tras $, punto de miles, sin decimales)", "measure": "120 × 180 cm (signo ×, espacio antes de unidad)", "dateInCopy": "hasta el 30 de junio", "dateInDocs": "21/07/2026", "phone": "+54 9 351 000 0000", "warranty": "hasta 3 años de garantía" },
+  "stepper": { "min": 1, "step": 1, "unit": "cm", "range": "minimo y maximo vienen de la coleccion elegida", "controls": "botones de sumar y restar operables por teclado" },
   "formField": { "radius": "8px", "border": "1.5px #E4DCCE", "focus": "borde terracota + anillo rgba(184,102,44,.14)", "valid": "borde tinta suave + confirmacion textual, sin verde", "error": "borde y mensaje #97290F con instruccion concreta", "globalFeedback": "fila integrada entre hairlines con titulo y salida clara; nunca toast efimero, card flotante ni barra lateral de estado" },
   "selection": { "pattern": "visor de producto activo + alternativas de comparacion", "active": "el producto ocupa la muestra principal con nombre y funcion; su accion se oculta", "alternatives": "acciones de texto sin marcador de estado", "banned": ["barra lateral", "borde o fondo de seleccionado", "radio circular", "check", "punto", "badge Seleccionada", "cards separadas", "cajas dentro de cajas"] },
   "letterhead": { "size": "A4 vertical", "margins": "20mm superior, 15mm laterales e inferior", "usefulArea": "180x262mm", "header": "logo tinta 38mm + tipo de documento 8pt italica + hairline tinta", "body": "titulo Bricolage 18/20pt, Manrope 10/15pt, ancho maximo 145mm", "footer": "web izquierda + telefono derecha, Manrope 7.5pt, hairline lino", "continuation": "logo 28mm + documento + pagina N de N" },
@@ -2231,6 +2225,23 @@ code { overflow-wrap: anywhere; }
 <script>
   window.addEventListener('beforeprint', function () {
     document.querySelectorAll('details').forEach(function (d) { d.open = true; });
+  });
+  document.querySelectorAll('[data-stepper]').forEach(function (stepper) {
+    var input = stepper.querySelector('input[type="number"]');
+    var buttons = stepper.querySelectorAll('button');
+    function update(delta) {
+      var min = Number(input.min || 0);
+      var max = Number(input.max || Number.MAX_SAFE_INTEGER);
+      var current = Number(input.value || min);
+      input.value = Math.max(min, Math.min(max, current + delta));
+    }
+    buttons[0].addEventListener('click', function () { update(-1); });
+    buttons[1].addEventListener('click', function () { update(1); });
+    input.addEventListener('change', function () {
+      var min = Number(input.min || 0);
+      var max = Number(input.max || Number.MAX_SAFE_INTEGER);
+      input.value = Math.max(min, Math.min(max, Number(input.value || min)));
+    });
   });
   document.querySelectorAll('[data-product-viewer]').forEach(function (viewer) {
     var products = {

@@ -69,8 +69,8 @@ $manifestFiles = foreach ($file in $files) {
 }
 $manifest = [ordered]@{
   package = "RollerShow Brand Assets"
-  version = "1.0.0"
-  manualVersion = "1.7"
+  version = "1.0.1"
+  manualVersion = "1.8"
   generatedAt = (Get-Date).ToString("yyyy-MM-dd")
   canonicalLogoSource = "https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg"
   compactMarkStatus = "No existe isotipo o favicon compacto aprobado. No recortar letras del wordmark."
@@ -78,7 +78,7 @@ $manifest = [ordered]@{
 }
 [IO.File]::WriteAllText((Join-Path $assets "manifest.json"), ($manifest | ConvertTo-Json -Depth 5), $utf8)
 
-$zip = Join-Path $downloadDir "rollershow-brand-assets-v1.0.0.zip"
+$zip = Join-Path $downloadDir "rollershow-brand-assets-v1.0.1.zip"
 if (Test-Path -LiteralPath $zip) { Remove-Item -LiteralPath $zip -Force }
 Compress-Archive -Path (Join-Path $assets "*") -DestinationPath $zip -CompressionLevel Optimal
 Write-Output "Brand assets listos: $zip"
