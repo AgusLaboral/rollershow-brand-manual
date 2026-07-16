@@ -5,6 +5,7 @@ Manual de marca oficial de RollerShow, imprimible a PDF (Ctrl/Cmd + P), más un 
 - **Ver en vivo**: https://aguslaboral.github.io/rollershow-brand-manual/
 - **Repositorio canónico**: https://github.com/AgusLaboral/rollershow-brand-manual
 - **Integrarlo en otro proyecto**: leer [`INTEGRATION.md`](INTEGRATION.md). Contiene la instrucción lista para citar en Codex, Claude u otro agente.
+- **Inconsistencias y vacíos detectados**: registrar y seguir en [`AUDIT-LOG.md`](AUDIT-LOG.md).
 - **Editar el manual**: `index.html`. Deploy automático a GitHub Pages al pushear a `main`.
 - **Activos**: `brand-assets/` contiene logos, iconos, fotos de referencia, plantillas y hojas de producción. La descarga consolidada está en `downloads/`.
 - **Regenerar el paquete**: ejecutar `powershell -ExecutionPolicy Bypass -File scripts/build-brand-assets.ps1` después de cambiar iconos, logos o plantillas. El script actualiza el manifiesto de integridad y el ZIP.
@@ -15,5 +16,7 @@ Manual de marca oficial de RollerShow, imprimible a PDF (Ctrl/Cmd + P), más un 
 El manual es una guía de partida, no un techo creativo. Una herramienta, animación o tecnología nueva no se rechaza por estar ausente. Se conserva la propuesta, se explican sus diferencias con el sistema actual y se pide aprobación. Cuando una implementación final aprobada aporta una solución reutilizable, el aprendizaje vuelve a este repositorio y se incorpora al manual, los datos estructurados, los activos y el historial correspondientes.
 
 Las propuestas todavía no aprobadas se registran en [`CANDIDATES.md`](CANDIDATES.md). Solo lo aprobado entra al manual como estándar vigente.
+
+Las contradicciones o reglas incompletas detectadas al aplicar el sistema se registran en [`AUDIT-LOG.md`](AUDIT-LOG.md). Ese archivo conserva pendientes y correcciones históricas para no repetir errores ya diagnosticados.
 
 Lo efímero (capturas, scripts de prueba) va en `_scratch/` (ignorado por git).

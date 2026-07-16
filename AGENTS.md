@@ -20,6 +20,7 @@ Este repo contiene el manual de marca de RollerShow (`index.html`, single-file H
 - Una novedad se mantiene identificable y reversible hasta la aprobación. No canonizarla por entusiasmo ni eliminarla por diferencia.
 - Cuando Agus aprueba una implementación final y el recurso es reutilizable, actualizar este repositorio: cuerpo del manual, JSON de tokens, activos, ejemplo, compatibilidad e historial según corresponda.
 - Los recursos probados pero todavía no aprobados se registran en `CANDIDATES.md` con evidencia. No llenar el registro con ideas abstractas.
+- Las contradicciones, vacíos o reglas que induzcan una aplicación incorrecta se registran en `AUDIT-LOG.md` con evidencia y estado. No mezclar este registro con candidatos creativos ni con bugs particulares de una pieza.
 - Accesibilidad, performance, legibilidad, derechos, seguridad y funcionamiento siguen siendo compuertas técnicas. Una novedad no se exceptúa de ellas.
 
 ## Estructura del documento
