@@ -20,8 +20,8 @@ $animated = Join-Path $logoDir "rollershow-logo-animated-tinta.svg"
 $sourceLogo = Join-Path $SourceRoot "img\logo.svg"
 if (Test-Path -LiteralPath $sourceLogo) {
   Copy-Item -LiteralPath $sourceLogo -Destination $animated -Force
-} else {
-  Invoke-WebRequest -UseBasicParsing -Uri "https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg" -OutFile $animated
+} elseif (-not (Test-Path -LiteralPath $animated)) {
+  throw "Falta el maestro local del logo: $animated"
 }
 
 $svg = [IO.File]::ReadAllText($animated)
@@ -69,8 +69,8 @@ $manifestFiles = foreach ($file in $files) {
 }
 $manifest = [ordered]@{
   package = "RollerShow Brand Assets"
-  version = "1.1.1"
-  manualVersion = "2.1"
+  version = "1.1.2"
+  manualVersion = "2.2"
   generatedAt = (Get-Date).ToString("yyyy-MM-dd")
   canonicalLogoSource = "https://assets.rollershow.com.ar/2021/img/rs_logo_animado_b.svg"
   compactMarkStatus = "No existe isotipo o favicon compacto aprobado. No recortar letras del wordmark."
@@ -78,7 +78,7 @@ $manifest = [ordered]@{
 }
 [IO.File]::WriteAllText((Join-Path $assets "manifest.json"), ($manifest | ConvertTo-Json -Depth 5), $utf8)
 
-$zip = Join-Path $downloadDir "rollershow-brand-assets-v1.1.1.zip"
+$zip = Join-Path $downloadDir "rollershow-brand-assets-v1.1.2.zip"
 if (Test-Path -LiteralPath $zip) { Remove-Item -LiteralPath $zip -Force }
 Compress-Archive -Path (Join-Path $assets "*") -DestinationPath $zip -CompressionLevel Optimal
 Write-Output "Brand assets listos: $zip"

@@ -9,12 +9,21 @@
 
 <!-- No existe una marca compacta aprobada. Este recurso vacío evita que el navegador improvise o solicite un favicon. -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" type="image/svg+xml" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://assets.rollershow.com.ar" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&display=swap" />
-
 <style>
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('brand-assets/fonts/bricolage-grotesque-latin-variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('brand-assets/fonts/manrope-latin-variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
 :root {
   --bg: #FAF7F2;
   --bg-elev: #FFFFFF;
@@ -375,8 +384,8 @@ code { overflow-wrap: anywhere; }
   33.333%,100% { transform: translateY(-103%); }
 }
 
-.compare-demo { --split: 50%; width: 240px; max-width: 100%; height: 140px; position: relative; overflow: hidden; border: 1px solid var(--border); touch-action: pan-y; user-select: none; cursor: ew-resize; background: #3B3028 url('https://cdn.rollershow.com.ar/web/landing-whatsapp/compare/blackout-6a3b094104314.png') center / cover no-repeat; }
-.compare-demo__after { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--split)); background: #DCC9A5 url('https://cdn.rollershow.com.ar/web/landing-whatsapp/compare/sunscreen-6a3b09455d334.png') center / cover no-repeat; }
+.compare-demo { --split: 50%; width: 240px; max-width: 100%; height: 140px; position: relative; overflow: hidden; border: 1px solid var(--border); touch-action: pan-y; user-select: none; cursor: ew-resize; background: #3B3028 url('brand-assets/interactive/compare-blackout.png') center / cover no-repeat; }
+.compare-demo__after { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--split)); background: #DCC9A5 url('brand-assets/interactive/compare-sunscreen.png') center / cover no-repeat; }
 .compare-demo__before, .compare-demo__after { display: flex; align-items: flex-end; padding: .55rem; color: #fff; font-size: .66rem; font-weight: 700; text-shadow: 0 1px 4px rgba(28,24,22,.8); }
 .compare-demo__after { justify-content: flex-end; }
 .compare-demo__line { position: absolute; inset: 0 auto 0 var(--split); width: 2px; transform: translateX(-1px); background: #fff; box-shadow: 0 0 0 1px rgba(28,24,22,.18); pointer-events: none; }
@@ -515,7 +524,7 @@ code { overflow-wrap: anywhere; }
     </p>
     <p style="margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--border); padding-top: 1rem; font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,4.5vw,2.4rem); letter-spacing:-0.02em; line-height:1.15;">Productos reales.<br>Atención real.<br>Posventa real.</p>
     <div class="cover__meta">
-      <span><b>Versión</b> 2.0</span>
+      <span><b>Versión</b> 2.2</span>
       <span><b>Vigencia</b> julio 2026 en adelante</span>
       <span><b>Formato</b> HTML de una pieza, imprimible a PDF (Ctrl/Cmd + P)</span>
     </div>
@@ -545,9 +554,9 @@ code { overflow-wrap: anywhere; }
         <div class="journey__step"><b class="num">04</b><span>Uso: cuidado, garantía, posventa y nueva recomendación.</span></div>
       </div>
       <ul class="clauses">
-        <li><span class="num">00.1.1</span><b>Es la referencia.</b> Las decisiones de diseño y copy se comparan con una cláusula o un ejemplo aprobado. Si dos reglas chocan, se priorizan la legibilidad, la función de la pieza y la máxima correspondiente; la excepción se documenta.</li>
+        <li><span class="num">00.1.1</span><b>Es el punto de partida.</b> Las decisiones de diseño y copy se comparan con una cláusula o un ejemplo aprobado. El manual conserva lo aprendido, pero no define el límite de lo que la marca puede descubrir.</li>
         <li><span class="num">00.1.2</span><b>Se abre antes de empezar, no para corregir después.</b> Al armar cualquier pieza nueva o encargar trabajo a una imprenta, agencia o profesional externo, este documento define el punto de partida.</li>
-        <li><span class="num">00.1.3</span><b>Cubre el caso no previsto con la personalidad.</b> Si una situación no tiene cláusula, se decide con la personalidad de la portada y las máximas de 00.4, y la decisión se escribe acá para la próxima vez.</li>
+        <li><span class="num">00.1.3</span><b>Permite explorar el caso no previsto.</b> Si una herramienta, técnica o interacción nueva aporta valor, se prueba con la personalidad y las máximas de 00.4. Se informa qué queda fuera del manual y se pide aprobación antes de convertirlo en estándar.</li>
       </ul>
     </section>
 
@@ -556,7 +565,7 @@ code { overflow-wrap: anywhere; }
       <ul class="clauses">
         <li><span class="num">00.2.1</span><b>Numeración de cláusula</b>: capítulo.sección.regla (ej. <code>02.2.3</code>). Cada regla es atómica: se puede citar sola sin ambigüedad.</li>
         <li><span class="num">00.2.2</span><b>Todo valor entre paréntesis o en monoespaciada</b> es literal, un hex, un px, un rem, un nombre de variable CSS. Copiar tal cual, no aproximar.</li>
-        <li><span class="num">00.2.3</span><b>Este documento manda</b>: si una pieza existente contradice al manual, lo que se corrige es la pieza, no el manual. Las excepciones se aprueban por escrito antes de publicarse.</li>
+        <li><span class="num">00.2.3</span><b>Este documento guía</b>: una diferencia con el manual no desaprueba por sí sola una idea nueva. Primero se conserva el recurso, se señalan las reglas que cambia y se evalúa su aporte. Si la persona responsable de marca aprueba el resultado final, el manual se actualiza para incorporar el aprendizaje.</li>
         <li><span class="num">00.2.4</span><b>Cero decoración sin función</b>: este documento aplica sus propias reglas sobre sí mismo: sin badges, sin cajas anidadas, sin bullets, sin íconos decorativos. Si algo en este PDF se ve como plantilla genérica, es un error del documento, reportalo.</li>
       </ul>
     </section>
@@ -600,15 +609,17 @@ code { overflow-wrap: anywhere; }
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">00.6</span>Responsables, versiones y excepciones</h2></div>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key">Fuente de verdad</span><span class="rows__val">La URL pública del manual y el paquete de activos cuya versión figura en 01.7.</span></div>
+        <div class="rows__item"><span class="rows__key">Repositorio canónico</span><span class="rows__val"><a href="https://github.com/AgusLaboral/rollershow-brand-manual">github.com/AgusLaboral/rollershow-brand-manual</a>. El manual, los activos, las fuentes, las licencias y el historial viven versionados ahí.</span></div>
+        <div class="rows__item"><span class="rows__key">Manual publicado</span><span class="rows__val"><a href="https://aguslaboral.github.io/rollershow-brand-manual/">aguslaboral.github.io/rollershow-brand-manual</a>. Es la vista de consulta; el repositorio conserva la fuente completa.</span></div>
         <div class="rows__item"><span class="rows__key">Responsable</span><span class="rows__val">La persona designada por RollerShow para marca mantiene el documento, reúne las aprobaciones y publica cada versión.</span></div>
-        <div class="rows__item"><span class="rows__key">Revisión</span><span class="rows__val">Cada seis meses y también cuando cambia el logo, una familia de producto, una promesa, una plantilla o un canal importante.</span></div>
+        <div class="rows__item"><span class="rows__key">Revisión</span><span class="rows__val">Cada seis meses y también cuando una implementación final aprobada aporta una herramienta, animación, componente, característica o tecnología reutilizable.</span></div>
         <div class="rows__item"><span class="rows__key">Historial</span><span class="rows__val">Cada versión informa fecha, regla modificada, motivo y activos afectados. Una corrección silenciosa no cuenta como versión.</span></div>
       </div>
       <ul class="clauses" style="margin-top:1.4rem">
-        <li><span class="num">00.6.1</span>Una excepción se aprueba antes de publicar y registra pieza, motivo, responsable y fecha de vencimiento. No crea una regla nueva por sí sola.</li>
-        <li><span class="num">00.6.2</span>Una versión nueva del manual declara con qué paquete de activos es compatible. Si no coinciden, se frena la producción.</li>
-        <li><span class="num">00.6.3</span>Cuando una práctica se repite en tres piezas aprobadas, se evalúa incorporarla al sistema. Hasta entonces sigue siendo una excepción documentada.</li>
+        <li><span class="num">00.6.1</span>Una propuesta nueva no se elimina solo porque todavía no aparece en el manual. La implementación informa qué reglas mantiene, cuáles cambia y por qué el recurso podría mejorar la pieza.</li>
+        <li><span class="num">00.6.2</span>La propuesta se mantiene identificable y reversible hasta recibir aprobación explícita. Estar fuera del manual no equivale a estar prohibido ni aprobado.</li>
+        <li><span class="num">00.6.3</span>Una implementación final aprobada puede crear un estándar desde su primera aparición si resuelve un caso reutilizable. Se incorpora al cuerpo, los datos estructurados, los activos y el historial que correspondan.</li>
+        <li><span class="num">00.6.4</span>Una versión nueva del manual declara con qué paquete de activos es compatible. Si no coinciden, se frena la producción.</li>
       </ul>
     </section>
   </div>
@@ -734,7 +745,7 @@ code { overflow-wrap: anywhere; }
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.7</span>Paquete de activos</h2></div>
       <p class="spec__note">El manual explica las reglas. El paquete entrega los originales. Una gráfica no reconstruye un logo, un ícono ni una plantilla mirando una captura.</p>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key">Descarga completa</span><span class="rows__val"><a href="downloads/rollershow-brand-assets-v1.1.1.zip" download><b>RollerShow Brand Assets 1.1.1</b></a>, compatible con este manual v2.1.</span></div>
+        <div class="rows__item"><span class="rows__key">Descarga completa</span><span class="rows__val"><a href="downloads/rollershow-brand-assets-v1.1.2.zip" download><b>RollerShow Brand Assets 1.1.2</b></a>, compatible con este manual v2.2.</span></div>
         <div class="rows__item"><span class="rows__key">Inventario</span><span class="rows__val"><a href="brand-assets/manifest.json">Manifest JSON</a> con versión, peso y SHA-256 de cada archivo.</span></div>
         <div class="rows__item"><span class="rows__key">Logos</span><span class="rows__val">SVG animado Tinta y SVG estáticos Tinta y Blanco. No hay PNG como maestro ni marca compacta.</span></div>
         <div class="rows__item"><span class="rows__key">Biblioteca</span><span class="rows__val">16 íconos SVG, referencias fotográficas, plantillas editables, fuentes y hoja de prueba física de color.</span></div>
@@ -2170,15 +2181,15 @@ code { overflow-wrap: anywhere; }
 
 <footer class="foot">
   <div class="wrap">
-    <span>Manual de Marca de RollerShow, v2.1, julio 2026</span>
+    <span>Manual de Marca de RollerShow, v2.2, julio 2026</span>
     <span class="num">11 capítulos</span>
   </div>
 </footer>
 
 <script type="application/json" id="rollershow-brand-tokens">
 {
-  "meta": { "brand": "RollerShow", "docVersion": "2.1", "updated": "2026-07-15", "assetKitVersion": "1.1.1" },
-  "brand": { "what": "empresa argentina especializada en cortinas a medida", "purpose": "regular la luz, dar privacidad y hacer los ambientes mas habitables", "essence": "la calidad se reconoce en todo el recorrido: descubrimiento, asesoramiento, presupuesto, fabricacion, instalacion, uso y posventa; la experiencia es la misma en todo el catalogo", "positioning": "la empresa con mas trayectoria vendiendo cortinas a medida online en Argentina; catalogo del mejor precio a la mas alta calidad", "languageAnchor": "real: productos reales, atencion real, posventa real; la garantia es una prueba concreta de la posventa", "personality": "calida, directa y precisa; nunca grita, nunca ruega", "tagline": { "text": "Cortinas como imaginás", "status": "bajada de trabajo adoptada, afinable antes de lanzamiento formal" }, "decisionRule": "caso sin clausula: priorizar legibilidad, funcion de la pieza y maxima aplicable; documentar la excepcion" },
+  "meta": { "brand": "RollerShow", "docVersion": "2.2", "updated": "2026-07-16", "assetKitVersion": "1.1.2" },
+  "brand": { "what": "empresa argentina especializada en cortinas a medida", "purpose": "regular la luz, dar privacidad y hacer los ambientes mas habitables", "essence": "la calidad se reconoce en todo el recorrido: descubrimiento, asesoramiento, presupuesto, fabricacion, instalacion, uso y posventa; la experiencia es la misma en todo el catalogo", "positioning": "la empresa con mas trayectoria vendiendo cortinas a medida online en Argentina; catalogo del mejor precio a la mas alta calidad", "languageAnchor": "real: productos reales, atencion real, posventa real; la garantia es una prueba concreta de la posventa", "personality": "calida, directa y precisa; nunca grita, nunca ruega", "tagline": { "text": "Cortinas como imaginás", "status": "bajada de trabajo adoptada, afinable antes de lanzamiento formal" }, "decisionRule": "caso sin clausula: explorar, comparar con las maximas, informar el desvio y pedir aprobacion antes de volverlo estandar" },
   "color": {
     "bg": "#FAF7F2", "bgElev": "#FFFFFF", "bgMuted": "#F1EBE0",
     "fg": "#1C1816", "fgSoft": "#4A4039", "fgMute": "#87796D",
@@ -2197,8 +2208,8 @@ code { overflow-wrap: anywhere; }
   "spacing": { "container": "1280px", "containerNarrow": "920px", "sectionY": "clamp(3.5rem,7vw,6rem)", "padInline": "clamp(1.1rem,4vw,2.5rem)" },
   "grid": { "columns": 12, "gutter": "24px", "margin": "= padInline (fluido)" },
   "print": { "safeMargin": "15mm", "bleed": "3mm", "folioOffset": "10mm desde borde inferior", "colorRule": "sRGB es canon digital; CMYK se aprueba por perfil+maquina+soporte mediante prueba fisica", "pdf": "fuentes incrustadas, imagenes 300ppi al tamano final, perfil ICC conservado" },
-  "assetKit": { "version": "1.1.1", "download": "downloads/rollershow-brand-assets-v1.1.1.zip", "manifest": "brand-assets/manifest.json", "logoViewBox": "0 0 600 52", "logoRatio": 11.54, "compactMark": "no existe isotipo o favicon compacto aprobado; no recortar letras", "contents": ["3 variantes del logo completo", "16 iconos SVG", "2 referencias fotograficas", "4 plantillas editables", "hoja de prueba de color", "fuentes y licencias"] },
-  "governance": { "sourceOfTruth": "manual publico + paquete compatible", "review": "cada 6 meses o ante cambio importante", "exception": "registrar pieza, motivo, responsable y vencimiento antes de publicar", "versionRule": "todo cambio declara reglas y activos afectados" },
+  "assetKit": { "version": "1.1.2", "download": "downloads/rollershow-brand-assets-v1.1.2.zip", "manifest": "brand-assets/manifest.json", "logoViewBox": "0 0 600 52", "logoRatio": 11.54, "compactMark": "no existe isotipo o favicon compacto aprobado; no recortar letras", "contents": ["3 variantes del logo completo", "16 iconos SVG", "2 referencias fotograficas", "2 imagenes del comparador interactivo", "4 plantillas editables", "hoja de prueba de color", "fuentes web locales y licencias"] },
+  "governance": { "mode": "guia viva, no techo creativo", "repository": "https://github.com/AgusLaboral/rollershow-brand-manual", "publishedManual": "https://aguslaboral.github.io/rollershow-brand-manual/", "review": "cada 6 meses o cuando una implementacion final aprobada aporta un recurso reutilizable", "noveltyRule": "un recurso no se rechaza solo porque esta ausente del manual", "deviationReport": "conservar la propuesta e informar que mantiene, que cambia y que valor aporta", "approval": "solo la aprobacion explicita de Agus convierte una propuesta en estandar", "adoption": "tras la aprobacion final, actualizar cuerpo, datos estructurados, activos afectados e historial", "versionRule": "todo cambio declara reglas y activos afectados" },
   "production": { "digital": "sRGB", "printApproval": ["perfil ICC", "maquina", "tinta", "soporte", "prueba fisica", "fecha y responsable"], "rule": "un cambio de perfil, maquina o soporte exige nueva prueba" },
   "naming": { "families": ["Roller", "Verticales", "Tradicionales", "Horizontales", "Dúo"], "collectionExamples": ["Black Out", "Sun Screen 5%", "Dim Out"], "source": "https://www.rollershow.com.ar/api/v2", "rule": "copiar nombre, espacios, porcentaje y acentos del dato vigente" },
   "claims": { "needSourceAndDate": ["precio", "stock", "plazo", "descuento", "garantia", "trayectoria", "promedio de resenas", "desempeno"], "warranty": "usar meses de la coleccion concreta; hasta 3 anos solo describe el rango general", "expiredRule": "si la fuente no puede mostrarse o vencio, bajar la afirmacion" },

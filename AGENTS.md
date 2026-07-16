@@ -4,13 +4,23 @@ Este repo contiene el manual de marca de RollerShow (`index.html`, single-file H
 
 ## Datos del proyecto
 
-- **Manual**: `index.html`. Cero dependencias de ejecución salvo Google Fonts (Bricolage Grotesque + Manrope) y recursos propios.
-- **Activos**: `brand-assets/` contiene maestros y plantillas editables; `brand-assets/manifest.json` registra versión, peso y SHA-256; `downloads/rollershow-brand-assets-v1.1.1.zip` es la entrega consolidada.
-- **Generador**: `scripts/build-brand-assets.ps1` toma el logo oficial, extrae los 16 iconos del manual, copia las fotos reales de referencia, recalcula el manifiesto y recompone el ZIP. Ejecutarlo después de cualquier cambio en esos recursos.
+- **Manual**: `index.html`. Cero dependencias externas de ejecución: tipografías, logos, fotografías y demás recursos cargan desde este repositorio.
+- **Activos**: `brand-assets/` contiene maestros, fuentes con licencia y plantillas editables; `brand-assets/manifest.json` registra versión, peso y SHA-256; `downloads/rollershow-brand-assets-v1.1.2.zip` es la entrega consolidada.
+- **Generador**: `scripts/build-brand-assets.ps1` usa el maestro local del logo, extrae los 16 iconos del manual, conserva las fotos reales de referencia, recalcula el manifiesto y recompone el ZIP. Si existe un `SourceRoot` local puede refrescar el maestro desde ahí; nunca necesita descargar un activo para completar el paquete.
 - **Repo GitHub**: `AgusLaboral/rollershow-brand-manual` (público, por GitHub Pages).
 - **URL viva**: https://aguslaboral.github.io/rollershow-brand-manual/
 - **Deploy**: `git push origin main` y esperar ~1 minuto. Este repo es SOLO del manual: nadie más pushea acá, no hay trampas de worktree. Después de cada push, verificar la URL viva con curl (HTTP 200 + un string del cambio) antes de reportar como hecho.
 - Lo efímero (capturas, scripts de prueba) va en `_scratch/` (ignorado por git).
+
+## Estándar vivo y adopción desde otros proyectos
+
+- El manual es una guía y una memoria de decisiones aprobadas. No es un techo creativo ni pesa más que una herramienta nueva que demuestre valor.
+- Leer `INTEGRATION.md` cuando otro proyecto de RollerShow cite este repositorio. Esa instrucción es la interfaz canónica para Codex, Claude y otros agentes.
+- La ausencia de una técnica en el manual nunca alcanza para rechazarla. Mantener la propuesta, comparar con las reglas vigentes y marcarla como “fuera del manual, pendiente de aprobación de Agus”.
+- Una novedad se mantiene identificable y reversible hasta la aprobación. No canonizarla por entusiasmo ni eliminarla por diferencia.
+- Cuando Agus aprueba una implementación final y el recurso es reutilizable, actualizar este repositorio: cuerpo del manual, JSON de tokens, activos, ejemplo, compatibilidad e historial según corresponda.
+- Los recursos probados pero todavía no aprobados se registran en `CANDIDATES.md` con evidencia. No llenar el registro con ideas abstractas.
+- Accesibilidad, performance, legibilidad, derechos, seguridad y funcionamiento siguen siendo compuertas técnicas. Una novedad no se exceptúa de ellas.
 
 ## Estructura del documento
 
@@ -30,7 +40,7 @@ Portada manifiesto · 00 Cómo leer y gobernar el manual · 01 Marca, archivos y
 
 ## Reglas duras (costaron rondas de corrección; no las rompas)
 
-1. **Agnóstico de aplicaciones.** El manual no menciona bots, archivos, proyectos ni landings específicas. Si una pieza real contradice al manual, se corrige la pieza, no el manual (regla 00.2.3). Bugs encontrados en otros proyectos NO se documentan acá.
+1. **Agnóstico de aplicaciones, abierto a aprendizajes.** El cuerpo del manual no menciona bots, archivos, proyectos ni landings específicas. Una diferencia no obliga a corregir la pieza ni autoriza a cambiar el manual automáticamente: se conserva, se compara y se somete a aprobación. Si Agus aprueba la implementación final como solución reutilizable, el aprendizaje se abstrae y se incorpora al manual. Bugs particulares siguen perteneciendo al proyecto donde aparecieron.
 2. **Cero tells de diseño IA**: sin eyebrows (el numeral va fundido en el mismo renglón del título, `<span class="spec__title-num">`), sin cajas-dentro-de-cajas (separar solo con hairlines de 1px), sin pills de acción, dots de color, checks/estrellas decorativas, cifras que cuentan, revelados genéricos de scroll, blobs/auroras, resaltados marcador ni cards de selección con radio circular. Prohibida también cualquier barra vertical de color que marque selección, éxito, error o estado: cambiar radio por barra conserva el mismo patrón genérico. El estado se resuelve mediante contenido, jerarquía y función.
 3. **Cero tells de REDACCIÓN IA**: sin middots `·` ni em-dashes `—` en prosa propia (las únicas excepciones son los `<code>` de la regla 05.3.1 que los nombra); sin paralelismos contrastivos en serie tipo "X, no Y / A, no B" (Agus lo marcó explícitamente como tell de modelo); sin frases que nadie diría en voz alta — test: leer el texto como si se lo dijeras a un colega, si suena a documento se reescribe. Voseo rioplatense siempre.
 4. **Un solo color de acción**: Rojo Teja `#C63A21` (glow `#D2451E`, profundo `#97290F`). Terracota `#B8662C` es acento de apoyo, nunca acción. Error de formulario = Rojo Profundo, nunca Teja. No existe verde de éxito (confirmación textual en Tinta); el único verde es del botón del canal de mensajes y está documentado como fuera de norma de contraste.
@@ -96,3 +106,4 @@ Comprobar además que el ZIP, el manifiesto y cada enlace de descarga respondan 
 - v1.9: se corrigió la referencia de índice que anunciaba una cotización de ejemplo inexistente. La sección 07 ahora nombra lo que entrega hoy y explicita que el futuro espécimen se construye desde un presupuesto aprobado, nunca ficticio.
 - v2.0: se reescribió la identidad de portada para explicar primero qué hace RollerShow y por qué, sin asumir que el lector ya entiende “cotizar”. Las acciones de cotización ahora nombran cortinas a medida; se corrigieron títulos y textos que hablaban desde el proceso interno en lugar de describir la marca o la función de la pieza.
 - v2.1: se reconstruyó el stepper con controles táctiles de 44px y grupo central inseparable; la cota técnica ahora tiene línea continua y tics completos; la matriz de fondos ganó muestras amplias, banda limpia para trama y fotografía real con Penumbra.
+- v2.2: el manual pasó a declararse guía viva, no techo creativo. Las novedades se conservan, se comparan y se someten a aprobación; una implementación final aprobada puede crear un estándar reutilizable. Se agregaron instrucciones de integración y registro de candidatos. Las fuentes y licencias quedaron dentro del repositorio y se eliminaron dependencias externas de ejecución.

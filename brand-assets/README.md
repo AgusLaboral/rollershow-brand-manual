@@ -1,12 +1,13 @@
-# RollerShow Brand Assets 1.1.1
+# RollerShow Brand Assets 1.1.2
 
-Este paquete acompaña al Manual de Marca v2.1. Los archivos se usan sin redibujar, deformar ni recolorear fuera de las versiones provistas.
+Este paquete acompaña al Manual de Marca v2.2. Los archivos se usan sin redibujar, deformar ni recolorear fuera de las versiones provistas.
 
 ## Contenido
 
 - `logo/`: wordmark oficial animado y fotogramas estáticos Tinta y Blanco.
 - `icons/`: biblioteca de 16 íconos SVG en retícula de 24px.
 - `photography/`: dos referencias reales para calibrar encuadre, luz y tratamiento.
+- `interactive/`: imágenes locales del comparador de control de luz.
 - `templates/`: originales SVG editables para post, story, reel y hoja membretada.
 - `production/`: hoja de control para una prueba física de color.
 - `fonts/`: fuentes, pesos y licencias.
