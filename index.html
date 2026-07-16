@@ -305,6 +305,28 @@ code { overflow-wrap: anywhere; }
 .product-viewer__switch button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .product-viewer__switch button[hidden] { display: none; }
 
+/* Navegacion editorial para escenas inmersivas */
+.scene-nav-demo { min-height: 230px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: clamp(1rem,4vw,2.5rem); background: var(--fg); overflow: hidden; }
+.scene-nav { position: relative; isolation: isolate; min-width: 140px; min-height: 56px; display: inline-flex; align-items: center; gap: 10px; padding: 0 10px; border: 0; border-radius: 0; background: transparent; color: rgba(250,247,242,.88); font: 600 .82rem/1 var(--font-body); cursor: pointer; text-shadow: 0 2px 10px rgba(0,0,0,.85); transition: color var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease); }
+.scene-nav::before { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at center,rgba(28,24,22,.84) 0 28%,rgba(28,24,22,.48) 52%,transparent 76%); opacity: .78; transition: opacity var(--dur-fast) var(--ease-standard); }
+.scene-nav::after { content: ''; position: absolute; left: 10px; right: 10px; bottom: 5px; height: 1px; background: rgba(250,247,242,.42); transform: scaleX(.62); transition: transform var(--dur) var(--ease), background var(--dur-fast) var(--ease-standard); }
+.scene-nav--prev { justify-content: flex-start; }
+.scene-nav--next { justify-content: flex-end; }
+.scene-nav--prev::after { transform-origin: left; }
+.scene-nav--next::after { transform-origin: right; }
+.scene-nav svg { width: 24px; height: 24px; flex: none; transition: transform var(--dur-fast) var(--ease); }
+.scene-nav:hover { color: #fff; transform: translateY(-1px); }
+.scene-nav:hover::before { opacity: 1; }
+.scene-nav:hover::after { transform: scaleX(1); background: rgba(250,247,242,.82); }
+.scene-nav--prev:hover svg { transform: translateX(-3px); }
+.scene-nav--next:hover svg { transform: translateX(3px); }
+.scene-nav:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.scene-nav:active { transform: none; }
+@media (max-width: 420px) {
+  .scene-nav-demo { padding-inline: 0; }
+  .scene-nav { min-width: 116px; min-height: 52px; }
+}
+
 .field-states { display: grid; gap: 1.2rem; width: min(100%, 760px); }
 @media (min-width: 720px) { .field-states { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 .field-demo { min-width: 0; }
@@ -524,7 +546,7 @@ code { overflow-wrap: anywhere; }
     </p>
     <p style="margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--border); padding-top: 1rem; font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,4.5vw,2.4rem); letter-spacing:-0.02em; line-height:1.15;">Productos reales.<br>Atención real.<br>Posventa real.</p>
     <div class="cover__meta">
-      <span><b>Versión</b> 2.3</span>
+      <span><b>Versión</b> 2.4</span>
       <span><b>Vigencia</b> julio 2026 en adelante</span>
       <span><b>Formato</b> HTML de una pieza, imprimible a PDF (Ctrl/Cmd + P)</span>
     </div>
@@ -745,7 +767,7 @@ code { overflow-wrap: anywhere; }
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.7</span>Paquete de activos</h2></div>
       <p class="spec__note">El manual explica las reglas. El paquete entrega los originales. Una gráfica no reconstruye un logo, un ícono ni una plantilla mirando una captura.</p>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key">Descarga completa</span><span class="rows__val"><a href="downloads/rollershow-brand-assets-v1.1.2.zip" download><b>RollerShow Brand Assets 1.1.2</b></a>, compatible con este manual v2.3.</span></div>
+        <div class="rows__item"><span class="rows__key">Descarga completa</span><span class="rows__val"><a href="downloads/rollershow-brand-assets-v1.1.2.zip" download><b>RollerShow Brand Assets 1.1.2</b></a>, compatible con este manual v2.4.</span></div>
         <div class="rows__item"><span class="rows__key">Inventario</span><span class="rows__val"><a href="brand-assets/manifest.json">Manifest JSON</a> con versión, peso y SHA-256 de cada archivo.</span></div>
         <div class="rows__item"><span class="rows__key">Logos</span><span class="rows__val">SVG animado Tinta y SVG estáticos Tinta y Blanco. No hay PNG como maestro ni marca compacta.</span></div>
         <div class="rows__item"><span class="rows__key">Biblioteca</span><span class="rows__val">16 íconos SVG, referencias fotográficas, plantillas editables, fuentes y hoja de prueba física de color.</span></div>
@@ -1453,11 +1475,24 @@ code { overflow-wrap: anywhere; }
           </div>
         </div>
       </div>
+      <div class="scene-nav-demo" aria-label="Navegación entre productos dentro de una escena inmersiva">
+        <button class="scene-nav scene-nav--prev" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          <span>Anterior</span>
+        </button>
+        <button class="scene-nav scene-nav--next" type="button">
+          <span>Siguiente</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
       <ul class="clauses" style="margin-top:1.4rem">
         <li><span class="num">06.4.1</span>La opción activa se reconoce porque es el contenido principal. No lleva barra lateral, borde de color, fondo especial, check, punto, badge ni la palabra “Seleccionada”.</li>
         <li><span class="num">06.4.2</span>Las alternativas son acciones de texto con un área táctil mínima de 44px. La opción que ya está en escena se oculta de esa lista.</li>
         <li><span class="num">06.4.3</span>La muestra material ayuda a comparar. Si no hay una textura o foto real, se elimina: no se reemplaza por un ícono genérico.</li>
         <li><span class="num">06.4.4</span>Cuando hace falta ver todas las alternativas al mismo tiempo, usar una tabla comparativa. Nunca convertirlas en cards seleccionables.</li>
+        <li><span class="num">06.4.5</span><b>Escena inmersiva</b>: Anterior y Siguiente se apoyan directamente sobre la escena. Usan palabra, flecha de 24px, penumbra localizada y un hairline que indica dirección. No llevan caja, relleno sólido ni radio.</li>
+        <li><span class="num">06.4.6</span>El área interactiva mide como mínimo 56px de alto en desktop y 52px en mobile. El texto nunca desaparece: la flecha sola no explica suficientemente el destino.</li>
+        <li><span class="num">06.4.7</span>Hover desplaza la flecha hasta 3px y extiende el hairline en 180ms. Foco conserva un contorno visible. La navegación no late, no usa autoplay y sigue operable durante el cambio de producto.</li>
       </ul>
     </section>
 
@@ -2204,14 +2239,14 @@ code { overflow-wrap: anywhere; }
 
 <footer class="foot">
   <div class="wrap">
-    <span>Manual de Marca de RollerShow, v2.3, julio 2026</span>
+    <span>Manual de Marca de RollerShow, v2.4, julio 2026</span>
     <span class="num">11 capítulos</span>
   </div>
 </footer>
 
 <script type="application/json" id="rollershow-brand-tokens">
 {
-  "meta": { "brand": "RollerShow", "docVersion": "2.3", "updated": "2026-07-16", "assetKitVersion": "1.1.2" },
+  "meta": { "brand": "RollerShow", "docVersion": "2.4", "updated": "2026-07-16", "assetKitVersion": "1.1.2" },
   "brand": { "what": "empresa argentina especializada en cortinas a medida", "purpose": "regular la luz, dar privacidad y hacer los ambientes mas habitables", "essence": "la calidad se reconoce en todo el recorrido: descubrimiento, asesoramiento, presupuesto, fabricacion, instalacion, uso y posventa; la experiencia es la misma en todo el catalogo", "positioning": "la empresa con mas trayectoria vendiendo cortinas a medida online en Argentina; catalogo del mejor precio a la mas alta calidad", "languageAnchor": "real: productos reales, atencion real, posventa real; la garantia es una prueba concreta de la posventa", "personality": "calida, directa y precisa; nunca grita, nunca ruega", "tagline": { "text": "Cortinas como imaginás", "status": "bajada de trabajo adoptada, afinable antes de lanzamiento formal" }, "decisionRule": "caso sin clausula: explorar, comparar con las maximas, informar el desvio y pedir aprobacion antes de volverlo estandar" },
   "color": {
     "bg": "#FAF7F2", "bgElev": "#FFFFFF", "bgMuted": "#F1EBE0",
@@ -2273,6 +2308,7 @@ code { overflow-wrap: anywhere; }
   "maxims": ["mobile primero (disenar a 375px)", "estructural antes que estetico", "una sola accion primaria por pantalla, maximo contraste", "cada elemento es parte de algo, nada flotando", "la calidad se demuestra en todo el recorrido y cada promesa necesita prueba", "la solucion mas simple gana", "nada terminado hasta verlo en vivo en un telefono"],
   "writing": { "price": "$ 143.200 (espacio tras $, punto de miles, sin decimales)", "measure": "120 × 180 cm (signo ×, espacio antes de unidad)", "dateInCopy": "hasta el 30 de junio", "dateInDocs": "21/07/2026", "phone": "+54 9 351 000 0000", "warranty": "hasta 3 años de garantía" },
   "stepper": { "min": 1, "step": 1, "unit": "cm", "grid": "44px auto 44px", "minHeight": "48px", "valueUnitGap": "6px", "range": "minimo y maximo vienen de la coleccion elegida", "controls": "botones de sumar y restar operables por teclado", "dimensionSemantics": { "width": "flecha bidireccional horizontal", "height": "flecha bidireccional vertical" }, "composition": "ancho, alto y CTA comparten borde inferior; en mobile pueden apilarse en ese orden" },
+  "sceneCarouselNav": { "labels": ["Anterior", "Siguiente"], "arrowSize": "24px", "minHeightDesktop": "56px", "minHeightMobile": "52px", "surface": "transparente con penumbra localizada", "indicator": "hairline direccional", "motion": "flecha hasta 3px y hairline 62 a 100 por ciento en 180ms", "rules": ["texto siempre visible", "sin caja", "sin autoplay", "operable durante la transicion"] },
   "formField": { "radius": "8px", "border": "1.5px #E4DCCE", "focus": "borde terracota + anillo rgba(184,102,44,.14)", "valid": "borde tinta suave + confirmacion textual, sin verde", "error": "borde y mensaje #97290F con instruccion concreta", "globalFeedback": "fila integrada entre hairlines con titulo y salida clara; nunca toast efimero, card flotante ni barra lateral de estado" },
   "selection": { "pattern": "visor de producto activo + alternativas de comparacion", "active": "el producto ocupa la muestra principal con nombre y funcion; su accion se oculta", "alternatives": "acciones de texto sin marcador de estado", "banned": ["barra lateral", "borde o fondo de seleccionado", "radio circular", "check", "punto", "badge Seleccionada", "cards separadas", "cajas dentro de cajas"] },
   "letterhead": { "size": "A4 vertical", "margins": "20mm superior, 15mm laterales e inferior", "usefulArea": "180x262mm", "header": "logo tinta 38mm + tipo de documento 8pt italica + hairline tinta", "body": "titulo Bricolage 18/20pt, Manrope 10/15pt, ancho maximo 145mm", "footer": "web izquierda + telefono derecha, Manrope 7.5pt, hairline lino", "continuation": "logo 28mm + documento + pagina N de N" },
