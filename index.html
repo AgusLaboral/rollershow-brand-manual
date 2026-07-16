@@ -524,7 +524,7 @@ code { overflow-wrap: anywhere; }
     </p>
     <p style="margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--border); padding-top: 1rem; font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,4.5vw,2.4rem); letter-spacing:-0.02em; line-height:1.15;">Productos reales.<br>Atención real.<br>Posventa real.</p>
     <div class="cover__meta">
-      <span><b>Versión</b> 2.2</span>
+      <span><b>Versión</b> 2.3</span>
       <span><b>Vigencia</b> julio 2026 en adelante</span>
       <span><b>Formato</b> HTML de una pieza, imprimible a PDF (Ctrl/Cmd + P)</span>
     </div>
@@ -745,7 +745,7 @@ code { overflow-wrap: anywhere; }
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.7</span>Paquete de activos</h2></div>
       <p class="spec__note">El manual explica las reglas. El paquete entrega los originales. Una gráfica no reconstruye un logo, un ícono ni una plantilla mirando una captura.</p>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key">Descarga completa</span><span class="rows__val"><a href="downloads/rollershow-brand-assets-v1.1.2.zip" download><b>RollerShow Brand Assets 1.1.2</b></a>, compatible con este manual v2.2.</span></div>
+        <div class="rows__item"><span class="rows__key">Descarga completa</span><span class="rows__val"><a href="downloads/rollershow-brand-assets-v1.1.2.zip" download><b>RollerShow Brand Assets 1.1.2</b></a>, compatible con este manual v2.3.</span></div>
         <div class="rows__item"><span class="rows__key">Inventario</span><span class="rows__val"><a href="brand-assets/manifest.json">Manifest JSON</a> con versión, peso y SHA-256 de cada archivo.</span></div>
         <div class="rows__item"><span class="rows__key">Logos</span><span class="rows__val">SVG animado Tinta y SVG estáticos Tinta y Blanco. No hay PNG como maestro ni marca compacta.</span></div>
         <div class="rows__item"><span class="rows__key">Biblioteca</span><span class="rows__val">16 íconos SVG, referencias fotográficas, plantillas editables, fuentes y hoja de prueba física de color.</span></div>
@@ -1164,6 +1164,8 @@ code { overflow-wrap: anywhere; }
         <li><span class="num">04.4.8</span><b>Interrupción</b>: una segunda acción cancela la transición anterior y resuelve hacia el último estado solicitado. Nunca se apilan animaciones ni se obliga a esperar.</li>
         <li><span class="num">04.4.9</span><b>Dirección</b>: entrar y volver recorren sentidos opuestos. Un cambio dentro del mismo marco usa profundidad mínima; un cambio de paso conserva la dirección del recorrido.</li>
         <li><span class="num">04.4.10</span><b>Texto</b>: títulos, cifras y párrafos no entran palabra por palabra ni letra por letra. Se mueve el bloque completo únicamente cuando el cambio de escena lo necesita.</li>
+        <li><span class="num">04.4.11</span><b>Calidad adaptable</b>: una experiencia inmersiva puede ofrecer modos completo y liviano. El modo liviano conserva producto, gesto, jerarquía y respuesta; reduce subdivisiones, muestras, resolución de sombras y posprocesado.</li>
+        <li><span class="num">04.4.12</span><b>Movimiento del dispositivo</b>: el acelerómetro puede inclinar apenas la caída de una tela cuando la persona lo habilita. Nunca reemplaza touch o teclado, queda desactivado con movimiento reducido y no produce sacudidas ni desplazamientos que alteren la medida.</li>
       </ul>
     </section>
 
@@ -1400,6 +1402,7 @@ code { overflow-wrap: anywhere; }
       <div class="rows">
         <div class="rows__item"><span class="rows__key">Base</span><span class="rows__val">Radio <code>6px</code>, padding <code>14px 22px</code>, peso <code>600</code>, tamaño <code>.94rem</code>, tracking <code>-0.005em</code>.</span></div>
         <div class="rows__item"><span class="rows__key">Primario</span><span class="rows__val">Fondo Rojo Teja y texto blanco. Hover: Profundo <code>#97290F</code>, sube 1px. Sin brillo que cruza, pulso ni degradé animado.</span></div>
+        <div class="rows__item"><span class="rows__key">Escena inmersiva</span><span class="rows__val">Cuando el control vive sobre una escena visual a pantalla completa, el CTA primario puede medir <code>60px</code> de alto. Se alinea por su borde inferior con el módulo de medidas, mantiene Rojo Teja y usa únicamente el feedback acotado de 180ms / 140ms. Esta altura es un perfil de interfaz, no reemplaza la base general.</span></div>
         <div class="rows__item"><span class="rows__key">Segundo orden</span><span class="rows__val">Fondo Tinta, texto Crema. Hover: Terracota.</span></div>
         <div class="rows__item"><span class="rows__key">WhatsApp</span><span class="rows__val">Fondo <code>--whatsapp</code>, sólido, con verbo ("Escribinos"), nunca la palabra "WhatsApp" sola ni ícono suelto.</span></div>
         <div class="rows__item"><span class="rows__key">Enlace</span><span class="rows__val">Sin fondo, subrayado con <code>text-decoration-color: var(--border-strong)</code>, pasa a Terracota en hover. Para acciones de tercer orden.</span></div>
@@ -1428,6 +1431,8 @@ code { overflow-wrap: anywhere; }
         <div class="rows__item"><span class="rows__key">Estructura</span><span class="rows__val">Grid <code>44px auto 44px</code>, alto mínimo <code>48px</code>, grupo central con <code>6px</code> entre cifra y unidad, borde <code>1.5px solid var(--border)</code>, radio <code>14px</code>.</span></div>
         <div class="rows__item"><span class="rows__key">Foco</span><span class="rows__val">Borde Terracota + <code>box-shadow: 0 0 0 4px rgba(184,102,44,.14)</code> en <code>:focus-within</code>.</span></div>
         <div class="rows__item"><span class="rows__key">Rango</span><span class="rows__val">Los botones cambian de a 1cm. El mínimo y máximo salen de la colección elegida; el componente no inventa un límite general.</span></div>
+        <div class="rows__item"><span class="rows__key">Semántica</span><span class="rows__val"><b>Ancho</b> se acompaña con una flecha bidireccional horizontal y <b>Alto</b> con una flecha bidireccional vertical. La orientación describe la dimensión; una cota horizontal nunca representa el alto.</span></div>
+        <div class="rows__item"><span class="rows__key">Composición</span><span class="rows__val">En una barra de configuración, ambos selectores comparten línea base y borde inferior. El CTA se alinea con ese mismo borde; en mobile los controles pueden apilarse sin cambiar el orden Ancho, Alto, acción.</span></div>
       </div>
     </section>
 
@@ -1980,6 +1985,16 @@ code { overflow-wrap: anywhere; }
           <p class="fx__desc">La línea se dibuja en 720ms con <code>--ease-material</code>. El valor aparece durante los últimos 180ms con <code>--ease</code>, ya escrito completo: no cuenta ni cambia de cifra. Corre una vez al confirmar la medida; en impresos queda estática.</p>
           <div class="motion-cota"><span class="motion-cota__value num">180 cm</span><span class="motion-cota__line"></span></div>
         </div>
+        <div class="fx__row">
+          <span class="fx__name">Luz causal de ventana</span>
+          <p class="fx__desc">La ventana mantiene una potencia estable. Abrir la cortina expone una superficie mayor y por eso crecen la luz sobre el ambiente, la proyección en las superficies y la bruma visible. La tela modula el paso de luz, nunca se convierte en una fuente luminosa.</p>
+          <span class="num" style="font-size:.7rem; color:var(--fg-mute);">fuente única</span>
+        </div>
+        <div class="fx__row">
+          <span class="fx__name">Translucidez textil graduada</span>
+          <p class="fx__desc">Black Out bloquea la luz directa. Tusor ocupa el nivel intermedio con trama visible y difusión. Gasa transmite más luz, conserva textura y difumina el fondo. Material, transmisión, sombra proyectada y aporte al ambiente se calibran por separado.</p>
+          <span class="num" style="font-size:.7rem; color:var(--fg-mute);">3 niveles</span>
+        </div>
       </div>
       <ul class="clauses" style="margin-top:1.4rem">
         <li><span class="num">10.3.1</span>La roller de transición puede repetirse en esta demostración. En producción corre una vez por cambio y nunca bloquea navegación, volver atrás o cerrar.</li>
@@ -1987,6 +2002,12 @@ code { overflow-wrap: anywhere; }
         <li><span class="num">10.3.3</span>La rotura de tela comunica resistencia únicamente cuando existe evidencia de producto que sostenga la comparación. Nunca se usa como destrucción decorativa.</li>
         <li><span class="num">10.3.4</span>Con movimiento reducido, el comparador queda operable, la roller no cubre contenido y la tela muestra su estado inicial sin tirones.</li>
         <li><span class="num">10.3.5</span>Las velocidades y curvas de esta biblioteca son las de 04.4. No se estiran para dar dramatismo ni se acortan por dispositivo; en equipos limitados se simplifica la propiedad animada, no el ritmo.</li>
+        <li><span class="num">10.3.6</span><b>Luz causal</b>: la potencia de la ventana permanece constante. El área expuesta controla cuánto recibe el ambiente. La luz directa, el haze, los reflejos y la sombra responden a esa misma apertura.</li>
+        <li><span class="num">10.3.7</span><b>Encuadre de sombra</b>: la región que proyecta luz y sombra sigue el tamaño y la posición real de la ventana en cada quiebre. Una proyección fuera de ese encuadre se percibe como una fuente falsa.</li>
+        <li><span class="num">10.3.8</span><b>Caída tradicional</b>: los orillos sostienen una silueta vertical y el ruedo aporta peso sin arrastrar. La banda inferior reduce la profundidad en las esquinas y evita dientes, picos o pestañas; el centro conserva movimiento natural.</li>
+        <li><span class="num">10.3.9</span><b>Niveles textiles</b>: Black Out bloquea, Tusor transmite una cantidad intermedia y Gasa transmite más. Tusor y Gasa difunden la vista posterior mediante trama y frost; una opacidad uniforme sin textura no representa una tela.</li>
+        <li><span class="num">10.3.10</span><b>Rendimiento</b>: los modos completo y liviano entregan la misma lectura del producto. Se reduce fidelidad técnica antes que interacción, contenido o causalidad visual.</li>
+        <li><span class="num">10.3.11</span><b>Implementación</b>: la jerarquía de telas, la causalidad de luz, la caída prolija y la equivalencia entre modos son estándar. La topología de malla, el shader, la cantidad de pases y sus umbrales pertenecen a cada implementación y se validan contra esos resultados.</li>
       </ul>
     </section>
 
@@ -2129,7 +2150,7 @@ code { overflow-wrap: anywhere; }
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">10.9</span>Control final antes de publicar</h2></div>
-      <p class="spec__note">Los diecisiete barridos que se corren sobre toda pieza terminada, en este orden. Si uno falla, se corrige y se vuelve a empezar desde ese punto. Nada sale sin pasar los diecisiete.</p>
+      <p class="spec__note">Los diecinueve barridos que se corren sobre toda pieza terminada, en este orden. Si uno falla, se corrige y se vuelve a empezar desde ese punto. Nada sale sin pasar los diecinueve.</p>
       <ul class="clauses">
         <li><span class="num">10.9.1</span><b>Una sola acción primaria</b>, y es el elemento de mayor contraste de la pieza (00.4.3). Todo lo secundario bajó el volumen.</li>
         <li><span class="num">10.9.2</span><b>Barrido de caracteres</b>: ni un middot, em-dash, estrella, check o flecha decorativa en texto visible (05.3).</li>
@@ -2148,6 +2169,8 @@ code { overflow-wrap: anywhere; }
         <li><span class="num">10.9.15</span><b>Derechos registrados</b>: fotografía, testimonio, persona, locación y retoque tienen permiso y procedencia (09.4).</li>
         <li><span class="num">10.9.16</span><b>Salida de producción correcta</b>: perfil, resolución, sangrado, fuentes y prueba de color corresponden al soporte final (02.9 y 04.7).</li>
         <li><span class="num">10.9.17</span><b>Marcas externas autorizadas</b>: si hay otra identidad, se respetaron permiso, liderazgo, peso óptico y zonas de seguridad (01.8).</li>
+        <li><span class="num">10.9.18</span><b>Silueta y proyección revisadas</b>: en escenas de luz y tela, una captura real confirma orillos, ruedo, sombras y origen de la iluminación. Las métricas parciales ayudan a diagnosticar, pero no aprueban una imagen que se ve incorrecta.</li>
+        <li><span class="num">10.9.19</span><b>Matriz de escena</b>: la revisión cubre mobile, desktop y ultrawide, con cada familia textil y sus estados extremos. Se controla la escena completa y también recortes de esquinas, piso y límites de luz.</li>
       </ul>
     </section>
   </div>
@@ -2181,14 +2204,14 @@ code { overflow-wrap: anywhere; }
 
 <footer class="foot">
   <div class="wrap">
-    <span>Manual de Marca de RollerShow, v2.2, julio 2026</span>
+    <span>Manual de Marca de RollerShow, v2.3, julio 2026</span>
     <span class="num">11 capítulos</span>
   </div>
 </footer>
 
 <script type="application/json" id="rollershow-brand-tokens">
 {
-  "meta": { "brand": "RollerShow", "docVersion": "2.2", "updated": "2026-07-16", "assetKitVersion": "1.1.2" },
+  "meta": { "brand": "RollerShow", "docVersion": "2.3", "updated": "2026-07-16", "assetKitVersion": "1.1.2" },
   "brand": { "what": "empresa argentina especializada en cortinas a medida", "purpose": "regular la luz, dar privacidad y hacer los ambientes mas habitables", "essence": "la calidad se reconoce en todo el recorrido: descubrimiento, asesoramiento, presupuesto, fabricacion, instalacion, uso y posventa; la experiencia es la misma en todo el catalogo", "positioning": "la empresa con mas trayectoria vendiendo cortinas a medida online en Argentina; catalogo del mejor precio a la mas alta calidad", "languageAnchor": "real: productos reales, atencion real, posventa real; la garantia es una prueba concreta de la posventa", "personality": "calida, directa y precisa; nunca grita, nunca ruega", "tagline": { "text": "Cortinas como imaginás", "status": "bajada de trabajo adoptada, afinable antes de lanzamiento formal" }, "decisionRule": "caso sin clausula: explorar, comparar con las maximas, informar el desvio y pedir aprobacion antes de volverlo estandar" },
   "color": {
     "bg": "#FAF7F2", "bgElev": "#FFFFFF", "bgMuted": "#F1EBE0",
@@ -2217,7 +2240,7 @@ code { overflow-wrap: anywhere; }
   "accessibility": { "target": "WCAG 2.2 AA", "tests": ["teclado", "touch", "lector de pantalla", "zoom 200%", "reflow 320px", "alto contraste", "movimiento reducido"], "media": "texto alternativo; subtitulos sincronizados; descripcion cuando la imagen agrega informacion", "pdf": "etiquetas, idioma, orden logico, enlaces descriptivos y alt text" },
   "video": { "vertical": "1080x1920", "safeZone": "64px laterales, 14% superior, 20% inferior", "opening": "producto, resultado o pregunta dentro de 2s; sin bumper", "closing": "resultado + una accion + logo estatico 1.2-2s", "captions": "Manrope 600, blanco sobre Penumbra, maximo 2 lineas", "motion": "usar recetas 04.4" },
   "rights": { "record": ["original", "autor", "fecha", "producto", "locacion", "personas", "permiso", "canales", "vencimiento"], "ai": "nunca representar como real una persona, instalacion, producto o testimonio generado; registrar retoque asistido", "beforeAfter": "misma camara, encuadre, exposicion y ambiente" },
-  "technicalDiagram": { "primaryStroke": "1px digital o 0.25mm impreso en Tinta", "auxiliaryStroke": "Lino, igual o menor", "dimension": "tics perpendiculares + Manrope tabular + unidad", "direction": "flecha solo para movimiento o instalacion", "rule": "la cifra manda sobre el dibujo; declarar vista y escala" },
+  "technicalDiagram": { "primaryStroke": "1px digital o 0.25mm impreso en Tinta", "auxiliaryStroke": "Lino, igual o menor", "dimension": "tics perpendiculares + Manrope tabular + unidad", "measureSelector": { "width": "flecha bidireccional horizontal", "height": "flecha bidireccional vertical" }, "direction": "flecha simple solo para movimiento o instalacion", "rule": "la cifra manda sobre el dibujo; declarar vista y escala" },
   "radius": { "button": "6px", "small": "8px", "medium": "14px", "large": "22px", "pillFunctionalOnly": "999px" },
   "shadow": {
     "sm": "0 1px 2px rgba(28,24,22,.05)",
@@ -2241,19 +2264,21 @@ code { overflow-wrap: anywhere; }
     "allowedProperties": ["transform", "opacity", "clip-path", "background-position"],
     "productionRule": "el movimiento nace del producto: roller, comparacion de luz, tela, trama o medida; sin loops en botones, textos, fondos o metricas",
     "interruptRule": "una nueva accion cancela la animacion anterior y resuelve al ultimo estado solicitado",
-    "reducedMotion": "duracion 0 para escenas y materia; roller sin cubrir contenido; tela estable; comparadores operables"
+    "reducedMotion": "duracion 0 para escenas y materia; roller sin cubrir contenido; tela estable; comparadores operables",
+    "qualityProfiles": { "full": "fidelidad visual completa", "lite": "misma experiencia y causalidad con menos subdivisiones, muestras, resolucion de sombras y posprocesado" },
+    "deviceMotion": "acelerometro opcional y sutil; requiere permiso; nunca reemplaza touch o teclado; desactivado con reduced-motion"
   },
   "breakpoints": { "xs": "420px", "sm": "480px", "md": "720px", "lg": "980px" },
-  "preflight": ["una sola accion primaria con maximo contraste", "barrido de caracteres prohibidos", "sin cajas anidadas, radio-cards, barras laterales de estado, count-ups, auroras, marcador ni revelados genericos", "todos los valores salen de las escalas", "contraste medido no estimado", "CTA de la biblioteca o formula verbo+beneficio", "numeros y precios en formato fijo", "logo correcto para el fondo + zona de seguridad", "movimiento nacido de cortina, tela, luz o medida; touch+teclado+reduced-motion", "sin overflow a 375px reales", "visto publicado desde un telefono antes de reportar", "activos del paquete compatible", "nombres y claims con fuente y fecha", "accesibilidad probada", "derechos y procedencia registrados", "salida de produccion correcta", "marcas externas autorizadas"],
+  "preflight": ["una sola accion primaria con maximo contraste", "barrido de caracteres prohibidos", "sin cajas anidadas, radio-cards, barras laterales de estado, count-ups, auroras, marcador ni revelados genericos", "todos los valores salen de las escalas", "contraste medido no estimado", "CTA de la biblioteca o formula verbo+beneficio", "numeros y precios en formato fijo", "logo correcto para el fondo + zona de seguridad", "movimiento nacido de cortina, tela, luz o medida; touch+teclado+reduced-motion", "sin overflow a 375px reales", "visto publicado desde un telefono antes de reportar", "escenas de tela y luz verificadas en capturas mobile, desktop y ultrawide; la silueta visual manda sobre metricas parciales", "activos del paquete compatible", "nombres y claims con fuente y fecha", "accesibilidad probada", "derechos y procedencia registrados", "salida de produccion correcta", "marcas externas autorizadas"],
   "maxims": ["mobile primero (disenar a 375px)", "estructural antes que estetico", "una sola accion primaria por pantalla, maximo contraste", "cada elemento es parte de algo, nada flotando", "la calidad se demuestra en todo el recorrido y cada promesa necesita prueba", "la solucion mas simple gana", "nada terminado hasta verlo en vivo en un telefono"],
   "writing": { "price": "$ 143.200 (espacio tras $, punto de miles, sin decimales)", "measure": "120 × 180 cm (signo ×, espacio antes de unidad)", "dateInCopy": "hasta el 30 de junio", "dateInDocs": "21/07/2026", "phone": "+54 9 351 000 0000", "warranty": "hasta 3 años de garantía" },
-  "stepper": { "min": 1, "step": 1, "unit": "cm", "grid": "44px auto 44px", "minHeight": "48px", "valueUnitGap": "6px", "range": "minimo y maximo vienen de la coleccion elegida", "controls": "botones de sumar y restar operables por teclado" },
+  "stepper": { "min": 1, "step": 1, "unit": "cm", "grid": "44px auto 44px", "minHeight": "48px", "valueUnitGap": "6px", "range": "minimo y maximo vienen de la coleccion elegida", "controls": "botones de sumar y restar operables por teclado", "dimensionSemantics": { "width": "flecha bidireccional horizontal", "height": "flecha bidireccional vertical" }, "composition": "ancho, alto y CTA comparten borde inferior; en mobile pueden apilarse en ese orden" },
   "formField": { "radius": "8px", "border": "1.5px #E4DCCE", "focus": "borde terracota + anillo rgba(184,102,44,.14)", "valid": "borde tinta suave + confirmacion textual, sin verde", "error": "borde y mensaje #97290F con instruccion concreta", "globalFeedback": "fila integrada entre hairlines con titulo y salida clara; nunca toast efimero, card flotante ni barra lateral de estado" },
   "selection": { "pattern": "visor de producto activo + alternativas de comparacion", "active": "el producto ocupa la muestra principal con nombre y funcion; su accion se oculta", "alternatives": "acciones de texto sin marcador de estado", "banned": ["barra lateral", "borde o fondo de seleccionado", "radio circular", "check", "punto", "badge Seleccionada", "cards separadas", "cajas dentro de cajas"] },
   "letterhead": { "size": "A4 vertical", "margins": "20mm superior, 15mm laterales e inferior", "usefulArea": "180x262mm", "header": "logo tinta 38mm + tipo de documento 8pt italica + hairline tinta", "body": "titulo Bricolage 18/20pt, Manrope 10/15pt, ancho maximo 145mm", "footer": "web izquierda + telefono derecha, Manrope 7.5pt, hairline lino", "continuation": "logo 28mm + documento + pagina N de N" },
   "storyTemplate": { "ratio": "9:16", "safeZones": "14% arriba y 20% abajo libres", "structure": "logo blanco arriba-izquierda + penumbra + titular display blanco + boton de marca" },
   "spacingScale": [4, 8, 12, 16, 24, 32, 48, 64],
-  "buttonSpec": { "padding": "14px 22px", "radius": "6px", "motion": "hover y foco entran en 180ms; retorno 140ms; standard/exit", "states": { "hover": "#97290F + sombra tintada, sube 1px", "pressed": "baja 1px", "focus": "outline 2px terracota offset 3px", "disabled": "opacidad 40%" } },
+  "buttonSpec": { "padding": "14px 22px", "radius": "6px", "motion": "hover y foco entran en 180ms; retorno 140ms; standard/exit", "immersiveProfile": { "height": "60px", "color": "#C63A21", "alignment": "borde inferior compartido con modulo de medidas", "rule": "perfil para escena a pantalla completa, no reemplaza la base general; sin loop" }, "states": { "hover": "#97290F + sombra tintada, sube 1px", "pressed": "baja 1px", "focus": "outline 2px terracota offset 3px", "disabled": "opacidad 40%" } },
   "businessCard": { "size": "85x54mm", "paper": "mate 300g", "bleed": "3mm", "front": "blanco, logo tinta, nombre display", "back": "rojo teja pleno + grano, logo blanco centrado" },
   "socialPost": { "ratio": "1:1", "structure": "foto a sangre + penumbra + titular blanco abajo-izquierda (max 2 lineas) + logo blanco esquina inferior derecha al 10% del ancho" },
   "contrast": { "tinta/crema": 16.5, "grisCalido/crema": 9.4, "tinta/arena": 14.9, "blanco/rojoTeja": 5.2, "blanco/rojoProfundo": 8.0, "topo/crema": "3.9 solo microcopy", "blanco/terracota": "4.2 solo texto grande", "blanco/whatsapp": "2.0 fuera de norma, solo el boton del canal" },
@@ -2261,7 +2286,8 @@ code { overflow-wrap: anywhere; }
   "backgrounds": { "amanecer-de-lino": "linear-gradient(180deg,#FFFFFF,#FAF7F2 55%,#F1EBE0)", "brasa": "linear-gradient(135deg,#D2451E,#97290F) + grano de tela estatico", "penumbra-scrim": "linear-gradient(0deg,rgba(28,24,22,.78),transparent 65%)" },
   "recurringElements": ["la-cota (linea de medicion con tics y valor, firma grafica de la medida)", "banda-de-color-full-bleed", "hairline-editorial-1px-lino", "trama-de-tejido bidireccional estatica o reactiva, nunca en loop", "folio-cabecera-documento"],
   "ctaLibrary": { "cotizar": "Cotizá tus cortinas a medida", "descuento": "Recibí mi descuento", "promocion": "Aprovechá la promo", "visualizar": "Ver cómo queda en tu ventana", "contacto": "Escribinos", "explorar": "Ver telas (enlace, no botón)", "instalacion": "Coordinar mi instalación", "cuidado": "Ver cómo cuidar mi cortina", "posventa": ["Resolver un problema", "Iniciar mi consulta de garantía"], "descartar": "No, gracias", "prohibidos": ["Enviar", "Click acá", "Más info", "Quiero..."] },
-  "effectsApproved": ["roller-transicion (1200ms total; tela sunscreen, trama, contrapeso, cubre y revela)", "comparador-luz (0ms touch/pointer, 80ms teclado; mismo ambiente)", "tela-fisica (seguimiento 1:1, asentamiento 620ms; Canvas en produccion)", "trama-reactiva (480ms entrada, 280ms retorno; solo bajo interaccion)", "cota-activa (linea 720ms, valor 180ms al final)", "degrade-brasa-estatico", "grano-de-tela"],
+  "immersiveScene": { "brandStandard": ["fuente de luz unica y causal desde la abertura", "potencia de ventana constante; cambia el area expuesta", "blackout bloquea, tusor transmite nivel intermedio, gasa transmite mas", "trama y frost conservan materialidad", "orillos verticales y ruedo ponderado sin arrastre ni dientes", "modos full y lite conservan la experiencia", "QA con capturas mobile, desktop y ultrawide"], "implementationSpecific": ["topologia y subdivisiones de malla", "shader y cantidad de pases", "resolucion exacta de sombras", "umbrales de deteccion de hardware", "parametros numericos de fisica y posprocesado"], "shadowFrustum": "sigue posicion y tamano real de la abertura en cada quiebre", "accelerometer": "influencia leve y opcional sobre la caida; desactivado con movimiento reducido" },
+  "effectsApproved": ["roller-transicion (1200ms total; tela sunscreen, trama, contrapeso, cubre y revela)", "comparador-luz (0ms touch/pointer, 80ms teclado; mismo ambiente)", "tela-fisica (seguimiento 1:1, asentamiento 620ms; Canvas en produccion)", "luz-causal-de-ventana (potencia constante, area expuesta modula ambiente)", "translucidez-textil-graduada (blackout, tusor, gasa con material, transmision y sombra separados)", "trama-reactiva (480ms entrada, 280ms retorno; solo bajo interaccion)", "cota-activa (linea 720ms, valor 180ms al final)", "degrade-brasa-estatico", "grano-de-tela"],
   "effectsBanned": ["cifra-viva-count-up", "revelado-scroll-generico", "resaltado-marcador", "aurora-blob", "dot-online-pulsante", "barra-lateral-de-estado", "radio-card-decorativa", "boton-pildora-accion", "gradiente-purpura-azul-generico", "caja-dentro-de-caja", "eyebrow-badge", "contador-urgencia-falsa", "estrellas-ascii", "glassmorphism-pesado", "carrusel-autoplay", "fake-dashboard"]
 }
 </script>

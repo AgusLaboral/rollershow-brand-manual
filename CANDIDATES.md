@@ -14,5 +14,6 @@ Este registro conserva recursos nuevos descubiertos en implementaciones reales a
 
 | Fecha | Recurso | Implementación verificable | Qué cambia | Valor aportado | Estado | Decisión |
 |---|---|---|---|---|---|---|
+| 2026-07-16 | Escena inmersiva de luz y tela | [`rollershow-cortina-viva@8b10c8b`](https://github.com/AgusLaboral/rollershow-cortina-viva/commit/8b10c8b), [`4add6f3`](https://github.com/AgusLaboral/rollershow-cortina-viva/commit/4add6f3), [`9a84684`](https://github.com/AgusLaboral/rollershow-cortina-viva/commit/9a84684) | Suma luz causal, translucidez textil graduada, física de terminaciones, perfiles full/lite, movimiento sutil del dispositivo y QA por silueta real. | Permite comparar telas por su efecto sobre un mismo ambiente sin perder materialidad ni funcionamiento en equipos limitados. | Incorporado en v2.3 | Agus aprobó el resultado y pidió guardarlo como aprendizaje reutilizable. |
 
 No se agregan candidatos sin evidencia. Cada fila debe enlazar una página, captura versionada o commit accesible y nombrar quién tomó la decisión.
