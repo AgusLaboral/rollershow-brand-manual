@@ -546,7 +546,7 @@ code { overflow-wrap: anywhere; }
     </p>
     <p style="margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--border); padding-top: 1rem; font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,4.5vw,2.4rem); letter-spacing:-0.02em; line-height:1.15;">Productos reales.<br>Atención real.<br>Posventa real.</p>
     <div class="cover__meta">
-      <span><b>Versión</b> 2.4</span>
+      <span><b>Versión</b> 2.5</span>
       <span><b>Vigencia</b> julio 2026 en adelante</span>
       <span><b>Formato</b> HTML de una pieza, imprimible a PDF (Ctrl/Cmd + P)</span>
     </div>
@@ -601,13 +601,14 @@ code { overflow-wrap: anywhere; }
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">00.4</span>Las máximas</h2></div>
       <p class="spec__note">Antes que cualquier regla puntual, estos son los principios que deciden los empates. Si una pieza cumple todas las cláusulas del manual pero rompe una máxima, la máxima gana.</p>
       <ul class="clauses">
-        <li><span class="num">00.4.1</span><b>Mobile primero.</b> Más del 90% del tráfico real es desde el teléfono. Toda pieza se diseña y se revisa primero a 375px de ancho; el desktop es la adaptación, no al revés.</li>
+        <li><span class="num">00.4.1</span><b>Mobile primero.</b> Más del 90% del tráfico real es desde el teléfono. Toda pieza se diseña para pantallas angostas y se revisa primero ahí: 375px es el punto de control, y la pieza sostiene todo el rango real de 320 a 430 sin desborde. El desktop es la adaptación, no al revés.</li>
         <li><span class="num">00.4.2</span><b>Primero lo estructural, después lo estético.</b> La jerarquía, el orden de lectura y la acción se resuelven antes de tocar colores o efectos. Pulir una estructura equivocada es tirar el trabajo.</li>
         <li><span class="num">00.4.3</span><b>Una sola acción primaria por pantalla.</b> El elemento de mayor contraste corresponde a la acción principal de la pieza. Todo lo demás baja el volumen.</li>
         <li><span class="num">00.4.4</span><b>Cada elemento es parte de algo.</b> Nada de texto flotando sin contenedor ni legibilidad que dependa de un fondo variable. El contenido se integra a una composición, no se apila en cajas.</li>
         <li><span class="num">00.4.5</span><b>La calidad se demuestra en todo el recorrido.</b> La gráfica puede prometerla, pero la atención, el producto, la instalación y la posventa tienen que sostenerla. Una pieza genérica o una promesa sin prueba rompe esa continuidad.</li>
         <li><span class="num">00.4.6</span><b>La solución más simple que funciona, gana.</b> Ante dos formas de resolver una pieza, se elige la de menos elementos, menos efectos y menos texto. Se agrega solo lo que ayuda a entender o decidir.</li>
         <li><span class="num">00.4.7</span><b>Nada está terminado hasta verlo en vivo.</b> Toda pieza se revisa publicada y desde un teléfono real antes de darse por lista. "Debería verse bien" no es un estado.</li>
+        <li><span class="num">00.4.8</span><b>Las medidas documentan una intención.</b> Los valores puntuales de este manual describen cada pieza a su tamaño de referencia. Al implementar, esa intención se expresa con las herramientas del medio: unidades relativas, rangos fluidos, mínimos y máximos. Lo que se conserva entre piezas y entre pantallas es la posición relativa, la proporción y la jerarquía (el logo en la misma esquina, la acción primaria con el aire más generoso), y el número acompaña como referencia. Las buenas prácticas responsive y de accesibilidad son el piso sobre el que se aplica el manual; ninguna cifra de este documento las desactiva.</li>
       </ul>
     </section>
 
@@ -767,7 +768,7 @@ code { overflow-wrap: anywhere; }
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">01.7</span>Paquete de activos</h2></div>
       <p class="spec__note">El manual explica las reglas. El paquete entrega los originales. Una gráfica no reconstruye un logo, un ícono ni una plantilla mirando una captura.</p>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key">Descarga completa</span><span class="rows__val"><a href="downloads/rollershow-brand-assets-v1.1.2.zip" download><b>RollerShow Brand Assets 1.1.2</b></a>, compatible con este manual v2.4.</span></div>
+        <div class="rows__item"><span class="rows__key">Descarga completa</span><span class="rows__val"><a href="downloads/rollershow-brand-assets-v1.1.2.zip" download><b>RollerShow Brand Assets 1.1.2</b></a>, compatible con este manual v2.5.</span></div>
         <div class="rows__item"><span class="rows__key">Inventario</span><span class="rows__val"><a href="brand-assets/manifest.json">Manifest JSON</a> con versión, peso y SHA-256 de cada archivo.</span></div>
         <div class="rows__item"><span class="rows__key">Logos</span><span class="rows__val">SVG animado Tinta y SVG estáticos Tinta y Blanco. No hay PNG como maestro ni marca compacta.</span></div>
         <div class="rows__item"><span class="rows__key">Biblioteca</span><span class="rows__val">16 íconos SVG, referencias fotográficas, plantillas editables, fuentes y hoja de prueba física de color.</span></div>
@@ -1114,8 +1115,8 @@ code { overflow-wrap: anywhere; }
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">04.1</span>Contenedores y ritmo vertical</h2></div>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key"><code>--container</code></span><span class="rows__val">1280px: secciones anchas de página.</span></div>
-        <div class="rows__item"><span class="rows__key"><code>--container-narrow</code></span><span class="rows__val">920px: bloques de lectura y formularios.</span></div>
+        <div class="rows__item"><span class="rows__key"><code>--container</code></span><span class="rows__val">Ancho máximo de 1280px para secciones anchas de página. Por debajo de ese ancho el contenido fluye al 100% con el padding lateral fluido.</span></div>
+        <div class="rows__item"><span class="rows__key"><code>--container-narrow</code></span><span class="rows__val">Ancho máximo de 920px para bloques de lectura y formularios.</span></div>
         <div class="rows__item"><span class="rows__key">Padding lateral</span><span class="rows__val"><code>clamp(1.1rem, 4vw, 2.5rem)</code>: fluido, nunca fijo.</span></div>
         <div class="rows__item"><span class="rows__key"><code>--section-y</code></span><span class="rows__val"><code>clamp(3.5rem, 7vw, 6rem)</code>: separación vertical entre secciones grandes.</span></div>
       </div>
@@ -1193,6 +1194,7 @@ code { overflow-wrap: anywhere; }
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">04.5</span>Quiebres reales del producto</h2></div>
+      <p class="spec__note">El quiebre correcto es donde el contenido lo pide. Estos valores documentan los colapsos que el producto ya usa y, sobre todo, su orden: una pieza nueva colapsa en la misma secuencia, ajustando el número al punto donde su propio contenido lo necesita.</p>
       <div class="rows">
         <div class="rows__item"><span class="rows__key">420px</span><span class="rows__val">Elementos que se reducen a solo ícono (ej. pill de WhatsApp del header).</span></div>
         <div class="rows__item"><span class="rows__key">480px</span><span class="rows__val">El logotipo completo reduce su ancho disponible y la tipografía hero baja un paso. No cambia por una marca compacta.</span></div>
@@ -1241,7 +1243,7 @@ code { overflow-wrap: anywhere; }
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">04.9</span>Escala de espaciado</h2></div>
-      <p class="spec__note">Todo espaciado es múltiplo de 4px y sale de esta escala. Para marcar jerarquía entre dos distancias, saltar al menos un paso (de 16 a 32, no de 16 a 24): los saltos chicos no se perciben y ensucian el ritmo.</p>
+      <p class="spec__note">Todo espaciado es múltiplo de 4px y sale de esta escala. Para marcar jerarquía entre dos distancias, saltar al menos un paso (de 16 a 32, no de 16 a 24): los saltos chicos no se perciben y ensucian el ritmo. La escala rige el espaciado interno de componentes y módulos; a escala de sección mandan los tokens fluidos de 04.1. Los pasos grandes describen la pieza a su tamaño de referencia y se reducen en proporción en pantallas angostas.</p>
       <div style="border-top:1px solid var(--border);">
         <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">4px</span><span style="width:4px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">entre ícono y palabra</span></div>
         <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">8px</span><span style="width:8px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">entre elementos de un mismo grupo</span></div>
@@ -1249,8 +1251,8 @@ code { overflow-wrap: anywhere; }
         <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">16px</span><span style="width:16px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">entre grupos relacionados</span></div>
         <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">24px</span><span style="width:24px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">canaleta de grilla, padding interno de módulo</span></div>
         <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">32px</span><span style="width:32px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">entre bloques de una sección</span></div>
-        <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">48px</span><span style="width:48px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">aire alrededor de la acción primaria</span></div>
-        <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">64px</span><span style="width:64px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">entre secciones (mínimo)</span></div>
+        <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">48px</span><span style="width:48px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">aire alrededor de la acción primaria: el más generoso de la pantalla</span></div>
+        <div style="display:flex; align-items:center; gap:1rem; padding-block:.45rem; border-bottom:1px solid var(--border);"><span class="num" style="width:3.2rem; font-size:.78rem; font-weight:700; color:var(--fg-soft); text-align:right;">64px</span><span style="width:64px; height:14px; background:var(--cta); flex-shrink:0;"></span><span style="font-size:.82rem; color:var(--fg-soft);">entre secciones, como referencia: en páginas manda el <code>--section-y</code> fluido de 04.1</span></div>
       </div>
     </section>
   </div>
@@ -1422,7 +1424,7 @@ code { overflow-wrap: anywhere; }
         </div>
       </div>
       <div class="rows">
-        <div class="rows__item"><span class="rows__key">Base</span><span class="rows__val">Radio <code>6px</code>, padding <code>14px 22px</code>, peso <code>600</code>, tamaño <code>.94rem</code>, tracking <code>-0.005em</code>.</span></div>
+        <div class="rows__item"><span class="rows__key">Base</span><span class="rows__val">Radio <code>6px</code>, padding <code>14px 22px</code>, peso <code>600</code>, tamaño <code>.94rem</code>, tracking <code>-0.005em</code>. El padding es la receta al tamaño tipográfico base y escala junto con la tipografía; el invariante es el área táctil mínima de 44px.</span></div>
         <div class="rows__item"><span class="rows__key">Primario</span><span class="rows__val">Fondo Rojo Teja y texto blanco. Hover: Profundo <code>#97290F</code>, sube 1px. Sin brillo que cruza, pulso ni degradé animado.</span></div>
         <div class="rows__item"><span class="rows__key">Escena inmersiva</span><span class="rows__val">Cuando el control vive sobre una escena visual a pantalla completa, el CTA primario puede medir <code>60px</code> de alto. Se alinea por su borde inferior con el módulo de medidas, mantiene Rojo Teja y usa únicamente el feedback acotado de 180ms / 140ms. Esta altura es un perfil de interfaz, no reemplaza la base general.</span></div>
         <div class="rows__item"><span class="rows__key">Segundo orden</span><span class="rows__val">Fondo Tinta, texto Crema. Hover: Terracota.</span></div>
@@ -2239,14 +2241,14 @@ code { overflow-wrap: anywhere; }
 
 <footer class="foot">
   <div class="wrap">
-    <span>Manual de Marca de RollerShow, v2.4, julio 2026</span>
+    <span>Manual de Marca de RollerShow, v2.5, julio 2026</span>
     <span class="num">11 capítulos</span>
   </div>
 </footer>
 
 <script type="application/json" id="rollershow-brand-tokens">
 {
-  "meta": { "brand": "RollerShow", "docVersion": "2.4", "updated": "2026-07-16", "assetKitVersion": "1.1.2" },
+  "meta": { "brand": "RollerShow", "docVersion": "2.5", "updated": "2026-07-17", "assetKitVersion": "1.1.2", "measurementRule": "los valores puntuales documentan la intencion de cada pieza a su tamano de referencia; se implementan con unidades relativas, rangos fluidos, minimos y maximos; entre piezas y pantallas se conserva posicion relativa, proporcion y jerarquia; las buenas practicas responsive y de accesibilidad son el piso y ninguna cifra las desactiva" },
   "brand": { "what": "empresa argentina especializada en cortinas a medida", "purpose": "regular la luz, dar privacidad y hacer los ambientes mas habitables", "essence": "la calidad se reconoce en todo el recorrido: descubrimiento, asesoramiento, presupuesto, fabricacion, instalacion, uso y posventa; la experiencia es la misma en todo el catalogo", "positioning": "la empresa con mas trayectoria vendiendo cortinas a medida online en Argentina; catalogo del mejor precio a la mas alta calidad", "languageAnchor": "real: productos reales, atencion real, posventa real; la garantia es una prueba concreta de la posventa", "personality": "calida, directa y precisa; nunca grita, nunca ruega", "tagline": { "text": "Cortinas como imaginás", "status": "bajada de trabajo adoptada, afinable antes de lanzamiento formal" }, "decisionRule": "caso sin clausula: explorar, comparar con las maximas, informar el desvio y pedir aprobacion antes de volverlo estandar" },
   "color": {
     "bg": "#FAF7F2", "bgElev": "#FFFFFF", "bgMuted": "#F1EBE0",
@@ -2263,7 +2265,7 @@ code { overflow-wrap: anywhere; }
     "lineHeight": { "tight": 1.05, "heading": 1.2, "body": 1.55 },
     "scale": { "display": "clamp(2.5rem,5.6vw,4.6rem)", "h2": "clamp(1.85rem,3.8vw,3rem)", "h3": "clamp(1.3rem,2.2vw,1.65rem)", "body": "1rem / 16px" }
   },
-  "spacing": { "container": "1280px", "containerNarrow": "920px", "sectionY": "clamp(3.5rem,7vw,6rem)", "padInline": "clamp(1.1rem,4vw,2.5rem)" },
+  "spacing": { "container": "1280px", "containerNarrow": "920px", "sectionY": "clamp(3.5rem,7vw,6rem)", "padInline": "clamp(1.1rem,4vw,2.5rem)", "rule": "container y containerNarrow son anchos maximos; por debajo el contenido fluye al 100% con el padding fluido" },
   "grid": { "columns": 12, "gutter": "24px", "margin": "= padInline (fluido)" },
   "print": { "safeMargin": "15mm", "bleed": "3mm", "folioOffset": "10mm desde borde inferior", "colorRule": "sRGB es canon digital; CMYK se aprueba por perfil+maquina+soporte mediante prueba fisica", "pdf": "fuentes incrustadas, imagenes 300ppi al tamano final, perfil ICC conservado" },
   "assetKit": { "version": "1.1.2", "download": "downloads/rollershow-brand-assets-v1.1.2.zip", "manifest": "brand-assets/manifest.json", "logoViewBox": "0 0 600 52", "logoRatio": 11.54, "compactMark": "no existe isotipo o favicon compacto aprobado; no recortar letras", "contents": ["3 variantes del logo completo", "16 iconos SVG", "2 referencias fotograficas", "2 imagenes del comparador interactivo", "4 plantillas editables", "hoja de prueba de color", "fuentes web locales y licencias"] },
@@ -2303,9 +2305,9 @@ code { overflow-wrap: anywhere; }
     "qualityProfiles": { "full": "fidelidad visual completa", "lite": "misma experiencia y causalidad con menos subdivisiones, muestras, resolucion de sombras y posprocesado" },
     "deviceMotion": "acelerometro opcional y sutil; requiere permiso; nunca reemplaza touch o teclado; desactivado con reduced-motion"
   },
-  "breakpoints": { "xs": "420px", "sm": "480px", "md": "720px", "lg": "980px" },
+  "breakpoints": { "xs": "420px", "sm": "480px", "md": "720px", "lg": "980px", "rule": "el quiebre se pone donde el contenido lo pide; estos valores documentan la secuencia de colapsos del producto, y el orden pesa mas que el numero" },
   "preflight": ["una sola accion primaria con maximo contraste", "barrido de caracteres prohibidos", "sin cajas anidadas, radio-cards, barras laterales de estado, count-ups, auroras, marcador ni revelados genericos", "todos los valores salen de las escalas", "contraste medido no estimado", "CTA de la biblioteca o formula verbo+beneficio", "numeros y precios en formato fijo", "logo correcto para el fondo + zona de seguridad", "movimiento nacido de cortina, tela, luz o medida; touch+teclado+reduced-motion", "sin overflow a 375px reales", "visto publicado desde un telefono antes de reportar", "escenas de tela y luz verificadas en capturas mobile, desktop y ultrawide; la silueta visual manda sobre metricas parciales", "activos del paquete compatible", "nombres y claims con fuente y fecha", "accesibilidad probada", "derechos y procedencia registrados", "salida de produccion correcta", "marcas externas autorizadas"],
-  "maxims": ["mobile primero (disenar a 375px)", "estructural antes que estetico", "una sola accion primaria por pantalla, maximo contraste", "cada elemento es parte de algo, nada flotando", "la calidad se demuestra en todo el recorrido y cada promesa necesita prueba", "la solucion mas simple gana", "nada terminado hasta verlo en vivo en un telefono"],
+  "maxims": ["mobile primero (375px como punto de control, rango real 320-430 sin desborde)", "estructural antes que estetico", "una sola accion primaria por pantalla, maximo contraste", "cada elemento es parte de algo, nada flotando", "la calidad se demuestra en todo el recorrido y cada promesa necesita prueba", "la solucion mas simple gana", "nada terminado hasta verlo en vivo en un telefono", "las medidas documentan una intencion: implementar con unidades relativas y conservar posicion relativa, proporcion y jerarquia"],
   "writing": { "price": "$ 143.200 (espacio tras $, punto de miles, sin decimales)", "measure": "120 × 180 cm (signo ×, espacio antes de unidad)", "dateInCopy": "hasta el 30 de junio", "dateInDocs": "21/07/2026", "phone": "+54 9 351 000 0000", "warranty": "hasta 3 años de garantía" },
   "stepper": { "min": 1, "step": 1, "unit": "cm", "grid": "44px auto 44px", "minHeight": "48px", "valueUnitGap": "6px", "range": "minimo y maximo vienen de la coleccion elegida", "controls": "botones de sumar y restar operables por teclado", "dimensionSemantics": { "width": "flecha bidireccional horizontal", "height": "flecha bidireccional vertical" }, "composition": "ancho, alto y CTA comparten borde inferior; en mobile pueden apilarse en ese orden" },
   "sceneCarouselNav": { "labels": ["Anterior", "Siguiente"], "arrowSize": "24px", "minHeightDesktop": "56px", "minHeightMobile": "52px", "surface": "transparente con penumbra localizada", "indicator": "hairline direccional", "motion": "flecha hasta 3px y hairline 62 a 100 por ciento en 180ms", "rules": ["texto siempre visible", "sin caja", "sin autoplay", "operable durante la transicion"] },
@@ -2314,7 +2316,8 @@ code { overflow-wrap: anywhere; }
   "letterhead": { "size": "A4 vertical", "margins": "20mm superior, 15mm laterales e inferior", "usefulArea": "180x262mm", "header": "logo tinta 38mm + tipo de documento 8pt italica + hairline tinta", "body": "titulo Bricolage 18/20pt, Manrope 10/15pt, ancho maximo 145mm", "footer": "web izquierda + telefono derecha, Manrope 7.5pt, hairline lino", "continuation": "logo 28mm + documento + pagina N de N" },
   "storyTemplate": { "ratio": "9:16", "safeZones": "14% arriba y 20% abajo libres", "structure": "logo blanco arriba-izquierda + penumbra + titular display blanco + boton de marca" },
   "spacingScale": [4, 8, 12, 16, 24, 32, 48, 64],
-  "buttonSpec": { "padding": "14px 22px", "radius": "6px", "motion": "hover y foco entran en 180ms; retorno 140ms; standard/exit", "immersiveProfile": { "height": "60px", "color": "#C63A21", "alignment": "borde inferior compartido con modulo de medidas", "rule": "perfil para escena a pantalla completa, no reemplaza la base general; sin loop" }, "states": { "hover": "#97290F + sombra tintada, sube 1px", "pressed": "baja 1px", "focus": "outline 2px terracota offset 3px", "disabled": "opacidad 40%" } },
+  "spacingScaleRule": "rige el espaciado interno de componentes y modulos; a escala de seccion mandan los tokens fluidos; los pasos grandes se reducen en proporcion en pantallas angostas",
+  "buttonSpec": { "padding": "14px 22px", "paddingRule": "receta al tamano tipografico base, escala con la tipografia; invariante: area tactil minima 44px", "radius": "6px", "motion": "hover y foco entran en 180ms; retorno 140ms; standard/exit", "immersiveProfile": { "height": "60px", "color": "#C63A21", "alignment": "borde inferior compartido con modulo de medidas", "rule": "perfil para escena a pantalla completa, no reemplaza la base general; sin loop" }, "states": { "hover": "#97290F + sombra tintada, sube 1px", "pressed": "baja 1px", "focus": "outline 2px terracota offset 3px", "disabled": "opacidad 40%" } },
   "businessCard": { "size": "85x54mm", "paper": "mate 300g", "bleed": "3mm", "front": "blanco, logo tinta, nombre display", "back": "rojo teja pleno + grano, logo blanco centrado" },
   "socialPost": { "ratio": "1:1", "structure": "foto a sangre + penumbra + titular blanco abajo-izquierda (max 2 lineas) + logo blanco esquina inferior derecha al 10% del ancho" },
   "contrast": { "tinta/crema": 16.5, "grisCalido/crema": 9.4, "tinta/arena": 14.9, "blanco/rojoTeja": 5.2, "blanco/rojoProfundo": 8.0, "topo/crema": "3.9 solo microcopy", "blanco/terracota": "4.2 solo texto grande", "blanco/whatsapp": "2.0 fuera de norma, solo el boton del canal" },
