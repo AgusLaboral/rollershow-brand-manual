@@ -79,6 +79,8 @@ print('OK')"
 
 Antes de cerrar cualquier ronda, correr la propia checklist del manual (sección 10.9) sobre el documento mismo.
 
+**Auditoría de valores numéricos (método obligatorio, no muestrear)**: cuando la ronda toca reglas con números, NO auditar "por categorías conocidas" ni por muestreo: así se escapó la canaleta de 24px en la ronda v2.5 y la encontró Agus mirando por arriba. El método correcto: (1) extraer por script TODAS las afirmaciones normativas con valor+unidad (px, mm, pt, %, ms, ratios) de prosa, filas, notas y tokens; (2) clasificar cada una: piso/mínimo (OK), medio fijo tipo impreso o lienzo declarado (OK), token de identidad (OK), proporción (OK), o valor sin carácter declarado (CORREGIR según la máxima 00.4.8); (3) verificar que cada corrección quede sincronizada en cuerpo Y tokens. Recién ahí reportar "auditado".
+
 Para reconstruir y validar la entrega de activos:
 
 ```powershell
