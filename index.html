@@ -545,6 +545,13 @@ code { overflow-wrap: anywhere; }
   .chapterblock { break-before: page; }
   .cover { break-before: avoid; }
   .paper, .teja, .stage, .compare, .fx__row, .prow, .type-row, .clauses li, .verdict__row { break-inside: avoid; }
+  .motion-matrix__row, .motion-sequence, .scale, .scene-nav-demo, .rows__item, .icon-item, .frames, .alts, .ratio, .message-row, .field-demo { break-inside: avoid; }
+  .motion-matrix__row { grid-template-columns: 1fr; gap: .35rem; }
+  .fx__row { grid-template-columns: 1fr; }
+  .spec__head, h1, h2, h3 { break-after: avoid-page; }
+  .spec:has(> .compare) { break-inside: avoid; }
+  p { orphans: 3; widows: 3; }
+  details summary { display: none; }
   .spec { break-inside: auto; }
   .wrap { max-width: 100%; }
 }
