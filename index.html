@@ -1194,7 +1194,7 @@ code { overflow-wrap: anywhere; }
 
     <section class="spec">
       <div class="spec__head"><h2 class="spec__title"><span class="spec__title-num num">04.5</span>Quiebres reales del producto</h2></div>
-      <p class="spec__note">El quiebre correcto es donde el contenido lo pide. Estos valores documentan los colapsos que el producto ya usa y, sobre todo, su orden: una pieza nueva colapsa en la misma secuencia, ajustando el número al punto donde su propio contenido lo necesita.</p>
+      <p class="spec__note">Estos son los anchos de pantalla donde el sitio actual cambia de layout. Sirven de referencia para piezas nuevas: cada quiebre se pone donde el contenido lo necesita, respetando este mismo orden de colapsos.</p>
       <div class="rows">
         <div class="rows__item"><span class="rows__key">420px</span><span class="rows__val">Elementos que se reducen a solo ícono (ej. pill de WhatsApp del header).</span></div>
         <div class="rows__item"><span class="rows__key">480px</span><span class="rows__val">El logotipo completo reduce su ancho disponible y la tipografía hero baja un paso. No cambia por una marca compacta.</span></div>
@@ -1208,7 +1208,7 @@ code { overflow-wrap: anywhere; }
       <p class="spec__note">Referencia para maquetar cualquier pieza nueva de la marca (página, presupuesto, redes) con la misma lógica.</p>
       <div class="rows">
         <div class="rows__item"><span class="rows__key">Columnas</span><span class="rows__val">12, dentro de <code>--container</code> (1280px) o <code>--container-narrow</code> (920px).</span></div>
-        <div class="rows__item"><span class="rows__key">Canaleta (gutter)</span><span class="rows__val">24px entre columnas.</span></div>
+        <div class="rows__item"><span class="rows__key">Canaleta (gutter)</span><span class="rows__val">24px entre columnas al tamaño de referencia. En pantallas angostas baja un paso de la escala 04.9 (a 16px); siempre un valor de la escala.</span></div>
         <div class="rows__item"><span class="rows__key">Margen lateral</span><span class="rows__val">El mismo <code>--pad</code> fluido de 04.1, nunca un margen fijo distinto al del resto del sistema.</span></div>
         <div class="rows__item"><span class="rows__key">Bloques típicos</span><span class="rows__val">Texto de lectura: 6 a 8 columnas. Imagen o media hero: 12 columnas (ancho completo). Formulario lateral o módulo de consulta: 4 columnas.</span></div>
       </div>
@@ -2266,7 +2266,7 @@ code { overflow-wrap: anywhere; }
     "scale": { "display": "clamp(2.5rem,5.6vw,4.6rem)", "h2": "clamp(1.85rem,3.8vw,3rem)", "h3": "clamp(1.3rem,2.2vw,1.65rem)", "body": "1rem / 16px" }
   },
   "spacing": { "container": "1280px", "containerNarrow": "920px", "sectionY": "clamp(3.5rem,7vw,6rem)", "padInline": "clamp(1.1rem,4vw,2.5rem)", "rule": "container y containerNarrow son anchos maximos; por debajo el contenido fluye al 100% con el padding fluido" },
-  "grid": { "columns": 12, "gutter": "24px", "margin": "= padInline (fluido)" },
+  "grid": { "columns": 12, "gutter": "24px", "gutterRule": "24px al tamano de referencia; en pantallas angostas baja un paso de la escala (16px)", "margin": "= padInline (fluido)" },
   "print": { "safeMargin": "15mm", "bleed": "3mm", "folioOffset": "10mm desde borde inferior", "colorRule": "sRGB es canon digital; CMYK se aprueba por perfil+maquina+soporte mediante prueba fisica", "pdf": "fuentes incrustadas, imagenes 300ppi al tamano final, perfil ICC conservado" },
   "assetKit": { "version": "1.1.2", "download": "downloads/rollershow-brand-assets-v1.1.2.zip", "manifest": "brand-assets/manifest.json", "logoViewBox": "0 0 600 52", "logoRatio": 11.54, "compactMark": "no existe isotipo o favicon compacto aprobado; no recortar letras", "contents": ["3 variantes del logo completo", "16 iconos SVG", "2 referencias fotograficas", "2 imagenes del comparador interactivo", "4 plantillas editables", "hoja de prueba de color", "fuentes web locales y licencias"] },
   "governance": { "mode": "guia viva, no techo creativo", "repository": "https://github.com/AgusLaboral/rollershow-brand-manual", "publishedManual": "https://aguslaboral.github.io/rollershow-brand-manual/", "review": "cada 6 meses o cuando una implementacion final aprobada aporta un recurso reutilizable", "noveltyRule": "un recurso no se rechaza solo porque esta ausente del manual", "deviationReport": "conservar la propuesta e informar que mantiene, que cambia y que valor aporta", "approval": "solo la aprobacion explicita de Agus convierte una propuesta en estandar", "adoption": "tras la aprobacion final, actualizar cuerpo, datos estructurados, activos afectados e historial", "versionRule": "todo cambio declara reglas y activos afectados" },
