@@ -145,6 +145,7 @@ code { overflow-wrap: anywhere; }
 .spec__title-num { font-weight: 600; color: var(--cta); font-variant-numeric: tabular-nums; margin-right: .55em; opacity: .8; }
 .spec__note { color: var(--fg-soft); max-width: 62ch; margin-bottom: clamp(1.3rem, 3.5vw, 1.8rem); }
 .spec__note + .spec__note { margin-top: -1rem; }
+.stage + .spec__note, .rows + .spec__note, .clauses + .spec__note, .compare + .spec__note { margin-top: 1.2rem; }
 
 /* Cláusulas numeradas (reemplazo de bullets): sangría colgante, NUNCA grid/flex:
    el contenido mezcla <b>/<code>/<a> con texto plano, y un grid de columnas fijas
@@ -180,11 +181,17 @@ code { overflow-wrap: anywhere; }
 @media (min-width: 760px) {
   .motion-matrix__row { grid-template-columns: 10.5rem 7rem 15rem minmax(0,1fr); gap: 1.2rem; align-items: baseline; }
 }
-.motion-sequence { display: grid; grid-template-columns: 18fr 40fr 10fr 32fr; margin-top: 1.5rem; border-top: 1px solid var(--fg); }
-.motion-sequence__step { min-width: 0; padding: .65rem .55rem 0 0; border-right: 1px solid var(--border); }
-.motion-sequence__step:last-child { border-right: 0; padding-left: .55rem; }
-.motion-sequence__step b { display: block; font-family: var(--font-display); font-size: clamp(.66rem,2vw,.8rem); }
-.motion-sequence__step span { display: block; margin-top: .2rem; color: var(--fg-mute); font-size: clamp(.6rem,1.8vw,.72rem); font-variant-numeric: tabular-nums; }
+.motion-sequence { margin-top: 1.5rem; border-top: 1px solid var(--fg); }
+.motion-sequence__step { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-block: .8rem; border-bottom: 1px solid var(--border); }
+.motion-sequence__step b { font-family: var(--font-display); font-size: .8rem; }
+.motion-sequence__step span { color: var(--fg-mute); font-size: .72rem; font-variant-numeric: tabular-nums; }
+@media (min-width: 620px) {
+  .motion-sequence { display: grid; grid-template-columns: minmax(max-content, 18fr) minmax(max-content, 40fr) minmax(max-content, 10fr) minmax(max-content, 32fr); }
+  .motion-sequence__step { display: block; padding: .85rem .9rem 1rem 0; border-bottom: 0; border-right: 1px solid var(--border); }
+  .motion-sequence__step + .motion-sequence__step { padding-left: .9rem; }
+  .motion-sequence__step:last-child { border-right: 0; }
+  .motion-sequence__step span { display: block; margin-top: .3rem; }
+}
 
 /* ---------- Paleta: filas de color ---------- */
 .palette { border-top: 1px solid var(--border); }
@@ -267,7 +274,7 @@ code { overflow-wrap: anywhere; }
 .stepper__btn:last-child { border-left: 1px solid var(--border); }
 .stepper__btn:hover { background: var(--bg-muted); color: var(--fg); }
 .stepper__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
-.stepper__value { display: flex; align-items: baseline; justify-content: center; gap: 6px; min-width: 92px; padding-inline: 12px; }
+.stepper__value { display: flex; align-items: baseline; justify-content: center; align-self: center; gap: 6px; min-width: 92px; padding-inline: 12px; }
 .stepper input { appearance: textfield; width: 4ch; min-width: 0; padding: 0; border: 0; background: transparent; text-align: right; font-size: 1.05rem; font-weight: 600; color: var(--fg); font-variant-numeric: tabular-nums; }
 .stepper input::-webkit-inner-spin-button, .stepper input::-webkit-outer-spin-button { appearance: none; margin: 0; }
 .stepper input:focus { outline: none; }
@@ -1721,7 +1728,7 @@ code { overflow-wrap: anywhere; }
               <div style="position:absolute; left:0; right:0; bottom:0; border-top:1px solid var(--border); padding-top:5px; font-size:.39rem; color:var(--fg-mute); display:flex; justify-content:space-between;"><span>rollershow.com.ar</span><span>0800 220 4010</span></div>
             </div>
             <span class="num" style="position:absolute; top:3px; left:15px; font-size:.5rem; font-weight:700; color:var(--cta);">20 mm</span>
-            <span class="num" style="position:absolute; bottom:2px; right:3px; font-size:.5rem; font-weight:700; color:var(--cta);">15 mm</span>
+            <span class="num" style="position:absolute; bottom:4px; right:6px; font-size:.5rem; font-weight:700; color:var(--cta);">15 mm</span>
           </div>
           <span class="stage__hint">Vista reducida de una página A4. Las cotas rojas son guía de este manual y no se imprimen. El documento real usa logo Tinta, hairlines Lino y texto Tinta; no lleva marco exterior, fondo Crema ni marcas de corte.</span>
         </div>
